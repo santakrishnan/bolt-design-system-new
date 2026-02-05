@@ -1,4 +1,3 @@
-import { ChevronRightIcon, ExternalLinkIcon } from "lucide-react"
 import {
   Item,
   ItemActions,
@@ -6,6 +5,7 @@ import {
   ItemDescription,
   ItemTitle,
 } from "@/examples/radix/ui/item"
+import { ChevronRightIcon, ExternalLinkIcon } from "lucide-react"
 
 export function ItemLink() {
   return (

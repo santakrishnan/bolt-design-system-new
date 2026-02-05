@@ -1,4 +1,3 @@
-import { Link2Icon } from "lucide-react"
 import { ButtonGroup, ButtonGroupText } from "@/examples/base/ui/button-group"
 import {
   InputGroup,
@@ -6,6 +5,7 @@ import {
   InputGroupInput,
 } from "@/examples/base/ui/input-group"
 import { Label } from "@/examples/base/ui/label"
+import { Link2Icon } from "lucide-react"
 
 export default function InputGroupButtonGroup() {
   return (

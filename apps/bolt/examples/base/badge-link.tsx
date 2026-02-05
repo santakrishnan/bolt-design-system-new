@@ -1,5 +1,5 @@
-import { ArrowUpRightIcon } from "lucide-react"
 import { Badge } from "@/examples/base/ui/badge"
+import { ArrowUpRightIcon } from "lucide-react"
 
 export function BadgeAsLink() {
   return (

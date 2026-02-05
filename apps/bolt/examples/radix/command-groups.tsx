@@ -1,13 +1,5 @@
 "use client"
 
-import {
-  CalculatorIcon,
-  CalendarIcon,
-  CreditCardIcon,
-  SettingsIcon,
-  SmileIcon,
-  UserIcon,
-} from "lucide-react"
 import * as React from "react"
 import { Button } from "@/examples/radix/ui/button"
 import {
@@ -21,6 +13,14 @@ import {
   CommandSeparator,
   CommandShortcut,
 } from "@/examples/radix/ui/command"
+import {
+  CalculatorIcon,
+  CalendarIcon,
+  CreditCardIcon,
+  SettingsIcon,
+  SmileIcon,
+  UserIcon,
+} from "lucide-react"
 
 export function CommandWithGroups() {
   const [open, setOpen] = React.useState(false)

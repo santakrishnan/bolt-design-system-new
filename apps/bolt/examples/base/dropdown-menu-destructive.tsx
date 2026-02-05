@@ -1,6 +1,5 @@
 "use client"
 
-import { PencilIcon, ShareIcon, TrashIcon } from "lucide-react"
 import { Button } from "@/examples/base/ui/button"
 import {
   DropdownMenu,
@@ -10,6 +9,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/examples/base/ui/dropdown-menu"
+import { PencilIcon, ShareIcon, TrashIcon } from "lucide-react"
 
 export function DropdownMenuDestructive() {
   return (

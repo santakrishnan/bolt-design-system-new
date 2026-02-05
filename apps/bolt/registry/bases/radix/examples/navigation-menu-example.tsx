@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import type * as React from "react"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 import {
   Example,
   ExampleWrapper,

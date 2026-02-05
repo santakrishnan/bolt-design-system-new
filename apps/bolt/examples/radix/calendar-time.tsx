@@ -1,6 +1,5 @@
 "use client"
 
-import { Clock2Icon } from "lucide-react"
 import * as React from "react"
 import { Calendar } from "@/examples/radix/ui/calendar"
 import { Card, CardContent, CardFooter } from "@/examples/radix/ui/card"
@@ -10,6 +9,7 @@ import {
   InputGroupAddon,
   InputGroupInput,
 } from "@/examples/radix/ui/input-group"
+import { Clock2Icon } from "lucide-react"
 
 export function CalendarWithTime() {
   const [date, setDate] = React.useState<Date | undefined>(
@@ -26,7 +26,7 @@ export function CalendarWithTime() {
           selected={date}
         />
       </CardContent>
-      <CardFooter className="border-t bg-card">
+      <CardFooter className="bg-card border-t">
         <FieldGroup>
           <Field>
             <FieldLabel htmlFor="time-from">Start Time</FieldLabel>

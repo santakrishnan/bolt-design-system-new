@@ -1,4 +1,3 @@
-import { ChevronDownIcon, MoreHorizontal } from "lucide-react"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,6 +11,7 @@ import {
   InputGroupButton,
   InputGroupInput,
 } from "@/examples/radix/ui/input-group"
+import { ChevronDownIcon, MoreHorizontal } from "lucide-react"
 
 export default function InputGroupDropdown() {
   return (

@@ -1,6 +1,5 @@
 "use client"
 
-import { CreditCardIcon, SettingsIcon, UserIcon } from "lucide-react"
 import * as React from "react"
 import { Button } from "@/examples/base/ui/button"
 import {
@@ -13,6 +12,7 @@ import {
   CommandList,
   CommandShortcut,
 } from "@/examples/base/ui/command"
+import { CreditCardIcon, SettingsIcon, UserIcon } from "lucide-react"
 
 export function CommandWithShortcuts() {
   const [open, setOpen] = React.useState(false)

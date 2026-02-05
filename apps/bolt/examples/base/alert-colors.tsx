@@ -1,5 +1,5 @@
-import { AlertTriangleIcon } from "lucide-react"
 import { Alert, AlertDescription, AlertTitle } from "@/examples/base/ui/alert"
+import { AlertTriangleIcon } from "lucide-react"
 
 export default function AlertColors() {
   return (

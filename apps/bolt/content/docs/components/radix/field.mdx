@@ -162,29 +162,6 @@ Stack `Field` components with `FieldGroup`. Add `FieldSeparator` to divide them.
   previewClassName="h-96"
 />
 
-## RTL
-
-To enable RTL support in shadcn/ui, see the [RTL configuration guide](/docs/rtl).
-
-<ComponentPreview
-  styleName="radix-nova"
-  name="field-rtl"
-  direction="rtl"
-  previewClassName="h-auto p-6"
-/>
-
-## Responsive Layout
-
-- **Vertical fields:** Default orientation stacks label, control, and helper text—ideal for mobile-first layouts.
-- **Horizontal fields:** Set `orientation="horizontal"` on `Field` to align the label and control side-by-side. Pair with `FieldContent` to keep descriptions aligned.
-- **Responsive fields:** Set `orientation="responsive"` for automatic column layouts inside container-aware parents. Apply `@container/field-group` classes on `FieldGroup` to switch orientations at specific breakpoints.
-
-<ComponentPreview
-  styleName="radix-nova"
-  name="field-responsive"
-  previewClassName="h-[650px] p-6 md:h-[500px] md:p-10"
-/>
-
 ## Validation and Errors
 
 - Add `data-invalid` to `Field` to switch the entire block into an error state.

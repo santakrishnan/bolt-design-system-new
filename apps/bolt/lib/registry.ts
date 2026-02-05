@@ -43,7 +43,8 @@ export async function getDemoItem(name: string, styleName: string) {
     return null
   }
 
-  const filePath = path.join(process.cwd(), demo.filePath)
+  // Resolve path relative to project root to avoid overly broad file patterns
+  const filePath = path.resolve(process.cwd(), demo.filePath)
   const content = await fs.readFile(filePath, "utf-8")
 
   return {

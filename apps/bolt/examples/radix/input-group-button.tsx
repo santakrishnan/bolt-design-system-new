@@ -1,11 +1,5 @@
 "use client"
 
-import {
-  IconCheck,
-  IconCopy,
-  IconInfoCircle,
-  IconStar,
-} from "@tabler/icons-react"
 import * as React from "react"
 import {
   InputGroup,
@@ -18,6 +12,12 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/examples/radix/ui/popover"
+import {
+  IconCheck,
+  IconCopy,
+  IconInfoCircle,
+  IconStar,
+} from "@tabler/icons-react"
 
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard"
 
@@ -59,7 +59,7 @@ export default function InputGroupButtonExample() {
             <p>You should not enter any sensitive information on this site.</p>
           </PopoverContent>
         </Popover>
-        <InputGroupAddon className="pl-1.5 text-muted-foreground">
+        <InputGroupAddon className="text-muted-foreground pl-1.5">
           https://
         </InputGroupAddon>
         <InputGroupInput id="input-secure-19" />

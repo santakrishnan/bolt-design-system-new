@@ -1,4 +1,3 @@
-import { PlusIcon } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/examples/radix/ui/avatar"
 import { Button } from "@/examples/radix/ui/button"
 import {
@@ -10,6 +9,7 @@ import {
   ItemMedia,
   ItemTitle,
 } from "@/examples/radix/ui/item"
+import { PlusIcon } from "lucide-react"
 
 const people = [
   {

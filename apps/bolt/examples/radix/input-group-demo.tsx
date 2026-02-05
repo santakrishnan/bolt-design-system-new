@@ -1,9 +1,9 @@
-import { Search } from "lucide-react"
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
 } from "@/examples/radix/ui/input-group"
+import { Search } from "lucide-react"
 
 export function InputGroupDemo() {
   return (

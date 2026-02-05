@@ -1,4 +1,3 @@
-import { LoaderIcon } from "lucide-react"
 import {
   InputGroup,
   InputGroupAddon,
@@ -6,6 +5,7 @@ import {
   InputGroupText,
 } from "@/examples/base/ui/input-group"
 import { Spinner } from "@/examples/base/ui/spinner"
+import { LoaderIcon } from "lucide-react"
 
 export default function InputGroupSpinner() {
   return (

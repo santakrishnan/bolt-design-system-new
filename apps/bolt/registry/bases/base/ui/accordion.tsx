@@ -1,7 +1,7 @@
 "use client"
 
 import { Accordion as AccordionPrimitive } from "@base-ui/react/accordion"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 import { cn } from "@/registry/bases/base/lib/utils"
 
 function Accordion({ className, ...props }: AccordionPrimitive.Root.Props) {

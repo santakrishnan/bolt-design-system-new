@@ -1,4 +1,3 @@
-import { IconCloud } from "@tabler/icons-react"
 import { Button } from "@/examples/base/ui/button"
 import {
   Empty,
@@ -8,6 +7,7 @@ import {
   EmptyMedia,
   EmptyTitle,
 } from "@/examples/base/ui/empty"
+import { IconCloud } from "@tabler/icons-react"
 
 export default function EmptyOutline() {
   return (

@@ -1,7 +1,7 @@
 "use client"
 
-import { toast } from "sonner"
 import { Button } from "@/examples/radix/ui/button"
+import { toast } from "sonner"
 
 export function SonnerDescription() {
   return (

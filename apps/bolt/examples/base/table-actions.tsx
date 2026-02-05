@@ -1,4 +1,3 @@
-import { MoreHorizontalIcon } from "lucide-react"
 import { Button } from "@/examples/base/ui/button"
 import {
   DropdownMenu,
@@ -15,6 +14,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/examples/base/ui/table"
+import { MoreHorizontalIcon } from "lucide-react"
 
 export function TableActions() {
   return (

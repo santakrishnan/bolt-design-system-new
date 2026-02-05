@@ -1,6 +1,5 @@
 "use client"
 
-import { MaximizeIcon, MinimizeIcon } from "lucide-react"
 import * as React from "react"
 import { Button } from "@/examples/base/ui/button"
 import {
@@ -17,6 +16,7 @@ import {
 } from "@/examples/base/ui/collapsible"
 import { Field, FieldGroup, FieldLabel } from "@/examples/base/ui/field"
 import { Input } from "@/examples/base/ui/input"
+import { MaximizeIcon, MinimizeIcon } from "lucide-react"
 
 export function CollapsibleSettings() {
   const [isOpen, setIsOpen] = React.useState(false)

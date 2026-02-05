@@ -64,6 +64,46 @@
 - `apps/bolt/next.config.mjs` - Added transpilePackages for Base UI
 - `SETUP_COMPLETE_SUMMARY.md` - Updated with issue status
 
+#### 7. Removed Internal and Create Features (shadcn-specific)
+- ✅ Removed `(internal)/sink` - Component testing/demo page
+- ✅ Removed `(create)` - Theme customizer/builder
+- ✅ Removed navigation links and registry references
+- ✅ Cleaned up internal registry files
+
+**Reason:** These are shadcn-specific features for theme customization and internal testing. Bolt Design System doesn't need these features.
+
+**Folders Removed:**
+- `apps/bolt/app/(internal)/` - Internal testing pages (moved to deprecated)
+- `apps/bolt/app/(create)/` - Theme builder (moved to deprecated)
+- `apps/bolt/registry/bases/base/internal/sink.tsx`
+- `apps/bolt/registry/bases/radix/internal/sink.tsx`
+
+**Files Modified:**
+- `apps/bolt/lib/config.ts` - Removed /create from navigation
+- `apps/bolt/lib/docs.ts` - Removed /create from PAGES_NEW
+- `apps/bolt/registry/bases/base/internal/_registry.ts` - Emptied registry
+- `apps/bolt/registry/bases/radix/internal/_registry.ts` - Emptied registry
+
+**Impact:** Reduces codebase by ~115 files and ~2,500 lines of code
+
+### Previous Changes (Already Completed)
+- ✅ Removed `templates/` folder (shadcn CLI project scaffolding templates)
+- ✅ Removed `sync:templates` script
+- ✅ Removed `scripts/sync-templates.sh`
+
+**Reason:** Templates are used by shadcn CLI to scaffold new projects. Since Bolt is a design system (not distributing the CLI), these templates are not needed.
+
+**Files Deleted:**
+- `templates/monorepo-next/` - Monorepo template
+- `templates/start-app/` - Start app template  
+- `templates/vite-app/` - Vite app template
+- `scripts/sync-templates.sh` - Template sync script
+
+**Files Modified:**
+- `package.json` - Removed `sync:templates` script
+- `agents.md` - Updated monorepo structure documentation
+- `CHANGES_SUMMARY.md` - Updated file structure
+
 ### Previous Changes (Already Completed)
 
 1. ✅ Updated to latest stable versions (Next.js 16.1.6, React 19.2.4, etc.)
@@ -102,8 +142,8 @@ bolt-design-system-new/
 ├── apps/
 │   └── bolt/              # Main application (formerly v4)
 ├── deprecated/
-│   └── packages-removed-20260204/  # Removed packages folder
-├── templates/
+│   ├── packages-removed-20260204/  # Removed packages folder
+│   └── templates-removed-20260204/ # Removed shadcn templates
 ├── scripts/
 ├── .kiro/
 │   └── steering/          # AI development guides

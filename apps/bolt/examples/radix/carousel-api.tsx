@@ -4,11 +4,11 @@ import * as React from "react"
 import { Card, CardContent } from "@/examples/radix/ui/card"
 import {
   Carousel,
-  type CarouselApi,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from "@/examples/radix/ui/carousel"
 
 export default function CarouselDApiDemo() {
@@ -37,7 +37,7 @@ export default function CarouselDApiDemo() {
             <CarouselItem key={index}>
               <Card className="m-px">
                 <CardContent className="flex aspect-square items-center justify-center p-6">
-                  <span className="font-semibold text-4xl">{index + 1}</span>
+                  <span className="text-4xl font-semibold">{index + 1}</span>
                 </CardContent>
               </Card>
             </CarouselItem>
@@ -46,7 +46,7 @@ export default function CarouselDApiDemo() {
         <CarouselPrevious />
         <CarouselNext />
       </Carousel>
-      <div className="py-2 text-center text-muted-foreground text-sm">
+      <div className="text-muted-foreground py-2 text-center text-sm">
         Slide {current} of {count}
       </div>
     </div>

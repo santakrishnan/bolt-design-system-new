@@ -1,7 +1,5 @@
 "use client"
 
-import { parseDate } from "chrono-node"
-import { CalendarIcon } from "lucide-react"
 import * as React from "react"
 import { Calendar } from "@/examples/base/ui/calendar"
 import { Field, FieldLabel } from "@/examples/base/ui/field"
@@ -16,6 +14,8 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/examples/base/ui/popover"
+import { parseDate } from "chrono-node"
+import { CalendarIcon } from "lucide-react"
 
 function formatDate(date: Date | undefined) {
   if (!date) {
@@ -93,7 +93,7 @@ export function DatePickerNaturalLanguage() {
           </Popover>
         </InputGroupAddon>
       </InputGroup>
-      <div className="px-1 text-muted-foreground text-sm">
+      <div className="text-muted-foreground px-1 text-sm">
         Your post will be published on{" "}
         <span className="font-medium">{formatDate(date)}</span>.
       </div>

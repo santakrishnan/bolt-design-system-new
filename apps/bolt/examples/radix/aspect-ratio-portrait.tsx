@@ -4,7 +4,7 @@ import { AspectRatio } from "@/examples/radix/ui/aspect-ratio"
 export function AspectRatioPortrait() {
   return (
     <div className="w-full max-w-[10rem]">
-      <AspectRatio className="rounded-lg bg-muted" ratio={9 / 16}>
+      <AspectRatio className="bg-muted rounded-lg" ratio={9 / 16}>
         <Image
           alt="Photo"
           className="rounded-lg object-cover grayscale dark:brightness-20"

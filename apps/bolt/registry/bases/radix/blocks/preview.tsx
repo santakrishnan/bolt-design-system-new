@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import { useState } from "react"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 import {
   Example,
   ExampleWrapper,

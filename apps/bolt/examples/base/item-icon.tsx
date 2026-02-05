@@ -1,4 +1,3 @@
-import { ShieldAlertIcon } from "lucide-react"
 import { Button } from "@/examples/base/ui/button"
 import {
   Item,
@@ -8,6 +7,7 @@ import {
   ItemMedia,
   ItemTitle,
 } from "@/examples/base/ui/item"
+import { ShieldAlertIcon } from "lucide-react"
 
 export function ItemIcon() {
   return (

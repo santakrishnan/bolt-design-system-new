@@ -1,14 +1,5 @@
 "use client"
 
-import {
-  FrameIcon,
-  LifeBuoyIcon,
-  MapIcon,
-  PanelLeftCloseIcon,
-  PanelLeftOpenIcon,
-  PieChartIcon,
-  SendIcon,
-} from "lucide-react"
 import * as React from "react"
 import { Button } from "@/examples/base/ui/button"
 import {
@@ -23,6 +14,15 @@ import {
   SidebarMenuItem,
   SidebarProvider,
 } from "@/examples/base/ui/sidebar"
+import {
+  FrameIcon,
+  LifeBuoyIcon,
+  MapIcon,
+  PanelLeftCloseIcon,
+  PanelLeftOpenIcon,
+  PieChartIcon,
+  SendIcon,
+} from "lucide-react"
 
 const projects = [
   {

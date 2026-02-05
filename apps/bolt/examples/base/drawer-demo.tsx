@@ -1,8 +1,6 @@
 "use client"
 
-import { Minus, Plus } from "lucide-react"
 import * as React from "react"
-import { Bar, BarChart, ResponsiveContainer } from "recharts"
 import { Button } from "@/examples/base/ui/button"
 import {
   Drawer,
@@ -14,6 +12,8 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/examples/base/ui/drawer"
+import { Minus, Plus } from "lucide-react"
+import { Bar, BarChart, ResponsiveContainer } from "recharts"
 
 const data = [
   {
@@ -88,10 +88,10 @@ export function DrawerDemo() {
                 <span className="sr-only">Decrease</span>
               </Button>
               <div className="flex-1 text-center">
-                <div className="font-bold text-7xl tracking-tighter">
+                <div className="text-7xl font-bold tracking-tighter">
                   {goal}
                 </div>
-                <div className="text-[0.70rem] text-muted-foreground uppercase">
+                <div className="text-muted-foreground text-[0.70rem] uppercase">
                   Calories/day
                 </div>
               </div>

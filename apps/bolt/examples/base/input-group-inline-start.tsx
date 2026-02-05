@@ -1,10 +1,10 @@
-import { SearchIcon } from "lucide-react"
 import { Field, FieldDescription, FieldLabel } from "@/examples/base/ui/field"
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
 } from "@/examples/base/ui/input-group"
+import { SearchIcon } from "lucide-react"
 
 export function InputGroupInlineStart() {
   return (

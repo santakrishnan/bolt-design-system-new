@@ -1,15 +1,5 @@
 "use client"
 
-import {
-  AlertTriangleIcon,
-  CheckIcon,
-  ChevronDownIcon,
-  CopyIcon,
-  ShareIcon,
-  TrashIcon,
-  UserRoundXIcon,
-  VolumeOffIcon,
-} from "lucide-react"
 import { Button } from "@/examples/base/ui/button"
 import { ButtonGroup } from "@/examples/base/ui/button-group"
 import {
@@ -20,6 +10,16 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/examples/base/ui/dropdown-menu"
+import {
+  AlertTriangleIcon,
+  CheckIcon,
+  ChevronDownIcon,
+  CopyIcon,
+  ShareIcon,
+  TrashIcon,
+  UserRoundXIcon,
+  VolumeOffIcon,
+} from "lucide-react"
 
 export default function ButtonGroupDropdown() {
   return (

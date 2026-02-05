@@ -4,7 +4,7 @@ import { addDays, format } from "date-fns"
 import * as React from "react"
 import type { DateRange } from "react-day-picker"
 import { es } from "react-day-picker/locale"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 import {
   Example,
   ExampleWrapper,

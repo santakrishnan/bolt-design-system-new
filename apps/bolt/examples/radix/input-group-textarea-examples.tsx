@@ -1,11 +1,4 @@
 import {
-  ArrowUpIcon,
-  CodeIcon,
-  CopyIcon,
-  InfoIcon,
-  RefreshCwIcon,
-} from "lucide-react"
-import {
   Field,
   FieldDescription,
   FieldGroup,
@@ -19,6 +12,13 @@ import {
   InputGroupTextarea,
 } from "@/examples/radix/ui/input-group"
 import { Textarea } from "@/examples/radix/ui/textarea"
+import {
+  ArrowUpIcon,
+  CodeIcon,
+  CopyIcon,
+  InfoIcon,
+  RefreshCwIcon,
+} from "lucide-react"
 
 export function InputGroupTextareaExamples() {
   return (
@@ -76,7 +76,7 @@ export function InputGroupTextareaExamples() {
           <InputGroupTextarea id="prompt-31" />
           <InputGroupAddon align="block-start">
             <InputGroupText>Ask, Search or Chat...</InputGroupText>
-            <InfoIcon className="ml-auto text-muted-foreground" />
+            <InfoIcon className="text-muted-foreground ml-auto" />
           </InputGroupAddon>
         </InputGroup>
         <FieldDescription>
@@ -132,7 +132,7 @@ export function InputGroupTextareaExamples() {
             placeholder="console.log('Hello, world!');"
           />
           <InputGroupAddon align="block-start" className="border-b">
-            <InputGroupText className="font-medium font-mono">
+            <InputGroupText className="font-mono font-medium">
               <CodeIcon />
               script.js
             </InputGroupText>

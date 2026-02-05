@@ -1,7 +1,7 @@
 "use client"
 
-import { toast } from "sonner"
 import { Button } from "@/examples/base/ui/button"
+import { toast } from "sonner"
 
 export function SonnerDemo() {
   return (

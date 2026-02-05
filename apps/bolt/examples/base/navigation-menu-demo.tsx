@@ -1,12 +1,7 @@
 "use client"
 
-import {
-  CircleAlertIcon,
-  CircleCheckIcon,
-  CircleDashedIcon,
-} from "lucide-react"
-import Link from "next/link"
 import type * as React from "react"
+import Link from "next/link"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -16,6 +11,11 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/examples/base/ui/navigation-menu"
+import {
+  CircleAlertIcon,
+  CircleCheckIcon,
+  CircleDashedIcon,
+} from "lucide-react"
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -147,8 +147,8 @@ function ListItem({
     <li {...props}>
       <NavigationMenuLink render={<Link href={href} />}>
         <div className="flex flex-col gap-1 text-sm">
-          <div className="font-medium leading-none">{title}</div>
-          <div className="line-clamp-2 text-muted-foreground">{children}</div>
+          <div className="leading-none font-medium">{title}</div>
+          <div className="text-muted-foreground line-clamp-2">{children}</div>
         </div>
       </NavigationMenuLink>
     </li>

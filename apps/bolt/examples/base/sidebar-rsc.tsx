@@ -1,10 +1,3 @@
-import {
-  FrameIcon,
-  LifeBuoyIcon,
-  MapIcon,
-  PieChartIcon,
-  SendIcon,
-} from "lucide-react"
 import * as React from "react"
 import {
   Sidebar,
@@ -18,6 +11,13 @@ import {
   SidebarMenuSkeleton,
   SidebarProvider,
 } from "@/examples/base/ui/sidebar"
+import {
+  FrameIcon,
+  LifeBuoyIcon,
+  MapIcon,
+  PieChartIcon,
+  SendIcon,
+} from "lucide-react"
 
 const projects = [
   {

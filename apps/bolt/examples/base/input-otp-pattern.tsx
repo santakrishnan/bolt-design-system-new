@@ -1,12 +1,12 @@
 "use client"
 
-import { REGEXP_ONLY_DIGITS } from "input-otp"
 import { Field, FieldLabel } from "@/examples/base/ui/field"
 import {
   InputOTP,
   InputOTPGroup,
   InputOTPSlot,
 } from "@/examples/base/ui/input-otp"
+import { REGEXP_ONLY_DIGITS } from "input-otp"
 
 export function InputOTPPattern() {
   return (

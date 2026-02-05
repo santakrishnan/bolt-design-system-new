@@ -1,4 +1,3 @@
-import { ShieldAlertIcon } from "lucide-react"
 import { Button } from "@/examples/radix/ui/button"
 import {
   Item,
@@ -8,6 +7,7 @@ import {
   ItemMedia,
   ItemTitle,
 } from "@/examples/radix/ui/item"
+import { ShieldAlertIcon } from "lucide-react"
 
 export function ItemIcon() {
   return (

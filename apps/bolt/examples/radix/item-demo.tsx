@@ -1,4 +1,3 @@
-import { BadgeCheckIcon, ChevronRightIcon } from "lucide-react"
 import { Button } from "@/examples/radix/ui/button"
 import {
   Item,
@@ -8,6 +7,7 @@ import {
   ItemMedia,
   ItemTitle,
 } from "@/examples/radix/ui/item"
+import { BadgeCheckIcon, ChevronRightIcon } from "lucide-react"
 
 export function ItemDemo() {
   return (

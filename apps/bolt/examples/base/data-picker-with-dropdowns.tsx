@@ -1,7 +1,5 @@
 "use client"
 
-import { format } from "date-fns"
-import { ChevronDownIcon } from "lucide-react"
 import * as React from "react"
 import { Button } from "@/examples/base/ui/button"
 import { Calendar } from "@/examples/base/ui/calendar"
@@ -11,6 +9,8 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/examples/base/ui/popover"
+import { format } from "date-fns"
+import { ChevronDownIcon } from "lucide-react"
 
 export function DataPickerWithDropdowns() {
   const [date, setDate] = React.useState<Date>()

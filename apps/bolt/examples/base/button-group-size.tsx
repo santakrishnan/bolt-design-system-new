@@ -1,6 +1,6 @@
-import { PlusIcon } from "lucide-react"
 import { Button } from "@/examples/base/ui/button"
 import { ButtonGroup } from "@/examples/base/ui/button-group"
+import { PlusIcon } from "lucide-react"
 
 export default function ButtonGroupSize() {
   return (

@@ -1,4 +1,3 @@
-import { RefreshCwIcon } from "lucide-react"
 import { Button } from "@/examples/base/ui/button"
 import {
   Card,
@@ -15,6 +14,7 @@ import {
   InputOTPSeparator,
   InputOTPSlot,
 } from "@/examples/base/ui/input-otp"
+import { RefreshCwIcon } from "lucide-react"
 
 export function InputOTPForm() {
   return (
@@ -63,7 +63,7 @@ export function InputOTPForm() {
           <div className="text-muted-foreground text-sm">
             Having trouble signing in?{" "}
             <a
-              className="underline underline-offset-4 transition-colors hover:text-primary"
+              className="hover:text-primary underline underline-offset-4 transition-colors"
               href="#"
             >
               Contact support

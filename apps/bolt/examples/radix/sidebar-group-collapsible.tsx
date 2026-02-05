@@ -1,6 +1,5 @@
 "use client"
 
-import { ChevronDownIcon, LifeBuoyIcon, SendIcon } from "lucide-react"
 import {
   Collapsible,
   CollapsibleContent,
@@ -17,6 +16,7 @@ import {
   SidebarMenuItem,
   SidebarProvider,
 } from "@/examples/radix/ui/sidebar"
+import { ChevronDownIcon, LifeBuoyIcon, SendIcon } from "lucide-react"
 
 export default function AppSidebar() {
   return (
@@ -27,7 +27,7 @@ export default function AppSidebar() {
             <SidebarGroup>
               <SidebarGroupLabel
                 asChild
-                className="text-sm hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+                className="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground text-sm"
               >
                 <CollapsibleTrigger>
                   Help

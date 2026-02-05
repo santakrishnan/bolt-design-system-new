@@ -1,4 +1,3 @@
-import { CopyIcon, FileCodeIcon } from "lucide-react"
 import {
   Field,
   FieldDescription,
@@ -13,6 +12,7 @@ import {
   InputGroupText,
   InputGroupTextarea,
 } from "@/examples/radix/ui/input-group"
+import { CopyIcon, FileCodeIcon } from "lucide-react"
 
 export function InputGroupBlockStart() {
   return (

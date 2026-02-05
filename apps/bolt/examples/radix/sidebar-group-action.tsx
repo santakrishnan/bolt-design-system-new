@@ -1,7 +1,5 @@
 "use client"
 
-import { FrameIcon, MapIcon, PieChartIcon, PlusIcon } from "lucide-react"
-import { Toaster, toast } from "sonner"
 import {
   Sidebar,
   SidebarContent,
@@ -14,6 +12,8 @@ import {
   SidebarMenuItem,
   SidebarProvider,
 } from "@/examples/radix/ui/sidebar"
+import { FrameIcon, MapIcon, PieChartIcon, PlusIcon } from "lucide-react"
+import { toast, Toaster } from "sonner"
 
 export default function AppSidebar() {
   return (

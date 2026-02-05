@@ -1,4 +1,3 @@
-import { ExternalLinkIcon, MailIcon } from "lucide-react"
 import { Button } from "@/examples/base/ui/button"
 import {
   Card,
@@ -16,6 +15,7 @@ import {
   InputGroupText,
   InputGroupTextarea,
 } from "@/examples/base/ui/input-group"
+import { ExternalLinkIcon, MailIcon } from "lucide-react"
 
 export function InputGroupInCard() {
   return (

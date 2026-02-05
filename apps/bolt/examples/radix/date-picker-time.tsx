@@ -1,7 +1,5 @@
 "use client"
 
-import { format } from "date-fns"
-import { ChevronDownIcon } from "lucide-react"
 import * as React from "react"
 import { Button } from "@/examples/radix/ui/button"
 import { Calendar } from "@/examples/radix/ui/calendar"
@@ -12,6 +10,8 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/examples/radix/ui/popover"
+import { format } from "date-fns"
+import { ChevronDownIcon } from "lucide-react"
 
 export function DatePickerTime() {
   const [open, setOpen] = React.useState(false)
@@ -49,7 +49,7 @@ export function DatePickerTime() {
       <Field className="w-32">
         <FieldLabel htmlFor="time-picker-optional">Time</FieldLabel>
         <Input
-          className="appearance-none bg-background [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-calendar-picker-indicator]:appearance-none"
+          className="bg-background appearance-none [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-calendar-picker-indicator]:appearance-none"
           defaultValue="10:30:00"
           id="time-picker-optional"
           step="1"

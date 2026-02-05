@@ -1,5 +1,5 @@
-import { AlertCircleIcon } from "lucide-react"
 import { Alert, AlertDescription, AlertTitle } from "@/examples/radix/ui/alert"
+import { AlertCircleIcon } from "lucide-react"
 
 export default function AlertDestructive() {
   return (

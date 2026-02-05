@@ -68,8 +68,7 @@ pnpm test:dev
   - `components/` - React components
   - `content/` - MDX documentation
   - `registry/` - Component registry
-- `packages/shadcn/` - shadcn CLI package
-- `templates/` - Project templates
+- `scripts/` - Build and utility scripts
 - `deprecated/` - Legacy code (do not modify)
 
 ### Next.js App Structure

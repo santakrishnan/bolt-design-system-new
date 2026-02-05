@@ -1,13 +1,6 @@
 "use client"
 
 import {
-  FrameIcon,
-  LifeBuoyIcon,
-  MapIcon,
-  PieChartIcon,
-  SendIcon,
-} from "lucide-react"
-import {
   Sidebar,
   SidebarContent,
   SidebarGroup,
@@ -19,6 +12,13 @@ import {
   SidebarMenuItem,
   SidebarProvider,
 } from "@/examples/radix/ui/sidebar"
+import {
+  FrameIcon,
+  LifeBuoyIcon,
+  MapIcon,
+  PieChartIcon,
+  SendIcon,
+} from "lucide-react"
 
 const projects = [
   {

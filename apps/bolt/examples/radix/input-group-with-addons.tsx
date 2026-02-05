@@ -1,16 +1,6 @@
 "use client"
 
 import {
-  CopyIcon,
-  EyeOffIcon,
-  InfoIcon,
-  MicIcon,
-  RadioIcon,
-  SearchIcon,
-  StarIcon,
-} from "lucide-react"
-import { toast } from "sonner"
-import {
   Field,
   FieldDescription,
   FieldGroup,
@@ -23,6 +13,16 @@ import {
   InputGroupInput,
   InputGroupText,
 } from "@/examples/radix/ui/input-group"
+import {
+  CopyIcon,
+  EyeOffIcon,
+  InfoIcon,
+  MicIcon,
+  RadioIcon,
+  SearchIcon,
+  StarIcon,
+} from "lucide-react"
+import { toast } from "sonner"
 
 export function InputGroupWithAddons() {
   return (
@@ -69,7 +69,7 @@ export function InputGroupWithAddons() {
           <InputGroupInput id="input-addon-20" />
           <InputGroupAddon align="block-start">
             <InputGroupText>First Name</InputGroupText>
-            <InfoIcon className="ml-auto text-muted-foreground" />
+            <InfoIcon className="text-muted-foreground ml-auto" />
           </InputGroupAddon>
         </InputGroup>
       </Field>
@@ -79,7 +79,7 @@ export function InputGroupWithAddons() {
           <InputGroupInput id="input-addon-21" />
           <InputGroupAddon align="block-end">
             <InputGroupText>20/240 characters</InputGroupText>
-            <InfoIcon className="ml-auto text-muted-foreground" />
+            <InfoIcon className="text-muted-foreground ml-auto" />
           </InputGroupAddon>
         </InputGroup>
       </Field>

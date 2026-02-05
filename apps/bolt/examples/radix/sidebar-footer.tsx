@@ -1,6 +1,5 @@
 "use client"
 
-import { ChevronUpIcon } from "lucide-react"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -19,6 +18,7 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/examples/radix/ui/sidebar"
+import { ChevronUpIcon } from "lucide-react"
 
 export default function AppSidebar() {
   return (

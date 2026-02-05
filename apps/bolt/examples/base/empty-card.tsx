@@ -1,4 +1,3 @@
-import { ArrowUpRightIcon, FolderIcon } from "lucide-react"
 import { Button } from "@/examples/base/ui/button"
 import {
   Empty,
@@ -8,6 +7,7 @@ import {
   EmptyMedia,
   EmptyTitle,
 } from "@/examples/base/ui/empty"
+import { ArrowUpRightIcon, FolderIcon } from "lucide-react"
 
 export function EmptyInCard() {
   return (

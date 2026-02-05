@@ -1,5 +1,5 @@
-import { AppWindowIcon, CodeIcon } from "lucide-react"
 import { Tabs, TabsList, TabsTrigger } from "@/examples/radix/ui/tabs"
+import { AppWindowIcon, CodeIcon } from "lucide-react"
 
 export function TabsIcons() {
   return (

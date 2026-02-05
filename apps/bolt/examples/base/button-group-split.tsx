@@ -1,9 +1,9 @@
-import { IconPlus } from "@tabler/icons-react"
 import { Button } from "@/examples/base/ui/button"
 import {
   ButtonGroup,
   ButtonGroupSeparator,
 } from "@/examples/base/ui/button-group"
+import { IconPlus } from "@tabler/icons-react"
 
 export default function ButtonGroupSplit() {
   return (

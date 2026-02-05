@@ -1,4 +1,3 @@
-import { Plus } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/examples/radix/ui/avatar"
 import { Button } from "@/examples/radix/ui/button"
 import {
@@ -9,6 +8,7 @@ import {
   ItemMedia,
   ItemTitle,
 } from "@/examples/radix/ui/item"
+import { Plus } from "lucide-react"
 
 export function ItemAvatar() {
   return (
@@ -37,7 +37,7 @@ export function ItemAvatar() {
       </Item>
       <Item variant="outline">
         <ItemMedia>
-          <div className="flex -space-x-2 *:data-[slot=avatar]:ring-2 *:data-[slot=avatar]:ring-background *:data-[slot=avatar]:grayscale">
+          <div className="*:data-[slot=avatar]:ring-background flex -space-x-2 *:data-[slot=avatar]:ring-2 *:data-[slot=avatar]:grayscale">
             <Avatar className="hidden sm:flex">
               <AvatarImage alt="@shadcn" src="https://github.com/shadcn.png" />
               <AvatarFallback>CN</AvatarFallback>

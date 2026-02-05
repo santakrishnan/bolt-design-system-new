@@ -1,6 +1,5 @@
 "use client"
 
-import { ChevronDownIcon, MoreHorizontal } from "lucide-react"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,6 +13,7 @@ import {
   InputGroupButton,
   InputGroupInput,
 } from "@/examples/base/ui/input-group"
+import { ChevronDownIcon, MoreHorizontal } from "lucide-react"
 
 export function InputGroupDropdown() {
   return (

@@ -1,6 +1,5 @@
 "use client"
 
-import { Building2Icon, CreditCardIcon, WalletIcon } from "lucide-react"
 import * as React from "react"
 import { Button } from "@/examples/radix/ui/button"
 import {
@@ -12,6 +11,7 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
 } from "@/examples/radix/ui/dropdown-menu"
+import { Building2Icon, CreditCardIcon, WalletIcon } from "lucide-react"
 
 export function DropdownMenuRadioIcons() {
   const [paymentMethod, setPaymentMethod] = React.useState("card")

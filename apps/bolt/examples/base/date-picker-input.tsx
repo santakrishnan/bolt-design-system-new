@@ -1,6 +1,5 @@
 "use client"
 
-import { CalendarIcon } from "lucide-react"
 import * as React from "react"
 import { Calendar } from "@/examples/base/ui/calendar"
 import { Field, FieldLabel } from "@/examples/base/ui/field"
@@ -15,6 +14,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/examples/base/ui/popover"
+import { CalendarIcon } from "lucide-react"
 
 function formatDate(date: Date | undefined) {
   if (!date) {

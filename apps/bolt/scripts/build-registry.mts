@@ -5,7 +5,6 @@ import { rimraf } from "rimraf"
 import { registrySchema } from "shadcn/schema"
 import {
   createStyleMap,
-  transformDirection,
   transformIcons,
   transformStyle,
 } from "shadcn/utils"
@@ -80,10 +79,6 @@ try {
   // Copy UI to examples before cleanup.
   console.log("\n📋 Copying UI to examples...")
   await copyUIToExamples()
-
-  // Build RTL variants of examples.
-  console.log("\n🔄 Building RTL examples...")
-  await buildRtlExamples()
 
   console.log("\n📋 Building public/r/registries.json...")
   await buildRegistriesJson()
@@ -612,46 +607,6 @@ async function buildRegistriesJson() {
   const outputPath = path.join(process.cwd(), "public/r/registries.json")
   await fs.writeFile(outputPath, JSON.stringify(registries, null, 2))
   prettierPaths.push(outputPath)
-}
-
-async function buildRtlExamples() {
-  // Process all bases in parallel.
-  await Promise.all(
-    Array.from(BASES).map(async (base) => {
-      const sourceDir = path.join(process.cwd(), `examples/${base.name}/ui`)
-      const targetDir = path.join(process.cwd(), `examples/${base.name}/ui-rtl`)
-
-      try {
-        await fs.access(sourceDir)
-      } catch {
-        console.log(`   ⚠️ examples/${base.name}/ui not found, skipping...`)
-        return
-      }
-
-      await rimraf(targetDir)
-      await fs.mkdir(targetDir, { recursive: true })
-
-      const files = await fs.readdir(sourceDir)
-      await Promise.all(
-        files
-          .filter((file) => file.endsWith(".tsx") || file.endsWith(".ts"))
-          .map(async (file) => {
-            const sourcePath = path.join(sourceDir, file)
-            const targetPath = path.join(targetDir, file)
-
-            let content = await fs.readFile(sourcePath, "utf-8")
-            content = await transformDirection(content, true)
-            content = content.replace(
-              new RegExp(`@/examples/${base.name}/ui/`, "g"),
-              `@/examples/${base.name}/ui-rtl/`
-            )
-            await fs.writeFile(targetPath, content)
-          })
-      )
-
-      console.log(`   ✅ examples/${base.name}/ui-rtl`)
-    })
-  )
 }
 
 async function batchPrettier(paths: string[]) {

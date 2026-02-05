@@ -1,4 +1,3 @@
-import { SearchIcon } from "lucide-react"
 import {
   Empty,
   EmptyContent,
@@ -12,6 +11,7 @@ import {
   InputGroupInput,
 } from "@/examples/radix/ui/input-group"
 import { Kbd } from "@/examples/radix/ui/kbd"
+import { SearchIcon } from "lucide-react"
 
 export default function EmptyInputGroup() {
   return (

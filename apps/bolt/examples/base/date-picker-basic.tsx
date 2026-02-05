@@ -1,6 +1,5 @@
 "use client"
 
-import { format } from "date-fns"
 import * as React from "react"
 import { Button } from "@/examples/base/ui/button"
 import { Calendar } from "@/examples/base/ui/calendar"
@@ -10,6 +9,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/examples/base/ui/popover"
+import { format } from "date-fns"
 
 export function DatePickerSimple() {
   const [date, setDate] = React.useState<Date>()

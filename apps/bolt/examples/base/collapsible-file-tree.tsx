@@ -1,4 +1,3 @@
-import { ChevronRightIcon, FileIcon, FolderIcon } from "lucide-react"
 import { Button } from "@/examples/base/ui/button"
 import { Card, CardContent, CardHeader } from "@/examples/base/ui/card"
 import {
@@ -7,6 +6,7 @@ import {
   CollapsibleTrigger,
 } from "@/examples/base/ui/collapsible"
 import { Tabs, TabsList, TabsTrigger } from "@/examples/base/ui/tabs"
+import { ChevronRightIcon, FileIcon, FolderIcon } from "lucide-react"
 
 type FileTreeItem = { name: string } | { name: string; items: FileTreeItem[] }
 
@@ -70,7 +70,7 @@ export function CollapsibleFileTree() {
           <CollapsibleTrigger
             render={
               <Button
-                className="group w-full justify-start transition-none hover:bg-accent hover:text-accent-foreground"
+                className="group hover:bg-accent hover:text-accent-foreground w-full justify-start transition-none"
                 size="sm"
                 variant="ghost"
               />
@@ -80,7 +80,7 @@ export function CollapsibleFileTree() {
             <FolderIcon />
             {fileItem.name}
           </CollapsibleTrigger>
-          <CollapsibleContent className="mt-1 ml-5 style-lyra:ml-4">
+          <CollapsibleContent className="style-lyra:ml-4 mt-1 ml-5">
             <div className="flex flex-col gap-1">
               {fileItem.items.map((child) => renderItem(child))}
             </div>
@@ -90,7 +90,7 @@ export function CollapsibleFileTree() {
     }
     return (
       <Button
-        className="w-full justify-start gap-2 text-foreground"
+        className="text-foreground w-full justify-start gap-2"
         key={fileItem.name}
         size="sm"
         variant="link"

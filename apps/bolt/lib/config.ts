@@ -25,10 +25,6 @@ export const siteConfig = {
       href: "/charts/area",
       label: "Charts",
     },
-    {
-      href: "/create",
-      label: "Create",
-    },
   ],
 }
 

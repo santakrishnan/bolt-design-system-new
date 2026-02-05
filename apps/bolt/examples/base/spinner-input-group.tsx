@@ -1,4 +1,3 @@
-import { ArrowUpIcon } from "lucide-react"
 import {
   InputGroup,
   InputGroupAddon,
@@ -7,6 +6,7 @@ import {
   InputGroupTextarea,
 } from "@/examples/base/ui/input-group"
 import { Spinner } from "@/examples/base/ui/spinner"
+import { ArrowUpIcon } from "lucide-react"
 
 export function SpinnerInputGroup() {
   return (

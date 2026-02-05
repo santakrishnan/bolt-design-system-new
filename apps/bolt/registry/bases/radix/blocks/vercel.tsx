@@ -4,7 +4,7 @@ import { format } from "date-fns"
 import * as React from "react"
 import type { DateRange } from "react-day-picker"
 import { Area, AreaChart } from "recharts"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 import {
   Example,
   ExampleWrapper,

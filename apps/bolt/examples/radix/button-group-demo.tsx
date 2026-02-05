@@ -1,16 +1,5 @@
 "use client"
 
-import {
-  ArchiveIcon,
-  ArrowLeftIcon,
-  CalendarPlusIcon,
-  ClockIcon,
-  ListFilterIcon,
-  MailCheckIcon,
-  MoreHorizontalIcon,
-  TagIcon,
-  Trash2Icon,
-} from "lucide-react"
 import * as React from "react"
 import { Button } from "@/examples/radix/ui/button"
 import { ButtonGroup } from "@/examples/radix/ui/button-group"
@@ -27,6 +16,17 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/examples/radix/ui/dropdown-menu"
+import {
+  ArchiveIcon,
+  ArrowLeftIcon,
+  CalendarPlusIcon,
+  ClockIcon,
+  ListFilterIcon,
+  MailCheckIcon,
+  MoreHorizontalIcon,
+  TagIcon,
+  Trash2Icon,
+} from "lucide-react"
 
 export default function ButtonGroupDemo() {
   const [label, setLabel] = React.useState("personal")

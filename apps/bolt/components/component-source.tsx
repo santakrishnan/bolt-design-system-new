@@ -41,7 +41,9 @@ export async function ComponentSource({
   }
 
   if (src) {
-    const file = await fs.readFile(path.join(process.cwd(), src), "utf-8")
+    // Resolve path relative to project root to avoid overly broad file patterns
+    const filePath = path.resolve(process.cwd(), src)
+    const file = await fs.readFile(filePath, "utf-8")
     code = file
   }
 

@@ -7,7 +7,7 @@ import {
   getDefaultClassNames,
   type Locale,
 } from "react-day-picker"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 import { cn } from "@/registry/bases/base/lib/utils"
 import { Button, buttonVariants } from "@/registry/bases/base/ui/button"
 

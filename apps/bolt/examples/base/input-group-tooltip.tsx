@@ -1,4 +1,3 @@
-import { HelpCircle, InfoIcon } from "lucide-react"
 import {
   InputGroup,
   InputGroupAddon,
@@ -10,6 +9,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/examples/base/ui/tooltip"
+import { HelpCircle, InfoIcon } from "lucide-react"
 
 export default function InputGroupTooltip() {
   return (

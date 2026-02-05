@@ -1,9 +1,3 @@
-import {
-  CreditCardIcon,
-  LogOutIcon,
-  SettingsIcon,
-  UserIcon,
-} from "lucide-react"
 import { Button } from "@/examples/radix/ui/button"
 import {
   DropdownMenu,
@@ -12,6 +6,12 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/examples/radix/ui/dropdown-menu"
+import {
+  CreditCardIcon,
+  LogOutIcon,
+  SettingsIcon,
+  UserIcon,
+} from "lucide-react"
 
 export function DropdownMenuIcons() {
   return (

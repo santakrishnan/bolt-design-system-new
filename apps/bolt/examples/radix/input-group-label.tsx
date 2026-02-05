@@ -1,4 +1,3 @@
-import { InfoIcon } from "lucide-react"
 import {
   InputGroup,
   InputGroupAddon,
@@ -11,6 +10,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/examples/radix/ui/tooltip"
+import { InfoIcon } from "lucide-react"
 
 export default function InputGroupLabel() {
   return (

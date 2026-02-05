@@ -1,6 +1,5 @@
 "use client"
 
-import { ArrowRightIcon } from "lucide-react"
 import * as React from "react"
 import { Button } from "@/examples/radix/ui/button"
 import { ButtonGroup } from "@/examples/radix/ui/button-group"
@@ -12,6 +11,7 @@ import {
   SelectItem,
   SelectTrigger,
 } from "@/examples/radix/ui/select"
+import { ArrowRightIcon } from "lucide-react"
 
 const CURRENCIES = [
   {

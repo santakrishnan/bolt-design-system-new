@@ -1,10 +1,10 @@
-import { SearchIcon } from "lucide-react"
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
 } from "@/examples/base/ui/input-group"
 import { Kbd } from "@/examples/base/ui/kbd"
+import { SearchIcon } from "lucide-react"
 
 export default function KbdInputGroup() {
   return (

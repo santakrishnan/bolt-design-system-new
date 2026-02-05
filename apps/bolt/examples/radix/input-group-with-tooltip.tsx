@@ -1,7 +1,5 @@
 "use client"
 
-import { ChevronDownIcon, InfoIcon, StarIcon } from "lucide-react"
-import { toast } from "sonner"
 import { ButtonGroup, ButtonGroupText } from "@/examples/radix/ui/button-group"
 import {
   DropdownMenu,
@@ -34,6 +32,8 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/examples/radix/ui/tooltip"
+import { ChevronDownIcon, InfoIcon, StarIcon } from "lucide-react"
+import { toast } from "sonner"
 
 export function InputGroupWithTooltip({
   country,
@@ -117,7 +117,7 @@ export function InputGroupWithTooltip({
               </PopoverHeader>
             </PopoverContent>
           </Popover>
-          <InputGroupAddon className="pl-1 text-muted-foreground">
+          <InputGroupAddon className="text-muted-foreground pl-1">
             https://
           </InputGroupAddon>
           <InputGroupInput id="input-secure-19" />

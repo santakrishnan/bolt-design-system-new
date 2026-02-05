@@ -1,5 +1,5 @@
-import { CircleFadingArrowUpIcon } from "lucide-react"
 import { Button } from "@/examples/radix/ui/button"
+import { CircleFadingArrowUpIcon } from "lucide-react"
 
 export default function ButtonIcon() {
   return (

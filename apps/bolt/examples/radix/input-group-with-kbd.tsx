@@ -1,4 +1,3 @@
-import { CheckIcon, InfoIcon, SearchIcon, SparklesIcon } from "lucide-react"
 import {
   Field,
   FieldDescription,
@@ -12,6 +11,7 @@ import {
 } from "@/examples/radix/ui/input-group"
 import { Kbd, KbdGroup } from "@/examples/radix/ui/kbd"
 import { Spinner } from "@/examples/radix/ui/spinner"
+import { CheckIcon, InfoIcon, SearchIcon, SparklesIcon } from "lucide-react"
 
 export function InputGroupWithKbd() {
   return (

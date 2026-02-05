@@ -37,7 +37,7 @@ export function DrawerWithSides() {
             <div className="no-scrollbar overflow-y-auto px-4">
               {Array.from({ length: 10 }).map((_, index) => (
                 <p
-                  className="mb-4 style-lyra:mb-2 leading-normal style-lyra:leading-relaxed"
+                  className="style-lyra:mb-2 style-lyra:leading-relaxed mb-4 leading-normal"
                   key={index}
                 >
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed

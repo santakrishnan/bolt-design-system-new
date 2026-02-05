@@ -1,4 +1,3 @@
-import { CircleFadingPlusIcon } from "lucide-react"
 import {
   AlertDialog,
   AlertDialogAction,
@@ -12,6 +11,7 @@ import {
   AlertDialogTrigger,
 } from "@/examples/base/ui/alert-dialog"
 import { Button } from "@/examples/base/ui/button"
+import { CircleFadingPlusIcon } from "lucide-react"
 
 export function AlertDialogWithMedia() {
   return (

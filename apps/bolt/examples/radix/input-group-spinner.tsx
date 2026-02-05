@@ -1,4 +1,3 @@
-import { LoaderIcon } from "lucide-react"
 import {
   InputGroup,
   InputGroupAddon,
@@ -6,6 +5,7 @@ import {
   InputGroupText,
 } from "@/examples/radix/ui/input-group"
 import { Spinner } from "@/examples/radix/ui/spinner"
+import { LoaderIcon } from "lucide-react"
 
 export default function InputGroupSpinner() {
   return (

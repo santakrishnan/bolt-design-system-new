@@ -1,5 +1,3 @@
-import { IconBell } from "@tabler/icons-react"
-import { RefreshCcwIcon } from "lucide-react"
 import { Button } from "@/examples/radix/ui/button"
 import {
   Empty,
@@ -9,10 +7,12 @@ import {
   EmptyMedia,
   EmptyTitle,
 } from "@/examples/radix/ui/empty"
+import { IconBell } from "@tabler/icons-react"
+import { RefreshCcwIcon } from "lucide-react"
 
 export function EmptyMuted() {
   return (
-    <Empty className="h-full bg-muted/30">
+    <Empty className="bg-muted/30 h-full">
       <EmptyHeader>
         <EmptyMedia variant="icon">
           <IconBell />

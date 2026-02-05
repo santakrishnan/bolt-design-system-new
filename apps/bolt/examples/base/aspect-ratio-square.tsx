@@ -4,7 +4,7 @@ import { AspectRatio } from "@/examples/base/ui/aspect-ratio"
 export function AspectRatioSquare() {
   return (
     <AspectRatio
-      className="w-full max-w-[12rem] rounded-lg bg-muted"
+      className="bg-muted w-full max-w-[12rem] rounded-lg"
       ratio={1 / 1}
     >
       <Image

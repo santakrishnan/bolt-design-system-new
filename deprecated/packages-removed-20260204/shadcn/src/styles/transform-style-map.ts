@@ -172,10 +172,10 @@ function applyToClassNameAttributes(
 
     const jsxElement = node.getParent()?.getParent()
     if (
-      !jsxElement ||
       !(
-        Node.isJsxOpeningElement(jsxElement) ||
-        Node.isJsxSelfClosingElement(jsxElement)
+        jsxElement &&
+        (Node.isJsxOpeningElement(jsxElement) ||
+          Node.isJsxSelfClosingElement(jsxElement))
       )
     ) {
       return

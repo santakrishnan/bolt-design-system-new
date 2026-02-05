@@ -1,4 +1,3 @@
-import { CopyIcon, TrashIcon } from "lucide-react"
 import { Field, FieldGroup, FieldLabel } from "@/examples/radix/ui/field"
 import {
   InputGroup,
@@ -6,6 +5,7 @@ import {
   InputGroupButton,
   InputGroupInput,
 } from "@/examples/radix/ui/input-group"
+import { CopyIcon, TrashIcon } from "lucide-react"
 
 export function InputGroupWithButtons() {
   return (

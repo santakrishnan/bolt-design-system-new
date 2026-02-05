@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 import {
   Combobox,
   ComboboxChip,

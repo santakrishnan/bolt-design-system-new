@@ -1,4 +1,3 @@
-import { Trash2Icon } from "lucide-react"
 import {
   AlertDialog,
   AlertDialogAction,
@@ -12,6 +11,7 @@ import {
   AlertDialogTrigger,
 } from "@/examples/radix/ui/alert-dialog"
 import { Button } from "@/examples/radix/ui/button"
+import { Trash2Icon } from "lucide-react"
 
 export function AlertDialogDestructive() {
   return (

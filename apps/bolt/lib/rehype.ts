@@ -33,7 +33,8 @@ function getDemoFilePath(name: string, styleName: string) {
   const demo = ExamplesIndex[base]?.[name]
   if (!demo) return null
 
-  return path.join(process.cwd(), demo.filePath)
+  // Resolve path relative to project root to avoid overly broad file patterns
+  return path.resolve(process.cwd(), demo.filePath)
 }
 
 function getIndexForStyle(styleName: string) {
@@ -93,7 +94,8 @@ async function getStyleMap(styleName: string) {
   }
 
   try {
-    const cssPath = path.join(
+    // Resolve path relative to project root to avoid overly broad file patterns
+    const cssPath = path.resolve(
       process.cwd(),
       `registry/styles/style-${style}.css`
     )
@@ -238,7 +240,8 @@ export function rehypeComponent() {
           let src: string | null = null
 
           if (item.srcPath) {
-            src = path.join(process.cwd(), item.srcPath)
+            // Resolve path relative to project root to avoid overly broad file patterns
+            src = path.resolve(process.cwd(), item.srcPath)
           } else {
             src = getDemoFilePath(item.name, item.styleName)
 

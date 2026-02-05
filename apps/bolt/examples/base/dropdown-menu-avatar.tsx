@@ -1,11 +1,5 @@
 "use client"
 
-import {
-  BadgeCheckIcon,
-  BellIcon,
-  CreditCardIcon,
-  LogOutIcon,
-} from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/examples/base/ui/avatar"
 import { Button } from "@/examples/base/ui/button"
 import {
@@ -16,6 +10,12 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/examples/base/ui/dropdown-menu"
+import {
+  BadgeCheckIcon,
+  BellIcon,
+  CreditCardIcon,
+  LogOutIcon,
+} from "lucide-react"
 
 export function DropdownMenuAvatar() {
   return (

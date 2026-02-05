@@ -1,5 +1,5 @@
-import { Bold, Italic, Underline } from "lucide-react"
 import { ToggleGroup, ToggleGroupItem } from "@/examples/base/ui/toggle-group"
+import { Bold, Italic, Underline } from "lucide-react"
 
 export function ToggleGroupDisabled() {
   return (

@@ -1,16 +1,16 @@
 import {
-  IconBrandJavascript,
-  IconCopy,
-  IconCornerDownLeft,
-  IconRefresh,
-} from "@tabler/icons-react"
-import {
   InputGroup,
   InputGroupAddon,
   InputGroupButton,
   InputGroupText,
   InputGroupTextarea,
 } from "@/examples/radix/ui/input-group"
+import {
+  IconBrandJavascript,
+  IconCopy,
+  IconCornerDownLeft,
+  IconRefresh,
+} from "@tabler/icons-react"
 
 export default function InputGroupTextareaExample() {
   return (
@@ -28,7 +28,7 @@ export default function InputGroupTextareaExample() {
           </InputGroupButton>
         </InputGroupAddon>
         <InputGroupAddon align="block-start" className="border-b">
-          <InputGroupText className="font-medium font-mono">
+          <InputGroupText className="font-mono font-medium">
             <IconBrandJavascript />
             script.js
           </InputGroupText>

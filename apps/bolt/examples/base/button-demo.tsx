@@ -1,5 +1,5 @@
-import { ArrowUpIcon } from "lucide-react"
 import { Button } from "@/examples/base/ui/button"
+import { ArrowUpIcon } from "lucide-react"
 
 export default function ButtonDemo() {
   return (

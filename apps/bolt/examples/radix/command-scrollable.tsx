@@ -1,5 +1,18 @@
 "use client"
 
+import * as React from "react"
+import { Button } from "@/examples/radix/ui/button"
+import {
+  Command,
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandSeparator,
+  CommandShortcut,
+} from "@/examples/radix/ui/command"
 import {
   BellIcon,
   CalculatorIcon,
@@ -25,19 +38,6 @@ import {
   ZoomInIcon,
   ZoomOutIcon,
 } from "lucide-react"
-import * as React from "react"
-import { Button } from "@/examples/radix/ui/button"
-import {
-  Command,
-  CommandDialog,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-  CommandSeparator,
-  CommandShortcut,
-} from "@/examples/radix/ui/command"
 
 export function CommandManyItems() {
   const [open, setOpen] = React.useState(false)

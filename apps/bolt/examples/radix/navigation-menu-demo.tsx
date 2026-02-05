@@ -1,7 +1,7 @@
 "use client"
 
-import Link from "next/link"
 import type * as React from "react"
+import Link from "next/link"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -107,8 +107,8 @@ function ListItem({
       <NavigationMenuLink asChild>
         <Link href={href}>
           <div className="flex flex-col gap-1 text-sm">
-            <div className="font-medium leading-none">{title}</div>
-            <div className="line-clamp-2 text-muted-foreground">{children}</div>
+            <div className="leading-none font-medium">{title}</div>
+            <div className="text-muted-foreground line-clamp-2">{children}</div>
           </div>
         </Link>
       </NavigationMenuLink>

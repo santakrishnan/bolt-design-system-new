@@ -12,7 +12,7 @@ export function CollapsibleBasic() {
   return (
     <Card className="mx-auto w-full max-w-sm">
       <CardContent>
-        <Collapsible className="rounded-md data-[state=open]:bg-muted">
+        <Collapsible className="data-[state=open]:bg-muted rounded-md">
           <CollapsibleTrigger asChild>
             <Button className="group w-full" variant="ghost">
               Product details

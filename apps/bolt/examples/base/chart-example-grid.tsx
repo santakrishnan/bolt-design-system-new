@@ -1,7 +1,7 @@
 "use client"
 
+import { ChartContainer, type ChartConfig } from "@/examples/base/ui/chart"
 import { Bar, BarChart, CartesianGrid } from "recharts"
-import { type ChartConfig, ChartContainer } from "@/examples/base/ui/chart"
 
 const chartData = [
   { month: "January", desktop: 186, mobile: 80 },

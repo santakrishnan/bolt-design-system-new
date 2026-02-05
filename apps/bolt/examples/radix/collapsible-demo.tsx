@@ -1,6 +1,5 @@
 "use client"
 
-import { ChevronsUpDown } from "lucide-react"
 import * as React from "react"
 import { Button } from "@/examples/radix/ui/button"
 import {
@@ -8,6 +7,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/examples/radix/ui/collapsible"
+import { ChevronsUpDown } from "lucide-react"
 
 export default function CollapsibleDemo() {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -19,7 +19,7 @@ export default function CollapsibleDemo() {
       open={isOpen}
     >
       <div className="flex items-center justify-between gap-4 px-4">
-        <h4 className="font-semibold text-sm">Order #4189</h4>
+        <h4 className="text-sm font-semibold">Order #4189</h4>
         <CollapsibleTrigger asChild>
           <Button className="size-8" size="icon" variant="ghost">
             <ChevronsUpDown />

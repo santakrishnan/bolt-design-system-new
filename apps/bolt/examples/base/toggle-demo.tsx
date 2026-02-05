@@ -1,5 +1,5 @@
-import { BookmarkIcon } from "lucide-react"
 import { Toggle } from "@/examples/base/ui/toggle"
+import { BookmarkIcon } from "lucide-react"
 
 export function ToggleDemo() {
   return (

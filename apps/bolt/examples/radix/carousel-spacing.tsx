@@ -16,7 +16,7 @@ export default function CarouselSpacing() {
             <div className="p-1">
               <Card>
                 <CardContent className="flex aspect-square items-center justify-center p-6">
-                  <span className="font-semibold text-2xl">{index + 1}</span>
+                  <span className="text-2xl font-semibold">{index + 1}</span>
                 </CardContent>
               </Card>
             </div>

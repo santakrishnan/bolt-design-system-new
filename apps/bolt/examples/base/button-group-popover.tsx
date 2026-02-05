@@ -1,4 +1,3 @@
-import { BotIcon, ChevronDownIcon } from "lucide-react"
 import { Button } from "@/examples/base/ui/button"
 import { ButtonGroup } from "@/examples/base/ui/button-group"
 import { Field, FieldDescription, FieldLabel } from "@/examples/base/ui/field"
@@ -11,6 +10,7 @@ import {
   PopoverTrigger,
 } from "@/examples/base/ui/popover"
 import { Textarea } from "@/examples/base/ui/textarea"
+import { BotIcon, ChevronDownIcon } from "lucide-react"
 
 export default function ButtonGroupPopover() {
   return (

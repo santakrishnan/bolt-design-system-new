@@ -22,7 +22,7 @@ export default function CarouselOrientation() {
             <div className="p-1">
               <Card>
                 <CardContent className="flex items-center justify-center p-6">
-                  <span className="font-semibold text-3xl">{index + 1}</span>
+                  <span className="text-3xl font-semibold">{index + 1}</span>
                 </CardContent>
               </Card>
             </div>

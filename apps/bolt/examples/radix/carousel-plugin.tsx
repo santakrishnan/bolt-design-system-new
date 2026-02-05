@@ -1,6 +1,5 @@
 "use client"
 
-import Autoplay from "embla-carousel-autoplay"
 import * as React from "react"
 import { Card, CardContent } from "@/examples/radix/ui/card"
 import {
@@ -10,6 +9,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/examples/radix/ui/carousel"
+import Autoplay from "embla-carousel-autoplay"
 
 export default function CarouselPlugin() {
   const plugin = React.useRef(
@@ -29,7 +29,7 @@ export default function CarouselPlugin() {
             <div className="p-1">
               <Card>
                 <CardContent className="flex aspect-square items-center justify-center p-6">
-                  <span className="font-semibold text-4xl">{index + 1}</span>
+                  <span className="text-4xl font-semibold">{index + 1}</span>
                 </CardContent>
               </Card>
             </div>

@@ -1,6 +1,5 @@
 "use client"
 
-import { GlobeIcon } from "lucide-react"
 import {
   Combobox,
   ComboboxCollection,
@@ -13,6 +12,7 @@ import {
   ComboboxList,
 } from "@/examples/radix/ui/combobox"
 import { InputGroupAddon } from "@/examples/radix/ui/input-group"
+import { GlobeIcon } from "lucide-react"
 
 const timezones = [
   {

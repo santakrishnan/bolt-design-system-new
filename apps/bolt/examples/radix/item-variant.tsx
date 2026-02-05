@@ -1,4 +1,3 @@
-import { InboxIcon } from "lucide-react"
 import {
   Item,
   ItemContent,
@@ -6,6 +5,7 @@ import {
   ItemMedia,
   ItemTitle,
 } from "@/examples/radix/ui/item"
+import { InboxIcon } from "lucide-react"
 
 export function ItemVariant() {
   return (

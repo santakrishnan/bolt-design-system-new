@@ -1,9 +1,3 @@
-import {
-  BadgeCheckIcon,
-  BellIcon,
-  CreditCardIcon,
-  LogOutIcon,
-} from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/examples/radix/ui/avatar"
 import { Button } from "@/examples/radix/ui/button"
 import {
@@ -14,6 +8,12 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/examples/radix/ui/dropdown-menu"
+import {
+  BadgeCheckIcon,
+  BellIcon,
+  CreditCardIcon,
+  LogOutIcon,
+} from "lucide-react"
 
 export function DropdownMenuAvatar() {
   return (

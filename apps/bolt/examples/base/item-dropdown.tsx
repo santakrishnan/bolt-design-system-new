@@ -1,6 +1,5 @@
 "use client"
 
-import { ChevronDownIcon } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/examples/base/ui/avatar"
 import { Button } from "@/examples/base/ui/button"
 import {
@@ -17,6 +16,7 @@ import {
   ItemMedia,
   ItemTitle,
 } from "@/examples/base/ui/item"
+import { ChevronDownIcon } from "lucide-react"
 
 const people = [
   {

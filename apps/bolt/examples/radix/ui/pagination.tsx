@@ -1,11 +1,11 @@
+import type * as React from "react"
+import { cn } from "@/examples/radix/lib/utils"
+import { Button } from "@/examples/radix/ui/button"
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
   MoreHorizontalIcon,
 } from "lucide-react"
-import type * as React from "react"
-import { cn } from "@/examples/radix/lib/utils"
-import { Button } from "@/examples/radix/ui/button"
 
 function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
   return (

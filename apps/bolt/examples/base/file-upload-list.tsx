@@ -1,6 +1,5 @@
 "use client"
 
-import { FileIcon } from "lucide-react"
 import * as React from "react"
 import {
   Item,
@@ -11,6 +10,7 @@ import {
   ItemTitle,
 } from "@/examples/base/ui/item"
 import { Progress } from "@/examples/base/ui/progress"
+import { FileIcon } from "lucide-react"
 
 export function FileUploadList() {
   const files = React.useMemo(

@@ -1,5 +1,3 @@
-import { IconFolderCode } from "@tabler/icons-react"
-import { ArrowUpRightIcon } from "lucide-react"
 import { Button } from "@/examples/base/ui/button"
 import {
   Empty,
@@ -9,6 +7,8 @@ import {
   EmptyMedia,
   EmptyTitle,
 } from "@/examples/base/ui/empty"
+import { IconFolderCode } from "@tabler/icons-react"
+import { ArrowUpRightIcon } from "lucide-react"
 
 export default function EmptyDemo() {
   return (

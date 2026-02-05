@@ -1,4 +1,3 @@
-import { SaveIcon } from "lucide-react"
 import { Button } from "@/examples/radix/ui/button"
 import { Kbd } from "@/examples/radix/ui/kbd"
 import {
@@ -6,6 +5,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/examples/radix/ui/tooltip"
+import { SaveIcon } from "lucide-react"
 
 export function TooltipKeyboard() {
   return (

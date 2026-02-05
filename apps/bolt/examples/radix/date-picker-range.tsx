@@ -1,9 +1,6 @@
 "use client"
 
-import { addDays, format } from "date-fns"
-import { CalendarIcon } from "lucide-react"
 import * as React from "react"
-import type { DateRange } from "react-day-picker"
 import { Button } from "@/examples/radix/ui/button"
 import { Calendar } from "@/examples/radix/ui/calendar"
 import { Field, FieldLabel } from "@/examples/radix/ui/field"
@@ -12,6 +9,9 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/examples/radix/ui/popover"
+import { addDays, format } from "date-fns"
+import { CalendarIcon } from "lucide-react"
+import type { DateRange } from "react-day-picker"
 
 export function DatePickerWithRange() {
   const [date, setDate] = React.useState<DateRange | undefined>({

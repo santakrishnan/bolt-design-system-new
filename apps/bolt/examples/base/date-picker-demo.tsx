@@ -1,7 +1,5 @@
 "use client"
 
-import { format } from "date-fns"
-import { ChevronDownIcon } from "lucide-react"
 import * as React from "react"
 import { Button } from "@/examples/base/ui/button"
 import { Calendar } from "@/examples/base/ui/calendar"
@@ -10,6 +8,8 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/examples/base/ui/popover"
+import { format } from "date-fns"
+import { ChevronDownIcon } from "lucide-react"
 
 export function DatePickerDemo() {
   const [date, setDate] = React.useState<Date>()
@@ -19,7 +19,7 @@ export function DatePickerDemo() {
       <PopoverTrigger
         render={
           <Button
-            className="w-[212px] justify-between text-left font-normal data-[empty=true]:text-muted-foreground"
+            className="data-[empty=true]:text-muted-foreground w-[212px] justify-between text-left font-normal"
             data-empty={!date}
             variant={"outline"}
           />
