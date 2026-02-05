@@ -67,7 +67,7 @@ export default function ComboboxForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+      <form className="space-y-6" onSubmit={form.handleSubmit(onSubmit)}>
         <FormField
           control={form.control}
           name="language"
@@ -78,12 +78,12 @@ export default function ComboboxForm() {
                 <PopoverTrigger asChild>
                   <FormControl>
                     <Button
-                      variant="outline"
-                      role="combobox"
                       className={cn(
                         "w-[200px] justify-between",
                         !field.value && "text-muted-foreground"
                       )}
+                      role="combobox"
+                      variant="outline"
                     >
                       {field.value
                         ? languages.find(
@@ -97,19 +97,19 @@ export default function ComboboxForm() {
                 <PopoverContent className="w-[200px] p-0">
                   <Command>
                     <CommandInput
-                      placeholder="Search framework..."
                       className="h-9"
+                      placeholder="Search framework..."
                     />
                     <CommandList>
                       <CommandEmpty>No framework found.</CommandEmpty>
                       <CommandGroup>
                         {languages.map((language) => (
                           <CommandItem
-                            value={language.label}
                             key={language.value}
                             onSelect={() => {
                               form.setValue("language", language.value)
                             }}
+                            value={language.label}
                           >
                             {language.label}
                             <Check

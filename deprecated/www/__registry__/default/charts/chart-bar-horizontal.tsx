@@ -12,7 +12,7 @@ import {
   CardTitle,
 } from "@/registry/default/ui/card"
 import {
-  ChartConfig,
+  type ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
@@ -53,18 +53,18 @@ export default function Component() {
               left: -20,
             }}
           >
-            <XAxis type="number" dataKey="desktop" hide />
+            <XAxis dataKey="desktop" hide type="number" />
             <YAxis
+              axisLine={false}
               dataKey="month"
-              type="category"
+              tickFormatter={(value) => value.slice(0, 3)}
               tickLine={false}
               tickMargin={10}
-              axisLine={false}
-              tickFormatter={(value) => value.slice(0, 3)}
+              type="category"
             />
             <ChartTooltip
-              cursor={false}
               content={<ChartTooltipContent hideLabel />}
+              cursor={false}
             />
             <Bar dataKey="desktop" fill="var(--color-desktop)" radius={5} />
           </BarChart>
@@ -74,7 +74,7 @@ export default function Component() {
         <div className="flex gap-2 font-medium leading-none">
           Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
         </div>
-        <div className="leading-none text-muted-foreground">
+        <div className="text-muted-foreground leading-none">
           Showing total visitors for the last 6 months
         </div>
       </CardFooter>

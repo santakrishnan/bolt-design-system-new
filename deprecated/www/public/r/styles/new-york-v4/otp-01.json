@@ -3,13 +3,7 @@
   "name": "otp-01",
   "type": "registry:block",
   "description": "A simple OTP verification form.",
-  "registryDependencies": [
-    "button",
-    "card",
-    "input-otp",
-    "label",
-    "field"
-  ],
+  "registryDependencies": ["button", "card", "input-otp", "label", "field"],
   "files": [
     {
       "path": "registry/new-york-v4/blocks/otp-01/page.tsx",
@@ -23,8 +17,5 @@
       "type": "registry:component"
     }
   ],
-  "categories": [
-    "authentication",
-    "otp"
-  ]
+  "categories": ["authentication", "otp"]
 }

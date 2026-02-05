@@ -1,13 +1,12 @@
 import * as React from "react"
-import { registryItemFileSchema } from "shadcn/schema"
-import { z } from "zod"
-
+import type { registryItemFileSchema } from "shadcn/schema"
+import type { z } from "zod"
+import { BlockViewer } from "@/components/block-viewer"
 import { highlightCode } from "@/lib/highlight-code"
 import {
   createFileTreeForRegistryItemFiles,
   getRegistryItem,
 } from "@/lib/registry"
-import { BlockViewer } from "@/components/block-viewer"
 
 export async function BlockDisplay({ name }: { name: string }) {
   const item = await getCachedRegistryItem(name)
@@ -22,7 +21,7 @@ export async function BlockDisplay({ name }: { name: string }) {
   ])
 
   return (
-    <BlockViewer item={item} tree={tree} highlightedFiles={highlightedFiles} />
+    <BlockViewer highlightedFiles={highlightedFiles} item={item} tree={tree} />
   )
 }
 

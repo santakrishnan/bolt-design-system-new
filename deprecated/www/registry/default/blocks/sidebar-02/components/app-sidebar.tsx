@@ -1,5 +1,5 @@
-import * as React from "react"
 import { ChevronRight } from "lucide-react"
+import type * as React from "react"
 
 import { SearchForm } from "@/registry/default/blocks/sidebar-02/components/search-form"
 import { VersionSwitcher } from "@/registry/default/blocks/sidebar-02/components/version-switcher"
@@ -168,8 +168,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     <Sidebar {...props}>
       <SidebarHeader>
         <VersionSwitcher
-          versions={data.versions}
           defaultVersion={data.versions[0]}
+          versions={data.versions}
         />
         <SearchForm />
       </SidebarHeader>
@@ -177,15 +177,15 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         {/* We create a collapsible SidebarGroup for each parent. */}
         {data.navMain.map((item) => (
           <Collapsible
+            className="group/collapsible"
+            defaultOpen
             key={item.title}
             title={item.title}
-            defaultOpen
-            className="group/collapsible"
           >
             <SidebarGroup>
               <SidebarGroupLabel
                 asChild
-                className="group/label text-sm text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+                className="group/label text-sidebar-foreground text-sm hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
               >
                 <CollapsibleTrigger>
                   {item.title}{" "}

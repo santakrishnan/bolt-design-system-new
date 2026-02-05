@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import { Label, Pie, PieChart, Sector } from "recharts"
-import { PieSectorDataItem } from "recharts/types/polar/Pie"
+import type { PieSectorDataItem } from "recharts/types/polar/Pie"
 
 import {
   Card,
@@ -12,7 +12,7 @@ import {
   CardTitle,
 } from "@/registry/default/ui/card"
 import {
-  ChartConfig,
+  type ChartConfig,
   ChartContainer,
   ChartStyle,
   ChartTooltip,
@@ -79,17 +79,17 @@ export default function Component() {
   const months = React.useMemo(() => desktopData.map((item) => item.month), [])
 
   return (
-    <Card data-chart={id} className="flex flex-col">
-      <ChartStyle id={id} config={chartConfig} />
+    <Card className="flex flex-col" data-chart={id}>
+      <ChartStyle config={chartConfig} id={id} />
       <CardHeader className="flex-row items-start space-y-0 pb-0">
         <div className="grid gap-1">
           <CardTitle>Pie Chart - Interactive</CardTitle>
           <CardDescription>January - June 2024</CardDescription>
         </div>
-        <Select value={activeMonth} onValueChange={setActiveMonth}>
+        <Select onValueChange={setActiveMonth} value={activeMonth}>
           <SelectTrigger
-            className="ml-auto h-7 w-[130px] rounded-lg pl-2.5"
             aria-label="Select a value"
+            className="ml-auto h-7 w-[130px] rounded-lg pl-2.5"
           >
             <SelectValue placeholder="Select month" />
           </SelectTrigger>
@@ -103,9 +103,9 @@ export default function Component() {
 
               return (
                 <SelectItem
+                  className="rounded-lg [&_span]:flex"
                   key={key}
                   value={key}
-                  className="rounded-lg [&_span]:flex"
                 >
                   <div className="flex items-center gap-2 text-xs">
                     <span
@@ -124,21 +124,16 @@ export default function Component() {
       </CardHeader>
       <CardContent className="flex flex-1 justify-center pb-0">
         <ChartContainer
-          id={id}
-          config={chartConfig}
           className="mx-auto aspect-square w-full max-w-[300px]"
+          config={chartConfig}
+          id={id}
         >
           <PieChart>
             <ChartTooltip
-              cursor={false}
               content={<ChartTooltipContent hideLabel />}
+              cursor={false}
             />
             <Pie
-              data={desktopData}
-              dataKey="desktop"
-              nameKey="month"
-              innerRadius={60}
-              strokeWidth={5}
               activeIndex={activeIndex}
               activeShape={({
                 outerRadius = 0,
@@ -148,33 +143,38 @@ export default function Component() {
                   <Sector {...props} outerRadius={outerRadius + 10} />
                   <Sector
                     {...props}
-                    outerRadius={outerRadius + 25}
                     innerRadius={outerRadius + 12}
+                    outerRadius={outerRadius + 25}
                   />
                 </g>
               )}
+              data={desktopData}
+              dataKey="desktop"
+              innerRadius={60}
+              nameKey="month"
+              strokeWidth={5}
             >
               <Label
                 content={({ viewBox }) => {
                   if (viewBox && "cx" in viewBox && "cy" in viewBox) {
                     return (
                       <text
+                        dominantBaseline="middle"
+                        textAnchor="middle"
                         x={viewBox.cx}
                         y={viewBox.cy}
-                        textAnchor="middle"
-                        dominantBaseline="middle"
                       >
                         <tspan
+                          className="fill-foreground font-bold text-3xl"
                           x={viewBox.cx}
                           y={viewBox.cy}
-                          className="fill-foreground text-3xl font-bold"
                         >
                           {desktopData[activeIndex].desktop.toLocaleString()}
                         </tspan>
                         <tspan
+                          className="fill-muted-foreground"
                           x={viewBox.cx}
                           y={(viewBox.cy || 0) + 24}
-                          className="fill-muted-foreground"
                         >
                           Visitors
                         </tspan>

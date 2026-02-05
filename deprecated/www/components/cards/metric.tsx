@@ -10,7 +10,7 @@ import {
   CardTitle,
 } from "@/registry/new-york/ui/card"
 import {
-  ChartConfig,
+  type ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
@@ -68,7 +68,7 @@ export function CardsMetric() {
         </CardDescription>
       </CardHeader>
       <CardContent className="pb-4">
-        <ChartContainer config={chartConfig} className="w-full md:h-[200px]">
+        <ChartContainer className="w-full md:h-[200px]" config={chartConfig}>
           <LineChart
             data={data}
             margin={{
@@ -79,25 +79,25 @@ export function CardsMetric() {
             }}
           >
             <Line
-              type="monotone"
-              strokeWidth={2}
-              dataKey="average"
-              stroke="var(--color-average)"
-              strokeOpacity={0.5}
               activeDot={{
                 r: 6,
                 fill: "var(--color-average)",
               }}
+              dataKey="average"
+              stroke="var(--color-average)"
+              strokeOpacity={0.5}
+              strokeWidth={2}
+              type="monotone"
             />
             <Line
-              type="monotone"
-              dataKey="today"
-              strokeWidth={2}
-              stroke="var(--color-today)"
               activeDot={{
                 r: 8,
                 style: { fill: "var(--color-today)" },
               }}
+              dataKey="today"
+              stroke="var(--color-today)"
+              strokeWidth={2}
+              type="monotone"
             />
             <ChartTooltip content={<ChartTooltipContent />} />
           </LineChart>

@@ -34,10 +34,10 @@ packages
 
 | Path                 | Description                              |
 | -------------------- | ---------------------------------------- |
-| `apps/v4/app`        | The Next.js application for the website. |
-| `apps/v4/components` | The React components for the website.    |
-| `apps/v4/content`    | The content for the website.             |
-| `apps/v4/registry`   | The registry for the components.         |
+| `apps/bolt/app`        | The Next.js application for the website. |
+| `apps/bolt/components` | The React components for the website.    |
+| `apps/bolt/content`    | The content for the website.             |
+| `apps/bolt/registry`   | The registry for the components.         |
 | `packages/shadcn`    | The `shadcn` package.                    |
 
 ## Development
@@ -79,7 +79,7 @@ You can use the `pnpm --filter=[WORKSPACE]` command to start the development pro
 1. To run the `ui.shadcn.com` website:
 
 ```bash
-pnpm --filter=v4 dev
+pnpm --filter=bolt dev
 ```
 
 2. To run the `shadcn` package:
@@ -114,17 +114,17 @@ This workflow ensures that you are running the most recent version of the regist
 
 ## Documentation
 
-The documentation for this project is located in the `v4` workspace. You can run the documentation locally by running the following command:
+The documentation for this project is located in the `bolt` workspace. You can run the documentation locally by running the following command:
 
 ```bash
-pnpm --filter=v4 dev
+pnpm --filter=bolt dev
 ```
 
-Documentation is written using [MDX](https://mdxjs.com). You can find the documentation files in the `apps/v4/content/docs` directory.
+Documentation is written using [MDX](https://mdxjs.com). You can find the documentation files in the `apps/bolt/content/docs` directory.
 
 ## Components
 
-We use a registry system for developing components. You can find the source code for the components under `apps/v4/registry`. The components are organized by styles.
+We use a registry system for developing components. You can find the source code for the components under `apps/bolt/registry`. The components are organized by styles.
 
 ```bash
 apps

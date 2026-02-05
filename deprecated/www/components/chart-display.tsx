@@ -1,11 +1,10 @@
 import * as React from "react"
-import { registryItemSchema } from "shadcn/schema"
-import { z } from "zod"
-
+import type { registryItemSchema } from "shadcn/schema"
+import type { z } from "zod"
+import { ChartToolbar } from "@/components/chart-toolbar"
 import { highlightCode } from "@/lib/highlight-code"
 import { getRegistryItem } from "@/lib/registry"
 import { cn } from "@/lib/utils"
-import { ChartToolbar } from "@/components/chart-toolbar"
 
 export type Chart = z.infer<typeof registryItemSchema> & {
   highlightedCode: string
@@ -21,7 +20,7 @@ export async function ChartDisplay({
     chart?.files?.[0]?.content ?? ""
   )
 
-  if (!chart || !highlightedCode) {
+  if (!(chart && highlightedCode)) {
     return null
   }
 

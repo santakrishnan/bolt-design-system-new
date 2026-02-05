@@ -1,7 +1,7 @@
 "use client"
 
-import * as React from "react"
 import { Check, ChevronsUpDown } from "lucide-react"
+import * as React from "react"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/registry/new-york/ui/button"
@@ -47,13 +47,13 @@ export function ComboboxDemo() {
   const [value, setValue] = React.useState("")
 
   return (
-    <Popover open={open} onOpenChange={setOpen}>
+    <Popover onOpenChange={setOpen} open={open}>
       <PopoverTrigger asChild>
         <Button
-          variant="outline"
-          role="combobox"
           aria-expanded={open}
           className="w-[200px] justify-between"
+          role="combobox"
+          variant="outline"
         >
           {value
             ? frameworks.find((framework) => framework.value === value)?.label
@@ -63,18 +63,18 @@ export function ComboboxDemo() {
       </PopoverTrigger>
       <PopoverContent className="w-[200px] p-0">
         <Command>
-          <CommandInput placeholder="Search framework..." className="h-9" />
+          <CommandInput className="h-9" placeholder="Search framework..." />
           <CommandList>
             <CommandEmpty>No framework found.</CommandEmpty>
             <CommandGroup>
               {frameworks.map((framework) => (
                 <CommandItem
                   key={framework.value}
-                  value={framework.value}
                   onSelect={(currentValue) => {
                     setValue(currentValue === value ? "" : currentValue)
                     setOpen(false)
                   }}
+                  value={framework.value}
                 >
                   {framework.label}
                   <Check

@@ -3,11 +3,11 @@ import * as React from "react"
 import { Card, CardContent } from "@/registry/default/ui/card"
 import {
   Carousel,
+  type CarouselApi,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-  type CarouselApi,
 } from "@/registry/default/ui/carousel"
 
 export default function CarouselDApiDemo() {
@@ -30,13 +30,13 @@ export default function CarouselDApiDemo() {
 
   return (
     <div className="mx-auto max-w-xs">
-      <Carousel setApi={setApi} className="w-full max-w-xs">
+      <Carousel className="w-full max-w-xs" setApi={setApi}>
         <CarouselContent>
           {Array.from({ length: 5 }).map((_, index) => (
             <CarouselItem key={index}>
               <Card>
                 <CardContent className="flex aspect-square items-center justify-center p-6">
-                  <span className="text-4xl font-semibold">{index + 1}</span>
+                  <span className="font-semibold text-4xl">{index + 1}</span>
                 </CardContent>
               </Card>
             </CarouselItem>
@@ -45,7 +45,7 @@ export default function CarouselDApiDemo() {
         <CarouselPrevious />
         <CarouselNext />
       </Carousel>
-      <div className="py-2 text-center text-sm text-muted-foreground">
+      <div className="py-2 text-center text-muted-foreground text-sm">
         Slide {current} of {count}
       </div>
     </div>

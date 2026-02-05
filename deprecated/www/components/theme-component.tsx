@@ -2,10 +2,9 @@
 
 import * as React from "react"
 import { Index } from "@/__registry__"
-
-import { cn } from "@/lib/utils"
-import { useConfig } from "@/hooks/use-config"
 import { Icons } from "@/components/icons"
+import { useConfig } from "@/hooks/use-config"
+import { cn } from "@/lib/utils"
 
 interface ThemeComponentProps extends React.HTMLAttributes<HTMLDivElement> {
   name: string
@@ -22,7 +21,7 @@ export function ThemeComponent({ name, ...props }: ThemeComponentProps) {
 
     if (!Component) {
       return (
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           Component{" "}
           <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">
             {name}
@@ -39,7 +38,7 @@ export function ThemeComponent({ name, ...props }: ThemeComponentProps) {
     <div className={cn("relative")} {...props}>
       <React.Suspense
         fallback={
-          <div className="flex items-center text-sm text-muted-foreground">
+          <div className="flex items-center text-muted-foreground text-sm">
             <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
             Loading...
           </div>

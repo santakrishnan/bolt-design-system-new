@@ -1,6 +1,5 @@
 "use client"
 
-import * as React from "react"
 import {
   BadgeCheck,
   Bell,
@@ -12,6 +11,7 @@ import {
   Plus,
   Sparkles,
 } from "lucide-react"
+import * as React from "react"
 
 import {
   Avatar,
@@ -93,7 +93,7 @@ export default function Page() {
       <SidebarInset>
         <header className="sticky top-0 flex h-16 shrink-0 items-center gap-2 border-b bg-background px-4">
           <SidebarTrigger className="-ml-1" />
-          <Separator orientation="vertical" className="mr-2 h-4" />
+          <Separator className="mr-2 h-4" orientation="vertical" />
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem>
@@ -105,7 +105,7 @@ export default function Page() {
         <div className="flex flex-1 flex-col gap-4 p-4">
           <div className="grid auto-rows-min gap-4 md:grid-cols-5">
             {Array.from({ length: 20 }).map((_, i) => (
-              <div key={i} className="aspect-square rounded-xl bg-muted/50" />
+              <div className="aspect-square rounded-xl bg-muted/50" key={i} />
             ))}
           </div>
         </div>
@@ -117,7 +117,7 @@ export default function Page() {
 function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar {...props}>
-      <SidebarHeader className="h-16 border-b border-sidebar-border">
+      <SidebarHeader className="h-16 border-sidebar-border border-b">
         <NavUser user={data.user} />
       </SidebarHeader>
       <SidebarContent>
@@ -152,14 +152,14 @@ function Calendars({
     <>
       {calendars.map((calendar, index) => (
         <React.Fragment key={calendar.name}>
-          <SidebarGroup key={calendar.name} className="py-0">
+          <SidebarGroup className="py-0" key={calendar.name}>
             <Collapsible
-              defaultOpen={index === 0}
               className="group/collapsible"
+              defaultOpen={index === 0}
             >
               <SidebarGroupLabel
                 asChild
-                className="group/label w-full text-sm text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+                className="group/label w-full text-sidebar-foreground text-sm hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
               >
                 <CollapsibleTrigger>
                   {calendar.name}{" "}
@@ -173,8 +173,8 @@ function Calendars({
                       <SidebarMenuItem key={item}>
                         <SidebarMenuButton>
                           <div
-                            data-active={index < 2}
                             className="group/calendar-item flex aspect-square size-4 shrink-0 items-center justify-center rounded-sm border border-sidebar-border text-sidebar-primary-foreground data-[active=true]:border-sidebar-primary data-[active=true]:bg-sidebar-primary"
+                            data-active={index < 2}
                           >
                             <Check className="hidden size-3 group-data-[active=true]/calendar-item:block" />
                           </div>
@@ -221,11 +221,11 @@ function NavUser({
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <SidebarMenuButton
-              size="lg"
               className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
+              size="lg"
             >
               <Avatar className="h-8 w-8 rounded-lg">
-                <AvatarImage src={user.avatar} alt={user.name} />
+                <AvatarImage alt={user.name} src={user.avatar} />
                 <AvatarFallback className="rounded-lg">CN</AvatarFallback>
               </Avatar>
               <div className="grid flex-1 text-left text-sm leading-tight">
@@ -236,15 +236,15 @@ function NavUser({
             </SidebarMenuButton>
           </DropdownMenuTrigger>
           <DropdownMenuContent
+            align="start"
             className="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg"
             side={isMobile ? "bottom" : "right"}
-            align="start"
             sideOffset={4}
           >
             <DropdownMenuLabel className="p-0 font-normal">
               <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
                 <Avatar className="h-8 w-8 rounded-lg">
-                  <AvatarImage src={user.avatar} alt={user.name} />
+                  <AvatarImage alt={user.name} src={user.avatar} />
                   <AvatarFallback className="rounded-lg">CN</AvatarFallback>
                 </Avatar>
                 <div className="grid flex-1 text-left text-sm leading-tight">

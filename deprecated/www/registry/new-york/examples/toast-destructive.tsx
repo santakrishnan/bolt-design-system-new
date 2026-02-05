@@ -9,7 +9,6 @@ export default function ToastDestructive() {
 
   return (
     <Button
-      variant="outline"
       onClick={() => {
         toast({
           variant: "destructive",
@@ -18,6 +17,7 @@ export default function ToastDestructive() {
           action: <ToastAction altText="Try again">Try again</ToastAction>,
         })
       }}
+      variant="outline"
     >
       Show Toast
     </Button>

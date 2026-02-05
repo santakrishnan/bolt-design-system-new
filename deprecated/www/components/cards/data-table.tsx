@@ -1,19 +1,19 @@
 "use client"
 
-import * as React from "react"
 import {
-  ColumnDef,
-  ColumnFiltersState,
-  SortingState,
-  VisibilityState,
+  type ColumnDef,
+  type ColumnFiltersState,
   flexRender,
   getCoreRowModel,
   getFilteredRowModel,
   getPaginationRowModel,
   getSortedRowModel,
+  type SortingState,
   useReactTable,
+  type VisibilityState,
 } from "@tanstack/react-table"
 import { ArrowUpDown, ChevronDown, MoreHorizontal } from "lucide-react"
+import * as React from "react"
 
 import { Button } from "@/registry/new-york/ui/button"
 import {
@@ -82,19 +82,19 @@ export const columns: ColumnDef<Payment>[] = [
     id: "select",
     header: ({ table }) => (
       <Checkbox
+        aria-label="Select all"
         checked={
           table.getIsAllPageRowsSelected() ||
           (table.getIsSomePageRowsSelected() && "indeterminate")
         }
         onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        aria-label="Select all"
       />
     ),
     cell: ({ row }) => (
       <Checkbox
+        aria-label="Select row"
         checked={row.getIsSelected()}
         onCheckedChange={(value) => row.toggleSelected(!!value)}
-        aria-label="Select row"
       />
     ),
     enableSorting: false,
@@ -112,8 +112,8 @@ export const columns: ColumnDef<Payment>[] = [
     header: ({ column }) => {
       return (
         <Button
-          variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          variant="ghost"
         >
           Email
           <ArrowUpDown />
@@ -126,7 +126,7 @@ export const columns: ColumnDef<Payment>[] = [
     accessorKey: "amount",
     header: () => <div className="text-right">Amount</div>,
     cell: ({ row }) => {
-      const amount = parseFloat(row.getValue("amount"))
+      const amount = Number.parseFloat(row.getValue("amount"))
 
       // Format the amount as a dollar amount
       const formatted = new Intl.NumberFormat("en-US", {
@@ -146,7 +146,7 @@ export const columns: ColumnDef<Payment>[] = [
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="h-8 w-8 p-0">
+            <Button className="h-8 w-8 p-0" variant="ghost">
               <span className="sr-only">Open menu</span>
               <MoreHorizontal />
             </Button>
@@ -205,16 +205,16 @@ export function CardsDataTable() {
       <CardContent>
         <div className="mb-4 flex items-center gap-4">
           <Input
-            placeholder="Filter emails..."
-            value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
+            className="max-w-sm"
             onChange={(event) =>
               table.getColumn("email")?.setFilterValue(event.target.value)
             }
-            className="max-w-sm"
+            placeholder="Filter emails..."
+            value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
           />
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="outline" className="ml-auto">
+              <Button className="ml-auto" variant="outline">
                 Columns <ChevronDown />
               </Button>
             </DropdownMenuTrigger>
@@ -225,9 +225,9 @@ export function CardsDataTable() {
                 .map((column) => {
                   return (
                     <DropdownMenuCheckboxItem
-                      key={column.id}
-                      className="capitalize"
                       checked={column.getIsVisible()}
+                      className="capitalize"
+                      key={column.id}
                       onCheckedChange={(value) =>
                         column.toggleVisibility(!!value)
                       }
@@ -247,8 +247,8 @@ export function CardsDataTable() {
                   {headerGroup.headers.map((header) => {
                     return (
                       <TableHead
-                        key={header.id}
                         className="[&:has([role=checkbox])]:pl-3"
+                        key={header.id}
                       >
                         {header.isPlaceholder
                           ? null
@@ -266,13 +266,13 @@ export function CardsDataTable() {
               {table.getRowModel().rows?.length ? (
                 table.getRowModel().rows.map((row) => (
                   <TableRow
-                    key={row.id}
                     data-state={row.getIsSelected() && "selected"}
+                    key={row.id}
                   >
                     {row.getVisibleCells().map((cell) => (
                       <TableCell
-                        key={cell.id}
                         className="[&:has([role=checkbox])]:pl-3"
+                        key={cell.id}
                       >
                         {flexRender(
                           cell.column.columnDef.cell,
@@ -285,8 +285,8 @@ export function CardsDataTable() {
               ) : (
                 <TableRow>
                   <TableCell
-                    colSpan={columns.length}
                     className="h-24 text-center"
+                    colSpan={columns.length}
                   >
                     No results.
                   </TableCell>
@@ -296,24 +296,24 @@ export function CardsDataTable() {
           </Table>
         </div>
         <div className="flex items-center justify-end space-x-2 pt-4">
-          <div className="flex-1 text-sm text-muted-foreground">
+          <div className="flex-1 text-muted-foreground text-sm">
             {table.getFilteredSelectedRowModel().rows.length} of{" "}
             {table.getFilteredRowModel().rows.length} row(s) selected.
           </div>
           <div className="space-x-2">
             <Button
-              variant="outline"
-              size="sm"
-              onClick={() => table.previousPage()}
               disabled={!table.getCanPreviousPage()}
+              onClick={() => table.previousPage()}
+              size="sm"
+              variant="outline"
             >
               Previous
             </Button>
             <Button
-              variant="outline"
-              size="sm"
-              onClick={() => table.nextPage()}
               disabled={!table.getCanNextPage()}
+              onClick={() => table.nextPage()}
+              size="sm"
+              variant="outline"
             >
               Next
             </Button>

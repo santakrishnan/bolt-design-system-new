@@ -1,9 +1,9 @@
-import { THEMES } from "@/lib/themes"
+import * as Charts from "@/app/(app)/charts/charts"
 import { ChartDisplay } from "@/components/chart-display"
 import { ThemesSwitcher } from "@/components/themes-selector"
 import { ThemesStyle } from "@/components/themes-styles"
+import { THEMES } from "@/lib/themes"
 import { Separator } from "@/registry/new-york/ui/separator"
-import * as Charts from "@/app/(app)/charts/charts"
 
 export default function ChartsPage() {
   return (
@@ -11,14 +11,14 @@ export default function ChartsPage() {
       <ThemesStyle />
       <div className="gap-6 md:flex md:flex-row-reverse md:items-start">
         <ThemesSwitcher
+          className="fixed inset-x-0 bottom-0 z-40 flex bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 lg:sticky lg:top-20 lg:bottom-auto"
           themes={THEMES}
-          className="fixed inset-x-0 bottom-0 z-40 flex bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 lg:sticky lg:bottom-auto lg:top-20"
         />
         <div className="grid flex-1 gap-12">
           <h2 className="sr-only">Examples</h2>
           <div
-            id="examples"
             className="grid flex-1 scroll-mt-20 items-start gap-10 md:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:gap-10"
+            id="examples"
           >
             <ChartDisplay name="chart-area-stacked">
               <Charts.ChartAreaStacked />
@@ -27,16 +27,16 @@ export default function ChartsPage() {
               <Charts.ChartBarMultiple />
             </ChartDisplay>
             <ChartDisplay
-              name="chart-pie-donut-text"
               className="[&_[data-chart]]:xl:max-h-[243px]"
+              name="chart-pie-donut-text"
             >
               <Charts.ChartPieDonutText />
             </ChartDisplay>
           </div>
           <Separator />
           <div
-            id="area-chart"
             className="grid flex-1 scroll-mt-20 items-start gap-10 md:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:gap-10"
+            id="area-chart"
           >
             <ChartDisplay name="chart-area-default">
               <Charts.ChartAreaDefault />
@@ -73,8 +73,8 @@ export default function ChartsPage() {
           </div>
           <Separator />
           <div
-            id="bar-chart"
             className="grid flex-1 scroll-mt-20 items-start gap-10 md:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:gap-10"
+            id="bar-chart"
           >
             <ChartDisplay name="chart-bar-default">
               <Charts.ChartBarDefault />
@@ -111,8 +111,8 @@ export default function ChartsPage() {
           </div>
           <Separator />
           <div
-            id="line-chart"
             className="grid flex-1 scroll-mt-20 items-start gap-10 md:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:gap-10"
+            id="line-chart"
           >
             <ChartDisplay name="chart-line-default">
               <Charts.ChartLineDefault />
@@ -149,8 +149,8 @@ export default function ChartsPage() {
           </div>
           <Separator />
           <div
-            id="pie-chart"
             className="grid flex-1 scroll-mt-20 items-start gap-10 md:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:gap-10"
+            id="pie-chart"
           >
             <ChartDisplay name="chart-pie-simple">
               <Charts.ChartPieSimple />
@@ -188,8 +188,8 @@ export default function ChartsPage() {
           </div>
           <Separator />
           <div
-            id="radar-chart"
             className="grid flex-1 scroll-mt-20 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:gap-10"
+            id="radar-chart"
           >
             <ChartDisplay name="chart-radar-default">
               <Charts.ChartRadarDefault />
@@ -236,8 +236,8 @@ export default function ChartsPage() {
           </div>
           <Separator />
           <div
-            id="radial-chart"
             className="grid flex-1 scroll-mt-20 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:gap-10"
+            id="radial-chart"
           >
             <ChartDisplay name="chart-radial-simple">
               <Charts.ChartRadialSimple />
@@ -260,8 +260,8 @@ export default function ChartsPage() {
           </div>
           <Separator />
           <div
-            id="tooltip"
             className="chart-wrapper grid flex-1 scroll-mt-20 items-start gap-10 md:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:gap-10"
+            id="tooltip"
           >
             <ChartDisplay name="chart-tooltip-default">
               <Charts.ChartTooltipDefault />

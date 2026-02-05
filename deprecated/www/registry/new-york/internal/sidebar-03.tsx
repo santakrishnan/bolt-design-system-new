@@ -1,7 +1,6 @@
 "use client"
 
-import * as React from "react"
-import { Check, ChevronsUpDown, GalleryVerticalEnd, Search } from "lucide-react"
+import { GalleryVerticalEnd } from "lucide-react"
 
 import {
   Breadcrumb,
@@ -11,22 +10,12 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/registry/new-york/ui/breadcrumb"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/registry/new-york/ui/dropdown-menu"
-import { Label } from "@/registry/new-york/ui/label"
 import { Separator } from "@/registry/new-york/ui/separator"
 import {
   Sidebar,
   SidebarContent,
   SidebarGroup,
-  SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarHeader,
-  SidebarInput,
   SidebarInset,
   SidebarMenu,
   SidebarMenuButton,
@@ -191,7 +180,7 @@ export default function Component() {
         <SidebarHeader>
           <SidebarMenu>
             <SidebarMenuItem>
-              <SidebarMenuButton size="lg" asChild>
+              <SidebarMenuButton asChild size="lg">
                 <a href="#">
                   <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
                     <GalleryVerticalEnd className="size-4" />
@@ -211,7 +200,7 @@ export default function Component() {
               {data.navMain.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-                    <a href={item.url} className="font-medium">
+                    <a className="font-medium" href={item.url}>
                       {item.title}
                     </a>
                   </SidebarMenuButton>
@@ -240,7 +229,7 @@ export default function Component() {
         <header className="flex h-16 shrink-0 items-center gap-2 border-b">
           <div className="flex items-center gap-2 px-3">
             <SidebarTrigger />
-            <Separator orientation="vertical" className="mr-2 h-4" />
+            <Separator className="mr-2 h-4" orientation="vertical" />
             <Breadcrumb>
               <BreadcrumbList>
                 <BreadcrumbItem className="hidden md:block">

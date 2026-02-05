@@ -2,10 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "combobox-popover",
   "type": "registry:example",
-  "registryDependencies": [
-    "combobox",
-    "popover"
-  ],
+  "registryDependencies": ["combobox", "popover"],
   "files": [
     {
       "path": "registry/new-york-v4/examples/combobox-popover.tsx",

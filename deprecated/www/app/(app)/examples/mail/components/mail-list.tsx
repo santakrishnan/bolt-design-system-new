@@ -1,12 +1,10 @@
-import { ComponentProps } from "react"
 import formatDistanceToNow from "date-fns/formatDistanceToNow"
-
+import type { ComponentProps } from "react"
+import type { Mail } from "@/app/(app)/examples/mail/data"
+import { useMail } from "@/app/(app)/examples/mail/use-mail"
 import { cn } from "@/lib/utils"
 import { Badge } from "@/registry/new-york/ui/badge"
 import { ScrollArea } from "@/registry/new-york/ui/scroll-area"
-import { Separator } from "@/registry/new-york/ui/separator"
-import { Mail } from "@/app/(app)/examples/mail/data"
-import { useMail } from "@/app/(app)/examples/mail/use-mail"
 
 interface MailListProps {
   items: Mail[]
@@ -20,11 +18,11 @@ export function MailList({ items }: MailListProps) {
       <div className="flex flex-col gap-2 p-4 pt-0">
         {items.map((item) => (
           <button
-            key={item.id}
             className={cn(
               "flex flex-col items-start gap-2 rounded-lg border p-3 text-left text-sm transition-all hover:bg-accent",
               mail.selected === item.id && "bg-muted"
             )}
+            key={item.id}
             onClick={() =>
               setMail({
                 ...mail,
@@ -53,9 +51,9 @@ export function MailList({ items }: MailListProps) {
                   })}
                 </div>
               </div>
-              <div className="text-xs font-medium">{item.subject}</div>
+              <div className="font-medium text-xs">{item.subject}</div>
             </div>
-            <div className="line-clamp-2 text-xs text-muted-foreground">
+            <div className="line-clamp-2 text-muted-foreground text-xs">
               {item.text.substring(0, 300)}
             </div>
             {item.labels.length ? (

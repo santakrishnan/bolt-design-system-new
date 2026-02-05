@@ -1,11 +1,10 @@
 "use client"
 
-import * as React from "react"
-import { PopoverProps } from "@radix-ui/react-popover"
+import type { PopoverProps } from "@radix-ui/react-popover"
 import { Check, ChevronsUpDown } from "lucide-react"
-
-import { cn } from "@/lib/utils"
+import * as React from "react"
 import { useMutationObserver } from "@/hooks/use-mutation-observer"
+import { cn } from "@/lib/utils"
 import { Button } from "@/registry/new-york/ui/button"
 import {
   Command,
@@ -27,7 +26,7 @@ import {
   PopoverTrigger,
 } from "@/registry/new-york/ui/popover"
 
-import { Model, ModelType } from "../data/models"
+import type { Model, ModelType } from "../data/models"
 
 interface ModelSelectorProps extends PopoverProps {
   types: readonly ModelType[]
@@ -54,14 +53,14 @@ export function ModelSelector({ models, types, ...props }: ModelSelectorProps) {
           for natural language tasks, others specialize in code. Learn more.
         </HoverCardContent>
       </HoverCard>
-      <Popover open={open} onOpenChange={setOpen} {...props}>
+      <Popover onOpenChange={setOpen} open={open} {...props}>
         <PopoverTrigger asChild>
           <Button
-            variant="outline"
-            role="combobox"
             aria-expanded={open}
             aria-label="Select a model"
             className="w-full justify-between"
+            role="combobox"
+            variant="outline"
           >
             {selectedModel ? selectedModel.name : "Select a model..."}
             <ChevronsUpDown className="opacity-50" />
@@ -70,22 +69,22 @@ export function ModelSelector({ models, types, ...props }: ModelSelectorProps) {
         <PopoverContent align="end" className="w-[250px] p-0">
           <HoverCard>
             <HoverCardContent
-              side="left"
               align="start"
-              forceMount
               className="min-h-[280px]"
+              forceMount
+              side="left"
             >
               <div className="grid gap-2">
                 <h4 className="font-medium leading-none">{peekedModel.name}</h4>
-                <div className="text-sm text-muted-foreground">
+                <div className="text-muted-foreground text-sm">
                   {peekedModel.description}
                 </div>
                 {peekedModel.strengths ? (
                   <div className="mt-4 grid gap-2">
-                    <h5 className="text-sm font-medium leading-none">
+                    <h5 className="font-medium text-sm leading-none">
                       Strengths
                     </h5>
-                    <ul className="text-sm text-muted-foreground">
+                    <ul className="text-muted-foreground text-sm">
                       {peekedModel.strengths}
                     </ul>
                   </div>
@@ -98,14 +97,14 @@ export function ModelSelector({ models, types, ...props }: ModelSelectorProps) {
                 <CommandEmpty>No Models found.</CommandEmpty>
                 <HoverCardTrigger />
                 {types.map((type) => (
-                  <CommandGroup key={type} heading={type}>
+                  <CommandGroup heading={type} key={type}>
                     {models
                       .filter((model) => model.type === type)
                       .map((model) => (
                         <ModelItem
+                          isSelected={selectedModel?.id === model.id}
                           key={model.id}
                           model={model}
-                          isSelected={selectedModel?.id === model.id}
                           onPeek={(model) => setPeekedModel(model)}
                           onSelect={() => {
                             setSelectedModel(model)
@@ -148,10 +147,10 @@ function ModelItem({ model, isSelected, onSelect, onPeek }: ModelItemProps) {
 
   return (
     <CommandItem
+      className="data-[selected=true]:bg-primary data-[selected=true]:text-primary-foreground"
       key={model.id}
       onSelect={onSelect}
       ref={ref}
-      className="data-[selected=true]:bg-primary data-[selected=true]:text-primary-foreground"
     >
       {model.name}
       <Check

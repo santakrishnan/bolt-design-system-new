@@ -21,37 +21,37 @@ export function CardsCookieSettings() {
       </CardHeader>
       <CardContent className="grid gap-6">
         <div className="flex items-center justify-between space-x-4">
-          <Label htmlFor="necessary" className="flex flex-col space-y-1">
+          <Label className="flex flex-col space-y-1" htmlFor="necessary">
             <span>Strictly Necessary</span>
-            <span className="text-xs font-normal leading-snug text-muted-foreground">
+            <span className="font-normal text-muted-foreground text-xs leading-snug">
               These cookies are essential in order to use the website and use
               its features.
             </span>
           </Label>
-          <Switch id="necessary" defaultChecked aria-label="Necessary" />
+          <Switch aria-label="Necessary" defaultChecked id="necessary" />
         </div>
         <div className="flex items-center justify-between space-x-4">
-          <Label htmlFor="functional" className="flex flex-col space-y-1">
+          <Label className="flex flex-col space-y-1" htmlFor="functional">
             <span>Functional Cookies</span>
-            <span className="text-xs font-normal leading-snug text-muted-foreground">
+            <span className="font-normal text-muted-foreground text-xs leading-snug">
               These cookies allow the website to provide personalized
               functionality.
             </span>
           </Label>
-          <Switch id="functional" aria-label="Functional" />
+          <Switch aria-label="Functional" id="functional" />
         </div>
         <div className="flex items-center justify-between space-x-4">
-          <Label htmlFor="performance" className="flex flex-col space-y-1">
+          <Label className="flex flex-col space-y-1" htmlFor="performance">
             <span>Performance Cookies</span>
-            <span className="text-xs font-normal leading-snug text-muted-foreground">
+            <span className="font-normal text-muted-foreground text-xs leading-snug">
               These cookies help to improve the performance of the website.
             </span>
           </Label>
-          <Switch id="performance" aria-label="Performance" />
+          <Switch aria-label="Performance" id="performance" />
         </div>
       </CardContent>
       <CardFooter>
-        <Button variant="outline" className="w-full">
+        <Button className="w-full" variant="outline">
           Save preferences
         </Button>
       </CardFooter>

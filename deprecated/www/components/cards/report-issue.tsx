@@ -38,7 +38,7 @@ export function CardsReportIssue() {
           <div className="grid gap-2">
             <Label htmlFor={`area-${id}`}>Area</Label>
             <Select defaultValue="billing">
-              <SelectTrigger id={`area-${id}`} aria-label="Area">
+              <SelectTrigger aria-label="Area" id={`area-${id}`}>
                 <SelectValue placeholder="Select" />
               </SelectTrigger>
               <SelectContent>
@@ -54,9 +54,9 @@ export function CardsReportIssue() {
             <Label htmlFor={`security-level-${id}`}>Security Level</Label>
             <Select defaultValue="2">
               <SelectTrigger
-                id={`security-level-${id}`}
-                className="line-clamp-1 w-full truncate"
                 aria-label="Security Level"
+                className="line-clamp-1 w-full truncate"
+                id={`security-level-${id}`}
               >
                 <SelectValue placeholder="Select level" />
               </SelectTrigger>
@@ -82,7 +82,7 @@ export function CardsReportIssue() {
         </div>
       </CardContent>
       <CardFooter className="justify-between space-x-2">
-        <Button variant="ghost" size="sm">
+        <Button size="sm" variant="ghost">
           Cancel
         </Button>
         <Button size="sm">Submit</Button>

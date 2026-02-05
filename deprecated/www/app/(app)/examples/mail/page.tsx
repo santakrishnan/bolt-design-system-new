@@ -15,26 +15,26 @@ export default function MailPage() {
     <>
       <div className="md:hidden">
         <Image
-          src="/examples/mail-dark.png"
-          width={1280}
-          height={727}
           alt="Mail"
           className="hidden dark:block"
+          height={727}
+          src="/examples/mail-dark.png"
+          width={1280}
         />
         <Image
-          src="/examples/mail-light.png"
-          width={1280}
-          height={727}
           alt="Mail"
           className="block dark:hidden"
+          height={727}
+          src="/examples/mail-light.png"
+          width={1280}
         />
       </div>
       <div className="hidden flex-col md:flex">
         <Mail
           accounts={accounts}
-          mails={mails}
-          defaultLayout={defaultLayout}
           defaultCollapsed={defaultCollapsed}
+          defaultLayout={defaultLayout}
+          mails={mails}
           navCollapsedSize={4}
         />
       </div>

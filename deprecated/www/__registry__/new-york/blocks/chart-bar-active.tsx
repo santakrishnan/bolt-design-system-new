@@ -12,7 +12,7 @@ import {
   CardTitle,
 } from "@/registry/new-york/ui/card"
 import {
-  ChartConfig,
+  type ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
@@ -66,23 +66,19 @@ export default function Component() {
           <BarChart accessibilityLayer data={chartData}>
             <CartesianGrid vertical={false} />
             <XAxis
-              dataKey="browser"
-              tickLine={false}
-              tickMargin={10}
               axisLine={false}
+              dataKey="browser"
               tickFormatter={(value) =>
                 chartConfig[value as keyof typeof chartConfig]?.label
               }
+              tickLine={false}
+              tickMargin={10}
             />
             <ChartTooltip
-              cursor={false}
               content={<ChartTooltipContent hideLabel />}
+              cursor={false}
             />
             <Bar
-              dataKey="visitors"
-              strokeWidth={2}
-              radius={8}
-              activeIndex={2}
               activeBar={({ ...props }) => {
                 return (
                   <Rectangle
@@ -94,6 +90,10 @@ export default function Component() {
                   />
                 )
               }}
+              activeIndex={2}
+              dataKey="visitors"
+              radius={8}
+              strokeWidth={2}
             />
           </BarChart>
         </ChartContainer>
@@ -102,7 +102,7 @@ export default function Component() {
         <div className="flex gap-2 font-medium leading-none">
           Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
         </div>
-        <div className="leading-none text-muted-foreground">
+        <div className="text-muted-foreground leading-none">
           Showing total visitors for the last 6 months
         </div>
       </CardFooter>

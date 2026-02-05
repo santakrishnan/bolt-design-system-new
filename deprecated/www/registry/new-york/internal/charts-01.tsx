@@ -45,14 +45,14 @@ export default function Charts() {
     <div className="chart-wrapper mx-auto flex max-w-6xl flex-col flex-wrap items-start justify-center gap-6 p-6 sm:flex-row sm:p-8">
       <div className="grid w-full gap-6 sm:grid-cols-2 lg:max-w-[22rem] lg:grid-cols-1 xl:max-w-[25rem]">
         <Card
-          x-chunk="A bar chart showing the number of steps you have walked in the past 7 days."
           className="lg:max-w-md"
+          x-chunk="A bar chart showing the number of steps you have walked in the past 7 days."
         >
           <CardHeader className="space-y-0 pb-2">
             <CardDescription>Today</CardDescription>
             <CardTitle className="text-4xl tabular-nums">
               12,584{" "}
-              <span className="font-sans text-sm font-normal tracking-normal text-muted-foreground">
+              <span className="font-normal font-sans text-muted-foreground text-sm tracking-normal">
                 steps
               </span>
             </CardTitle>
@@ -68,10 +68,6 @@ export default function Charts() {
             >
               <BarChart
                 accessibilityLayer
-                margin={{
-                  left: -4,
-                  right: -4,
-                }}
                 data={[
                   {
                     date: "2024-01-01",
@@ -102,27 +98,30 @@ export default function Charts() {
                     steps: 1600,
                   },
                 ]}
+                margin={{
+                  left: -4,
+                  right: -4,
+                }}
               >
                 <Bar
+                  activeBar={<Rectangle fillOpacity={0.8} />}
                   dataKey="steps"
                   fill="var(--color-steps)"
-                  radius={5}
                   fillOpacity={0.6}
-                  activeBar={<Rectangle fillOpacity={0.8} />}
+                  radius={5}
                 />
                 <XAxis
-                  dataKey="date"
-                  tickLine={false}
                   axisLine={false}
-                  tickMargin={4}
+                  dataKey="date"
                   tickFormatter={(value) => {
                     return new Date(value).toLocaleDateString("en-US", {
                       weekday: "short",
                     })
                   }}
+                  tickLine={false}
+                  tickMargin={4}
                 />
                 <ChartTooltip
-                  defaultIndex={2}
                   content={
                     <ChartTooltipContent
                       hideIndicator
@@ -136,26 +135,27 @@ export default function Charts() {
                     />
                   }
                   cursor={false}
+                  defaultIndex={2}
                 />
                 <ReferenceLine
-                  y={1200}
                   stroke="hsl(var(--muted-foreground))"
                   strokeDasharray="3 3"
                   strokeWidth={1}
+                  y={1200}
                 >
                   <Label
+                    fill="hsl(var(--foreground))"
+                    offset={10}
                     position="insideBottomLeft"
                     value="Average Steps"
-                    offset={10}
-                    fill="hsl(var(--foreground))"
                   />
                   <Label
-                    position="insideTopLeft"
-                    value="12,343"
                     className="text-lg"
                     fill="hsl(var(--foreground))"
                     offset={10}
+                    position="insideTopLeft"
                     startOffset={100}
+                    value="12,343"
                   />
                 </ReferenceLine>
               </BarChart>
@@ -174,15 +174,15 @@ export default function Charts() {
           </CardFooter>
         </Card>
         <Card
-          x-chunk="A line chart showing the resting heart rate for the past 7 days."
           className="flex flex-col lg:max-w-md"
+          x-chunk="A line chart showing the resting heart rate for the past 7 days."
         >
           <CardHeader className="flex flex-row items-center gap-4 space-y-0 pb-2 [&>div]:flex-1">
             <div>
               <CardDescription>Resting HR</CardDescription>
               <CardTitle className="flex items-baseline gap-1 text-4xl tabular-nums">
                 62
-                <span className="text-sm font-normal tracking-normal text-muted-foreground">
+                <span className="font-normal text-muted-foreground text-sm tracking-normal">
                   bpm
                 </span>
               </CardTitle>
@@ -191,7 +191,7 @@ export default function Charts() {
               <CardDescription>Variability</CardDescription>
               <CardTitle className="flex items-baseline gap-1 text-4xl tabular-nums">
                 35
-                <span className="text-sm font-normal tracking-normal text-muted-foreground">
+                <span className="font-normal text-muted-foreground text-sm tracking-normal">
                   ms
                 </span>
               </CardTitle>
@@ -199,21 +199,16 @@ export default function Charts() {
           </CardHeader>
           <CardContent className="flex flex-1 items-center">
             <ChartContainer
+              className="w-full"
               config={{
                 resting: {
                   label: "Resting",
                   color: "hsl(var(--chart-1))",
                 },
               }}
-              className="w-full"
             >
               <LineChart
                 accessibilityLayer
-                margin={{
-                  left: 14,
-                  right: 14,
-                  top: 10,
-                }}
                 data={[
                   {
                     date: "2024-01-01",
@@ -244,37 +239,42 @@ export default function Charts() {
                     resting: 70,
                   },
                 ]}
+                margin={{
+                  left: 14,
+                  right: 14,
+                  top: 10,
+                }}
               >
                 <CartesianGrid
-                  strokeDasharray="4 4"
-                  vertical={false}
                   stroke="hsl(var(--muted-foreground))"
+                  strokeDasharray="4 4"
                   strokeOpacity={0.5}
+                  vertical={false}
                 />
-                <YAxis hide domain={["dataMin - 10", "dataMax + 10"]} />
+                <YAxis domain={["dataMin - 10", "dataMax + 10"]} hide />
                 <XAxis
-                  dataKey="date"
-                  tickLine={false}
                   axisLine={false}
-                  tickMargin={8}
+                  dataKey="date"
                   tickFormatter={(value) => {
                     return new Date(value).toLocaleDateString("en-US", {
                       weekday: "short",
                     })
                   }}
+                  tickLine={false}
+                  tickMargin={8}
                 />
                 <Line
-                  dataKey="resting"
-                  type="natural"
-                  fill="var(--color-resting)"
-                  stroke="var(--color-resting)"
-                  strokeWidth={2}
-                  dot={false}
                   activeDot={{
                     fill: "var(--color-resting)",
                     stroke: "var(--color-resting)",
                     r: 4,
                   }}
+                  dataKey="resting"
+                  dot={false}
+                  fill="var(--color-resting)"
+                  stroke="var(--color-resting)"
+                  strokeWidth={2}
+                  type="natural"
                 />
                 <ChartTooltip
                   content={
@@ -298,8 +298,8 @@ export default function Charts() {
       </div>
       <div className="grid w-full flex-1 gap-6 lg:max-w-[20rem]">
         <Card
-          x-chunk="Two horizontal bar charts showing total steps taken during the current year and last year."
           className="max-w-xs"
+          x-chunk="Two horizontal bar charts showing total steps taken during the current year and last year."
         >
           <CardHeader>
             <CardTitle>Progress</CardTitle>
@@ -309,23 +309,29 @@ export default function Charts() {
           </CardHeader>
           <CardContent className="grid gap-4">
             <div className="grid auto-rows-min gap-2">
-              <div className="flex items-baseline gap-1 text-2xl font-bold tabular-nums leading-none">
+              <div className="flex items-baseline gap-1 font-bold text-2xl tabular-nums leading-none">
                 12,453
-                <span className="text-sm font-normal text-muted-foreground">
+                <span className="font-normal text-muted-foreground text-sm">
                   steps/day
                 </span>
               </div>
               <ChartContainer
+                className="aspect-auto h-[32px] w-full"
                 config={{
                   steps: {
                     label: "Steps",
                     color: "hsl(var(--chart-1))",
                   },
                 }}
-                className="aspect-auto h-[32px] w-full"
               >
                 <BarChart
                   accessibilityLayer
+                  data={[
+                    {
+                      date: "2024",
+                      steps: 12_435,
+                    },
+                  ]}
                   layout="vertical"
                   margin={{
                     left: 0,
@@ -333,50 +339,50 @@ export default function Charts() {
                     right: 0,
                     bottom: 0,
                   }}
-                  data={[
-                    {
-                      date: "2024",
-                      steps: 12435,
-                    },
-                  ]}
                 >
                   <Bar
+                    barSize={32}
                     dataKey="steps"
                     fill="var(--color-steps)"
                     radius={4}
-                    barSize={32}
                   >
                     <LabelList
-                      position="insideLeft"
                       dataKey="date"
-                      offset={8}
-                      fontSize={12}
                       fill="white"
+                      fontSize={12}
+                      offset={8}
+                      position="insideLeft"
                     />
                   </Bar>
-                  <YAxis dataKey="date" type="category" tickCount={1} hide />
-                  <XAxis dataKey="steps" type="number" hide />
+                  <YAxis dataKey="date" hide tickCount={1} type="category" />
+                  <XAxis dataKey="steps" hide type="number" />
                 </BarChart>
               </ChartContainer>
             </div>
             <div className="grid auto-rows-min gap-2">
-              <div className="flex items-baseline gap-1 text-2xl font-bold tabular-nums leading-none">
+              <div className="flex items-baseline gap-1 font-bold text-2xl tabular-nums leading-none">
                 10,103
-                <span className="text-sm font-normal text-muted-foreground">
+                <span className="font-normal text-muted-foreground text-sm">
                   steps/day
                 </span>
               </div>
               <ChartContainer
+                className="aspect-auto h-[32px] w-full"
                 config={{
                   steps: {
                     label: "Steps",
                     color: "hsl(var(--muted))",
                   },
                 }}
-                className="aspect-auto h-[32px] w-full"
               >
                 <BarChart
                   accessibilityLayer
+                  data={[
+                    {
+                      date: "2023",
+                      steps: 10_103,
+                    },
+                  ]}
                   layout="vertical"
                   margin={{
                     left: 0,
@@ -384,37 +390,31 @@ export default function Charts() {
                     right: 0,
                     bottom: 0,
                   }}
-                  data={[
-                    {
-                      date: "2023",
-                      steps: 10103,
-                    },
-                  ]}
                 >
                   <Bar
+                    barSize={32}
                     dataKey="steps"
                     fill="var(--color-steps)"
                     radius={4}
-                    barSize={32}
                   >
                     <LabelList
-                      position="insideLeft"
                       dataKey="date"
-                      offset={8}
-                      fontSize={12}
                       fill="hsl(var(--muted-foreground))"
+                      fontSize={12}
+                      offset={8}
+                      position="insideLeft"
                     />
                   </Bar>
-                  <YAxis dataKey="date" type="category" tickCount={1} hide />
-                  <XAxis dataKey="steps" type="number" hide />
+                  <YAxis dataKey="date" hide tickCount={1} type="category" />
+                  <XAxis dataKey="steps" hide type="number" />
                 </BarChart>
               </ChartContainer>
             </div>
           </CardContent>
         </Card>
         <Card
-          x-chunk="A bar chart showing the walking and running distance for the past 7 days."
           className="max-w-xs"
+          x-chunk="A bar chart showing the walking and running distance for the past 7 days."
         >
           <CardHeader className="p-4 pb-0">
             <CardTitle>Walking Distance</CardTitle>
@@ -424,29 +424,23 @@ export default function Charts() {
             </CardDescription>
           </CardHeader>
           <CardContent className="flex flex-row items-baseline gap-4 p-4 pt-0">
-            <div className="flex items-baseline gap-1 text-3xl font-bold tabular-nums leading-none">
+            <div className="flex items-baseline gap-1 font-bold text-3xl tabular-nums leading-none">
               12.5
-              <span className="text-sm font-normal text-muted-foreground">
+              <span className="font-normal text-muted-foreground text-sm">
                 miles/day
               </span>
             </div>
             <ChartContainer
+              className="ml-auto w-[72px]"
               config={{
                 steps: {
                   label: "Steps",
                   color: "hsl(var(--chart-1))",
                 },
               }}
-              className="ml-auto w-[72px]"
             >
               <BarChart
                 accessibilityLayer
-                margin={{
-                  left: 0,
-                  right: 0,
-                  top: 0,
-                  bottom: 0,
-                }}
                 data={[
                   {
                     date: "2024-01-01",
@@ -477,32 +471,39 @@ export default function Charts() {
                     steps: 1600,
                   },
                 ]}
+                margin={{
+                  left: 0,
+                  right: 0,
+                  top: 0,
+                  bottom: 0,
+                }}
               >
                 <Bar
+                  activeBar={<Rectangle fillOpacity={0.8} />}
+                  activeIndex={6}
                   dataKey="steps"
                   fill="var(--color-steps)"
-                  radius={2}
                   fillOpacity={0.2}
-                  activeIndex={6}
-                  activeBar={<Rectangle fillOpacity={0.8} />}
+                  radius={2}
                 />
                 <XAxis
-                  dataKey="date"
-                  tickLine={false}
                   axisLine={false}
-                  tickMargin={4}
+                  dataKey="date"
                   hide
+                  tickLine={false}
+                  tickMargin={4}
                 />
               </BarChart>
             </ChartContainer>
           </CardContent>
         </Card>
         <Card
-          x-chunk="A bar chart showing move, exercise, and stand progress."
           className="max-w-xs"
+          x-chunk="A bar chart showing move, exercise, and stand progress."
         >
           <CardContent className="flex gap-4 p-4 pb-2">
             <ChartContainer
+              className="h-[140px] w-full"
               config={{
                 move: {
                   label: "Move",
@@ -517,15 +518,10 @@ export default function Charts() {
                   color: "hsl(var(--chart-3))",
                 },
               }}
-              className="h-[140px] w-full"
             >
               <BarChart
-                margin={{
-                  left: 0,
-                  right: 0,
-                  top: 0,
-                  bottom: 10,
-                }}
+                barGap={2}
+                barSize={32}
                 data={[
                   {
                     activity: "stand",
@@ -547,25 +543,29 @@ export default function Charts() {
                   },
                 ]}
                 layout="vertical"
-                barSize={32}
-                barGap={2}
+                margin={{
+                  left: 0,
+                  right: 0,
+                  top: 0,
+                  bottom: 10,
+                }}
               >
-                <XAxis type="number" dataKey="value" hide />
+                <XAxis dataKey="value" hide type="number" />
                 <YAxis
-                  dataKey="activity"
-                  type="category"
-                  tickLine={false}
-                  tickMargin={4}
                   axisLine={false}
                   className="capitalize"
+                  dataKey="activity"
+                  tickLine={false}
+                  tickMargin={4}
+                  type="category"
                 />
                 <Bar dataKey="value" radius={5}>
                   <LabelList
-                    position="insideLeft"
                     dataKey="label"
                     fill="white"
-                    offset={8}
                     fontSize={12}
+                    offset={8}
+                    position="insideLeft"
                   />
                 </Bar>
               </BarChart>
@@ -574,30 +574,30 @@ export default function Charts() {
           <CardFooter className="flex flex-row border-t p-4">
             <div className="flex w-full items-center gap-2">
               <div className="grid flex-1 auto-rows-min gap-0.5">
-                <div className="text-xs text-muted-foreground">Move</div>
-                <div className="flex items-baseline gap-1 text-2xl font-bold tabular-nums leading-none">
+                <div className="text-muted-foreground text-xs">Move</div>
+                <div className="flex items-baseline gap-1 font-bold text-2xl tabular-nums leading-none">
                   562
-                  <span className="text-sm font-normal text-muted-foreground">
+                  <span className="font-normal text-muted-foreground text-sm">
                     kcal
                   </span>
                 </div>
               </div>
-              <Separator orientation="vertical" className="mx-2 h-10 w-px" />
+              <Separator className="mx-2 h-10 w-px" orientation="vertical" />
               <div className="grid flex-1 auto-rows-min gap-0.5">
-                <div className="text-xs text-muted-foreground">Exercise</div>
-                <div className="flex items-baseline gap-1 text-2xl font-bold tabular-nums leading-none">
+                <div className="text-muted-foreground text-xs">Exercise</div>
+                <div className="flex items-baseline gap-1 font-bold text-2xl tabular-nums leading-none">
                   73
-                  <span className="text-sm font-normal text-muted-foreground">
+                  <span className="font-normal text-muted-foreground text-sm">
                     min
                   </span>
                 </div>
               </div>
-              <Separator orientation="vertical" className="mx-2 h-10 w-px" />
+              <Separator className="mx-2 h-10 w-px" orientation="vertical" />
               <div className="grid flex-1 auto-rows-min gap-0.5">
-                <div className="text-xs text-muted-foreground">Stand</div>
-                <div className="flex items-baseline gap-1 text-2xl font-bold tabular-nums leading-none">
+                <div className="text-muted-foreground text-xs">Stand</div>
+                <div className="flex items-baseline gap-1 font-bold text-2xl tabular-nums leading-none">
                   14
-                  <span className="text-sm font-normal text-muted-foreground">
+                  <span className="font-normal text-muted-foreground text-sm">
                     hr
                   </span>
                 </div>
@@ -608,40 +608,41 @@ export default function Charts() {
       </div>
       <div className="grid w-full flex-1 gap-6">
         <Card
-          x-chunk="A radial bar chart showing the percentage of time spent moving, exercising, and standing."
           className="max-w-xs"
+          x-chunk="A radial bar chart showing the percentage of time spent moving, exercising, and standing."
         >
           <CardContent className="flex gap-4 p-4">
             <div className="grid items-center gap-2">
               <div className="grid flex-1 auto-rows-min gap-0.5">
-                <div className="text-sm text-muted-foreground">Move</div>
-                <div className="flex items-baseline gap-1 text-xl font-bold tabular-nums leading-none">
+                <div className="text-muted-foreground text-sm">Move</div>
+                <div className="flex items-baseline gap-1 font-bold text-xl tabular-nums leading-none">
                   562/600
-                  <span className="text-sm font-normal text-muted-foreground">
+                  <span className="font-normal text-muted-foreground text-sm">
                     kcal
                   </span>
                 </div>
               </div>
               <div className="grid flex-1 auto-rows-min gap-0.5">
-                <div className="text-sm text-muted-foreground">Exercise</div>
-                <div className="flex items-baseline gap-1 text-xl font-bold tabular-nums leading-none">
+                <div className="text-muted-foreground text-sm">Exercise</div>
+                <div className="flex items-baseline gap-1 font-bold text-xl tabular-nums leading-none">
                   73/120
-                  <span className="text-sm font-normal text-muted-foreground">
+                  <span className="font-normal text-muted-foreground text-sm">
                     min
                   </span>
                 </div>
               </div>
               <div className="grid flex-1 auto-rows-min gap-0.5">
-                <div className="text-sm text-muted-foreground">Stand</div>
-                <div className="flex items-baseline gap-1 text-xl font-bold tabular-nums leading-none">
+                <div className="text-muted-foreground text-sm">Stand</div>
+                <div className="flex items-baseline gap-1 font-bold text-xl tabular-nums leading-none">
                   8/12
-                  <span className="text-sm font-normal text-muted-foreground">
+                  <span className="font-normal text-muted-foreground text-sm">
                     hr
                   </span>
                 </div>
               </div>
             </div>
             <ChartContainer
+              className="mx-auto aspect-square w-full max-w-[80%]"
               config={{
                 move: {
                   label: "Move",
@@ -656,15 +657,9 @@ export default function Charts() {
                   color: "hsl(var(--chart-3))",
                 },
               }}
-              className="mx-auto aspect-square w-full max-w-[80%]"
             >
               <RadialBarChart
-                margin={{
-                  left: -10,
-                  right: -10,
-                  top: -10,
-                  bottom: -10,
-                }}
+                barSize={24}
                 data={[
                   {
                     activity: "stand",
@@ -682,25 +677,30 @@ export default function Charts() {
                     fill: "var(--color-move)",
                   },
                 ]}
-                innerRadius="20%"
-                barSize={24}
-                startAngle={90}
                 endAngle={450}
+                innerRadius="20%"
+                margin={{
+                  left: -10,
+                  right: -10,
+                  top: -10,
+                  bottom: -10,
+                }}
+                startAngle={90}
               >
                 <PolarAngleAxis
-                  type="number"
-                  domain={[0, 100]}
                   dataKey="value"
+                  domain={[0, 100]}
                   tick={false}
+                  type="number"
                 />
-                <RadialBar dataKey="value" background cornerRadius={5} />
+                <RadialBar background cornerRadius={5} dataKey="value" />
               </RadialBarChart>
             </ChartContainer>
           </CardContent>
         </Card>
         <Card
-          x-chunk="A bar chart showing active energy in the past 7 days."
           className="max-w-xs"
+          x-chunk="A bar chart showing active energy in the past 7 days."
         >
           <CardHeader className="p-4 pb-0">
             <CardTitle>Active Energy</CardTitle>
@@ -709,29 +709,23 @@ export default function Charts() {
             </CardDescription>
           </CardHeader>
           <CardContent className="flex flex-row items-baseline gap-4 p-4 pt-2">
-            <div className="flex items-baseline gap-2 text-3xl font-bold tabular-nums leading-none">
+            <div className="flex items-baseline gap-2 font-bold text-3xl tabular-nums leading-none">
               1,254
-              <span className="text-sm font-normal text-muted-foreground">
+              <span className="font-normal text-muted-foreground text-sm">
                 kcal/day
               </span>
             </div>
             <ChartContainer
+              className="ml-auto w-[64px]"
               config={{
                 calories: {
                   label: "Calories",
                   color: "hsl(var(--chart-1))",
                 },
               }}
-              className="ml-auto w-[64px]"
             >
               <BarChart
                 accessibilityLayer
-                margin={{
-                  left: 0,
-                  right: 0,
-                  top: 0,
-                  bottom: 0,
-                }}
                 data={[
                   {
                     date: "2024-01-01",
@@ -762,39 +756,45 @@ export default function Charts() {
                     calories: 345,
                   },
                 ]}
+                margin={{
+                  left: 0,
+                  right: 0,
+                  top: 0,
+                  bottom: 0,
+                }}
               >
                 <Bar
+                  activeBar={<Rectangle fillOpacity={0.8} />}
+                  activeIndex={6}
                   dataKey="calories"
                   fill="var(--color-calories)"
-                  radius={2}
                   fillOpacity={0.2}
-                  activeIndex={6}
-                  activeBar={<Rectangle fillOpacity={0.8} />}
+                  radius={2}
                 />
                 <XAxis
-                  dataKey="date"
-                  tickLine={false}
                   axisLine={false}
-                  tickMargin={4}
+                  dataKey="date"
                   hide
+                  tickLine={false}
+                  tickMargin={4}
                 />
               </BarChart>
             </ChartContainer>
           </CardContent>
         </Card>
         <Card
-          x-chunk="An area chart showing the time spent in bed for the past 7 days."
           className="max-w-xs"
+          x-chunk="An area chart showing the time spent in bed for the past 7 days."
         >
           <CardHeader className="space-y-0 pb-0">
             <CardDescription>Time in Bed</CardDescription>
             <CardTitle className="flex items-baseline gap-1 text-4xl tabular-nums">
               8
-              <span className="font-sans text-sm font-normal tracking-normal text-muted-foreground">
+              <span className="font-normal font-sans text-muted-foreground text-sm tracking-normal">
                 hr
               </span>
               35
-              <span className="font-sans text-sm font-normal tracking-normal text-muted-foreground">
+              <span className="font-normal font-sans text-muted-foreground text-sm tracking-normal">
                 min
               </span>
             </CardTitle>
@@ -850,7 +850,7 @@ export default function Charts() {
                 <XAxis dataKey="date" hide />
                 <YAxis domain={["dataMin - 5", "dataMax + 2"]} hide />
                 <defs>
-                  <linearGradient id="fillTime" x1="0" y1="0" x2="0" y2="1">
+                  <linearGradient id="fillTime" x1="0" x2="0" y1="0" y2="1">
                     <stop
                       offset="5%"
                       stopColor="var(--color-time)"
@@ -865,18 +865,18 @@ export default function Charts() {
                 </defs>
                 <Area
                   dataKey="time"
-                  type="natural"
                   fill="url(#fillTime)"
                   fillOpacity={0.4}
                   stroke="var(--color-time)"
+                  type="natural"
                 />
                 <ChartTooltip
-                  cursor={false}
                   content={<ChartTooltipContent hideLabel />}
+                  cursor={false}
                   formatter={(value) => (
-                    <div className="flex min-w-[120px] items-center text-xs text-muted-foreground">
+                    <div className="flex min-w-[120px] items-center text-muted-foreground text-xs">
                       Time in bed
-                      <div className="ml-auto flex items-baseline gap-0.5 font-mono font-medium tabular-nums text-foreground">
+                      <div className="ml-auto flex items-baseline gap-0.5 font-medium font-mono text-foreground tabular-nums">
                         {value}
                         <span className="font-normal text-muted-foreground">
                           hr

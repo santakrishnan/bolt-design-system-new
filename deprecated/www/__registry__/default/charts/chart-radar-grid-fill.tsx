@@ -12,7 +12,7 @@ import {
   CardTitle,
 } from "@/registry/default/ui/card"
 import {
-  ChartConfig,
+  type ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
@@ -47,13 +47,13 @@ export default function Component() {
       </CardHeader>
       <CardContent className="pb-0">
         <ChartContainer
-          config={chartConfig}
           className="mx-auto aspect-square max-h-[250px]"
+          config={chartConfig}
         >
           <RadarChart data={chartData}>
             <ChartTooltip
-              cursor={false}
               content={<ChartTooltipContent hideLabel />}
+              cursor={false}
             />
             <PolarGrid className="fill-[--color-desktop] opacity-20" />
             <PolarAngleAxis dataKey="month" />
@@ -69,7 +69,7 @@ export default function Component() {
         <div className="flex items-center gap-2 font-medium leading-none">
           Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
         </div>
-        <div className="flex items-center gap-2 leading-none text-muted-foreground">
+        <div className="flex items-center gap-2 text-muted-foreground leading-none">
           January - June 2024
         </div>
       </CardFooter>

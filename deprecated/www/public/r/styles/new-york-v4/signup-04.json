@@ -3,13 +3,7 @@
   "name": "signup-04",
   "type": "registry:block",
   "description": "A signup page with form and image.",
-  "registryDependencies": [
-    "button",
-    "card",
-    "input",
-    "label",
-    "field"
-  ],
+  "registryDependencies": ["button", "card", "input", "label", "field"],
   "files": [
     {
       "path": "registry/new-york-v4/blocks/signup-04/page.tsx",
@@ -23,8 +17,5 @@
       "type": "registry:component"
     }
   ],
-  "categories": [
-    "authentication",
-    "signup"
-  ]
+  "categories": ["authentication", "signup"]
 }

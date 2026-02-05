@@ -1,9 +1,9 @@
 "use client"
 
-import * as React from "react"
-import { useRouter } from "next/navigation"
-import { PopoverProps } from "@radix-ui/react-popover"
+import type { PopoverProps } from "@radix-ui/react-popover"
 import { Check, ChevronsUpDown } from "lucide-react"
+import { useRouter } from "next/navigation"
+import * as React from "react"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/registry/new-york/ui/button"
@@ -21,7 +21,7 @@ import {
   PopoverTrigger,
 } from "@/registry/new-york/ui/popover"
 
-import { Preset } from "../data/presets"
+import type { Preset } from "../data/presets"
 
 interface PresetSelectorProps extends PopoverProps {
   presets: Preset[]
@@ -33,14 +33,14 @@ export function PresetSelector({ presets, ...props }: PresetSelectorProps) {
   const router = useRouter()
 
   return (
-    <Popover open={open} onOpenChange={setOpen} {...props}>
+    <Popover onOpenChange={setOpen} open={open} {...props}>
       <PopoverTrigger asChild>
         <Button
-          variant="outline"
-          role="combobox"
-          aria-label="Load a preset..."
           aria-expanded={open}
+          aria-label="Load a preset..."
           className="flex-1 justify-between md:max-w-[200px] lg:max-w-[300px]"
+          role="combobox"
+          variant="outline"
         >
           {selectedPreset ? selectedPreset.name : "Load a preset..."}
           <ChevronsUpDown className="opacity-50" />

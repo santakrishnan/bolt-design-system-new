@@ -1,7 +1,7 @@
 "use client"
 
-import * as React from "react"
 import { Minus, Plus } from "lucide-react"
+import * as React from "react"
 import { Bar, BarChart } from "recharts"
 
 import { Button } from "@/registry/new-york/ui/button"
@@ -13,7 +13,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/registry/new-york/ui/card"
-import { ChartConfig, ChartContainer } from "@/registry/new-york/ui/chart"
+import { type ChartConfig, ChartContainer } from "@/registry/new-york/ui/chart"
 
 const data = [
   {
@@ -80,27 +80,27 @@ export function CardsActivityGoal() {
       <CardContent className="pb-2">
         <div className="flex items-center justify-center space-x-2">
           <Button
-            variant="outline"
-            size="icon"
             className="h-8 w-8 shrink-0 rounded-full"
-            onClick={() => onClick(-10)}
             disabled={goal <= 200}
+            onClick={() => onClick(-10)}
+            size="icon"
+            variant="outline"
           >
             <Minus />
             <span className="sr-only">Decrease</span>
           </Button>
           <div className="flex-1 text-center">
-            <div className="text-5xl font-bold tracking-tighter">{goal}</div>
-            <div className="text-[0.70rem] uppercase text-muted-foreground">
+            <div className="font-bold text-5xl tracking-tighter">{goal}</div>
+            <div className="text-[0.70rem] text-muted-foreground uppercase">
               Calories/day
             </div>
           </div>
           <Button
-            variant="outline"
-            size="icon"
             className="h-8 w-8 shrink-0 rounded-full"
-            onClick={() => onClick(10)}
             disabled={goal >= 400}
+            onClick={() => onClick(10)}
+            size="icon"
+            variant="outline"
           >
             <Plus />
             <span className="sr-only">Increase</span>
@@ -108,11 +108,11 @@ export function CardsActivityGoal() {
         </div>
         <div className="my-3 h-[60px]">
           <ChartContainer
-            config={chartConfig}
             className="aspect-auto h-full w-full"
+            config={chartConfig}
           >
             <BarChart data={data}>
-              <Bar dataKey="goal" radius={4} fill="var(--color-goal)" />
+              <Bar dataKey="goal" fill="var(--color-goal)" radius={4} />
             </BarChart>
           </ChartContainer>
         </div>

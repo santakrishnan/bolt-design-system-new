@@ -1,9 +1,9 @@
 "use client"
 
-import * as React from "react"
 import { addDays, format } from "date-fns"
 import { CalendarIcon } from "lucide-react"
-import { DateRange } from "react-day-picker"
+import * as React from "react"
+import type { DateRange } from "react-day-picker"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/registry/new-york/ui/button"
@@ -27,12 +27,12 @@ export function CalendarDateRangePicker({
       <Popover>
         <PopoverTrigger asChild>
           <Button
-            id="date"
-            variant={"outline"}
             className={cn(
               "w-[260px] justify-start text-left font-normal",
               !date && "text-muted-foreground"
             )}
+            id="date"
+            variant={"outline"}
           >
             <CalendarIcon className="mr-2 h-4 w-4" />
             {date?.from ? (
@@ -49,14 +49,14 @@ export function CalendarDateRangePicker({
             )}
           </Button>
         </PopoverTrigger>
-        <PopoverContent className="w-auto p-0" align="end">
+        <PopoverContent align="end" className="w-auto p-0">
           <Calendar
+            defaultMonth={date?.from}
             initialFocus
             mode="range"
-            defaultMonth={date?.from}
-            selected={date}
-            onSelect={setDate}
             numberOfMonths={2}
+            onSelect={setDate}
+            selected={date}
           />
         </PopoverContent>
       </Popover>

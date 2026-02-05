@@ -1,7 +1,7 @@
 "use client"
 
-import * as React from "react"
 import { Check, ChevronsUpDown, PlusCircle } from "lucide-react"
+import * as React from "react"
 
 import { cn } from "@/lib/utils"
 import {
@@ -82,21 +82,21 @@ export default function TeamSwitcher({ className }: TeamSwitcherProps) {
   )
 
   return (
-    <Dialog open={showNewTeamDialog} onOpenChange={setShowNewTeamDialog}>
-      <Popover open={open} onOpenChange={setOpen}>
+    <Dialog onOpenChange={setShowNewTeamDialog} open={showNewTeamDialog}>
+      <Popover onOpenChange={setOpen} open={open}>
         <PopoverTrigger asChild>
           <Button
-            variant="outline"
-            role="combobox"
             aria-expanded={open}
             aria-label="Select a team"
             className={cn("w-[200px] justify-between", className)}
+            role="combobox"
+            variant="outline"
           >
             <Avatar className="mr-2 h-5 w-5">
               <AvatarImage
-                src={`https://avatar.vercel.sh/${selectedTeam.value}.png`}
                 alt={selectedTeam.label}
                 className="grayscale"
+                src={`https://avatar.vercel.sh/${selectedTeam.value}.png`}
               />
               <AvatarFallback>SC</AvatarFallback>
             </Avatar>
@@ -110,21 +110,21 @@ export default function TeamSwitcher({ className }: TeamSwitcherProps) {
             <CommandList>
               <CommandEmpty>No team found.</CommandEmpty>
               {groups.map((group) => (
-                <CommandGroup key={group.label} heading={group.label}>
+                <CommandGroup heading={group.label} key={group.label}>
                   {group.teams.map((team) => (
                     <CommandItem
+                      className="text-sm"
                       key={team.value}
                       onSelect={() => {
                         setSelectedTeam(team)
                         setOpen(false)
                       }}
-                      className="text-sm"
                     >
                       <Avatar className="mr-2 h-5 w-5">
                         <AvatarImage
-                          src={`https://avatar.vercel.sh/${team.value}.png`}
                           alt={team.label}
                           className="grayscale"
+                          src={`https://avatar.vercel.sh/${team.value}.png`}
                         />
                         <AvatarFallback>SC</AvatarFallback>
                       </Avatar>
@@ -199,7 +199,7 @@ export default function TeamSwitcher({ className }: TeamSwitcherProps) {
           </div>
         </div>
         <DialogFooter>
-          <Button variant="outline" onClick={() => setShowNewTeamDialog(false)}>
+          <Button onClick={() => setShowNewTeamDialog(false)} variant="outline">
             Cancel
           </Button>
           <Button type="submit">Continue</Button>

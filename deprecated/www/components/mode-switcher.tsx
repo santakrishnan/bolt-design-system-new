@@ -1,8 +1,8 @@
 "use client"
 
-import * as React from "react"
 import { MoonIcon, SunIcon } from "lucide-react"
 import { useTheme } from "next-themes"
+import * as React from "react"
 
 import { META_THEME_COLORS } from "@/config/site"
 import { useMetaColor } from "@/hooks/use-meta-color"
@@ -23,9 +23,9 @@ export function ModeSwitcher() {
 
   return (
     <Button
-      variant="ghost"
       className="group/toggle h-8 w-8 px-0"
       onClick={toggleTheme}
+      variant="ghost"
     >
       <SunIcon className="hidden [html.dark_&]:block" />
       <MoonIcon className="hidden [html.light_&]:block" />

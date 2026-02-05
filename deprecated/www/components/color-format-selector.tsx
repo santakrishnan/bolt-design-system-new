@@ -1,16 +1,14 @@
 "use client"
 
 import * as React from "react"
-
-import { getColorFormat, type Color } from "@/lib/colors"
-import { cn } from "@/lib/utils"
 import { useColors } from "@/hooks/use-colors"
+import { type Color, getColorFormat } from "@/lib/colors"
+import { cn } from "@/lib/utils"
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue,
 } from "@/registry/new-york/ui/select"
 import { Skeleton } from "@/registry/new-york/ui/skeleton"
 
@@ -29,25 +27,25 @@ export function ColorFormatSelector({
   }
 
   return (
-    <Select value={format} onValueChange={setFormat}>
+    <Select onValueChange={setFormat} value={format}>
       <SelectTrigger
         className={cn("h-7 w-auto gap-1.5 rounded-lg pr-2 text-xs", className)}
         {...props}
       >
         <span className="font-medium">Format: </span>
-        <span className="font-mono text-xs text-muted-foreground">
+        <span className="font-mono text-muted-foreground text-xs">
           {format}
         </span>
       </SelectTrigger>
       <SelectContent align="end" className="rounded-xl">
         {Object.entries(formats).map(([format, value]) => (
           <SelectItem
+            className="gap-2 rounded-lg [&>span]:flex [&>span]:items-center [&>span]:gap-2"
             key={format}
             value={format}
-            className="gap-2 rounded-lg [&>span]:flex [&>span]:items-center [&>span]:gap-2"
           >
             <span className="font-medium">{format}</span>
-            <span className="font-mono text-xs text-muted-foreground">
+            <span className="font-mono text-muted-foreground text-xs">
               {value}
             </span>
           </SelectItem>

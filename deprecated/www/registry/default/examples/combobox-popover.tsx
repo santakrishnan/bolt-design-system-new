@@ -1,14 +1,14 @@
 "use client"
 
-import * as React from "react"
 import {
   ArrowUpCircle,
   CheckCircle2,
   Circle,
   HelpCircle,
-  LucideIcon,
+  type LucideIcon,
   XCircle,
 } from "lucide-react"
+import * as React from "react"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/registry/default/ui/button"
@@ -68,13 +68,13 @@ export default function ComboboxPopover() {
 
   return (
     <div className="flex items-center space-x-4">
-      <p className="text-sm text-muted-foreground">Status</p>
-      <Popover open={open} onOpenChange={setOpen}>
+      <p className="text-muted-foreground text-sm">Status</p>
+      <Popover onOpenChange={setOpen} open={open}>
         <PopoverTrigger asChild>
           <Button
-            variant="outline"
-            size="sm"
             className="w-[150px] justify-start"
+            size="sm"
+            variant="outline"
           >
             {selectedStatus ? (
               <>
@@ -86,7 +86,7 @@ export default function ComboboxPopover() {
             )}
           </Button>
         </PopoverTrigger>
-        <PopoverContent className="p-0" side="right" align="start">
+        <PopoverContent align="start" className="p-0" side="right">
           <Command>
             <CommandInput placeholder="Change status..." />
             <CommandList>
@@ -95,7 +95,6 @@ export default function ComboboxPopover() {
                 {statuses.map((status) => (
                   <CommandItem
                     key={status.value}
-                    value={status.value}
                     onSelect={(value) => {
                       setSelectedStatus(
                         statuses.find((priority) => priority.value === value) ||
@@ -103,6 +102,7 @@ export default function ComboboxPopover() {
                       )
                       setOpen(false)
                     }}
+                    value={status.value}
                   >
                     <status.icon
                       className={cn(

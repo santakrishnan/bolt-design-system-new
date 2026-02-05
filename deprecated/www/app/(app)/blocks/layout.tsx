@@ -1,4 +1,4 @@
-import { Metadata } from "next"
+import type { Metadata } from "next"
 
 import { Announcement } from "@/components/announcement"
 import { BlocksNav } from "@/components/blocks-nav"
@@ -56,12 +56,12 @@ export default function BlocksLayout({
           <Button asChild size="sm">
             <a href="#blocks">Browse Blocks</a>
           </Button>
-          <Button asChild variant="ghost" size="sm">
+          <Button asChild size="sm" variant="ghost">
             <Link href="/docs/blocks">Add a block</Link>
           </Button>
         </PageActions>
       </PageHeader>
-      <div id="blocks" className="border-grid scroll-mt-24 border-b">
+      <div className="scroll-mt-24 border-grid border-b" id="blocks">
         <div className="container-wrapper">
           <div className="container flex items-center py-4">
             <BlocksNav />

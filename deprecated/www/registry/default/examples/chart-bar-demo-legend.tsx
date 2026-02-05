@@ -3,7 +3,7 @@
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts"
 
 import {
-  ChartConfig,
+  type ChartConfig,
   ChartContainer,
   ChartLegend,
   ChartLegendContent,
@@ -33,15 +33,15 @@ const chartConfig = {
 
 export default function Component() {
   return (
-    <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
+    <ChartContainer className="min-h-[200px] w-full" config={chartConfig}>
       <BarChart accessibilityLayer data={chartData}>
         <CartesianGrid vertical={false} />
         <XAxis
+          axisLine={false}
           dataKey="month"
+          tickFormatter={(value) => value.slice(0, 3)}
           tickLine={false}
           tickMargin={10}
-          axisLine={false}
-          tickFormatter={(value) => value.slice(0, 3)}
         />
         <ChartTooltip content={<ChartTooltipContent />} />
         <ChartLegend content={<ChartLegendContent />} />

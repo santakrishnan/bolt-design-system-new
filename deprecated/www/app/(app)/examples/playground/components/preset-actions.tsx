@@ -1,8 +1,8 @@
 "use client"
 
-import * as React from "react"
 import { Dialog } from "@radix-ui/react-dialog"
 import { MoreHorizontal } from "lucide-react"
+import * as React from "react"
 
 import { toast } from "@/registry/new-york/hooks/use-toast"
 import {
@@ -40,7 +40,7 @@ export function PresetActions() {
     <>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="secondary" size="icon">
+          <Button size="icon" variant="secondary">
             <span className="sr-only">Actions</span>
             <MoreHorizontal />
           </Button>
@@ -51,14 +51,14 @@ export function PresetActions() {
           </DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuItem
-            onSelect={() => setShowDeleteDialog(true)}
             className="text-red-600"
+            onSelect={() => setShowDeleteDialog(true)}
           >
             Delete preset
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
-      <Dialog open={open} onOpenChange={setIsOpen}>
+      <Dialog onOpenChange={setIsOpen} open={open}>
         <DialogContent>
           <DialogHeader>
             <DialogTitle>Content filter preferences</DialogTitle>
@@ -69,16 +69,16 @@ export function PresetActions() {
             </DialogDescription>
           </DialogHeader>
           <div className="py-6">
-            <h4 className="text-sm text-muted-foreground">
+            <h4 className="text-muted-foreground text-sm">
               Playground Warnings
             </h4>
             <div className="flex items-start justify-between space-x-4 pt-3">
-              <Switch name="show" id="show" defaultChecked={true} />
+              <Switch defaultChecked={true} id="show" name="show" />
               <Label className="grid gap-1 font-normal" htmlFor="show">
                 <span className="font-semibold">
                   Show a warning when content is flagged
                 </span>
-                <span className="text-sm text-muted-foreground">
+                <span className="text-muted-foreground text-sm">
                   A warning will be shown when sexual, hateful, violent or
                   self-harm content is detected.
                 </span>
@@ -86,13 +86,13 @@ export function PresetActions() {
             </div>
           </div>
           <DialogFooter>
-            <Button variant="secondary" onClick={() => setIsOpen(false)}>
+            <Button onClick={() => setIsOpen(false)} variant="secondary">
               Close
             </Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
-      <AlertDialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
+      <AlertDialog onOpenChange={setShowDeleteDialog} open={showDeleteDialog}>
         <AlertDialogContent>
           <AlertDialogHeader>
             <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
@@ -104,13 +104,13 @@ export function PresetActions() {
           <AlertDialogFooter>
             <AlertDialogCancel>Cancel</AlertDialogCancel>
             <Button
-              variant="destructive"
               onClick={() => {
                 setShowDeleteDialog(false)
                 toast({
                   description: "This preset has been deleted.",
                 })
               }}
+              variant="destructive"
             >
               Delete
             </Button>

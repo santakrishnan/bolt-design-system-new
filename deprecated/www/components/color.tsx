@@ -2,11 +2,10 @@
 
 import { Check, Clipboard } from "lucide-react"
 import { toast } from "sonner"
-
-import { type Color } from "@/lib/colors"
-import { trackEvent } from "@/lib/events"
 import { useColors } from "@/hooks/use-colors"
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard"
+import type { Color } from "@/lib/colors"
+import { trackEvent } from "@/lib/events"
 
 export function Color({ color }: { color: Color }) {
   const { format } = useColors()
@@ -14,14 +13,8 @@ export function Color({ color }: { color: Color }) {
 
   return (
     <button
+      className="group relative flex aspect-[3/1] w-full flex-1 flex-col gap-2 text-[--text] sm:aspect-[2/3] sm:h-auto sm:w-auto [&>svg]:absolute [&>svg]:top-4 [&>svg]:right-4 [&>svg]:h-3.5 [&>svg]:w-3.5 [&>svg]:opacity-0 [&>svg]:transition-opacity"
       key={color.hex}
-      className="group relative flex aspect-[3/1] w-full flex-1 flex-col gap-2 text-[--text] sm:aspect-[2/3] sm:h-auto sm:w-auto [&>svg]:absolute [&>svg]:right-4 [&>svg]:top-4 [&>svg]:h-3.5 [&>svg]:w-3.5 [&>svg]:opacity-0 [&>svg]:transition-opacity"
-      style={
-        {
-          "--bg": `hsl(${color.hsl})`,
-          "--text": color.foreground,
-        } as React.CSSProperties
-      }
       onClick={() => {
         copyToClipboard(color[format])
         trackEvent({
@@ -34,6 +27,12 @@ export function Color({ color }: { color: Color }) {
         })
         toast.success(`Copied ${color[format]} to clipboard.`)
       }}
+      style={
+        {
+          "--bg": `hsl(${color.hsl})`,
+          "--text": color.foreground,
+        } as React.CSSProperties
+      }
     >
       {isCopied ? (
         <Check className="group-hover:opacity-100" />
@@ -42,10 +41,10 @@ export function Color({ color }: { color: Color }) {
       )}
       <div className="w-full flex-1 rounded-md bg-[--bg] md:rounded-lg" />
       <div className="flex w-full flex-col items-center justify-center gap-1">
-        <span className="hidden font-mono text-xs tabular-nums text-muted-foreground transition-colors group-hover:text-foreground lg:flex">
+        <span className="hidden font-mono text-muted-foreground text-xs tabular-nums transition-colors group-hover:text-foreground lg:flex">
           {color.className}
         </span>
-        <span className="font-mono text-xs tabular-nums text-muted-foreground transition-colors group-hover:text-foreground lg:hidden">
+        <span className="font-mono text-muted-foreground text-xs tabular-nums transition-colors group-hover:text-foreground lg:hidden">
           {color.scale}
         </span>
       </div>

@@ -1,7 +1,7 @@
 import { promises as fs } from "fs"
-import path from "path"
-import { Metadata } from "next"
+import type { Metadata } from "next"
 import Image from "next/image"
+import path from "path"
 import { z } from "zod"
 
 import { columns } from "./components/columns"
@@ -32,24 +32,24 @@ export default async function TaskPage() {
     <>
       <div className="md:hidden">
         <Image
-          src="/examples/tasks-light.png"
-          width={1280}
-          height={998}
           alt="Playground"
           className="block dark:hidden"
+          height={998}
+          src="/examples/tasks-light.png"
+          width={1280}
         />
         <Image
-          src="/examples/tasks-dark.png"
-          width={1280}
-          height={998}
           alt="Playground"
           className="hidden dark:block"
+          height={998}
+          src="/examples/tasks-dark.png"
+          width={1280}
         />
       </div>
       <div className="hidden h-full flex-1 flex-col space-y-8 p-8 md:flex">
         <div className="flex items-center justify-between space-y-2">
           <div>
-            <h2 className="text-2xl font-bold tracking-tight">Welcome back!</h2>
+            <h2 className="font-bold text-2xl tracking-tight">Welcome back!</h2>
             <p className="text-muted-foreground">
               Here&apos;s a list of your tasks for this month!
             </p>
@@ -58,7 +58,7 @@ export default async function TaskPage() {
             <UserNav />
           </div>
         </div>
-        <DataTable data={tasks} columns={columns} />
+        <DataTable columns={columns} data={tasks} />
       </div>
     </>
   )

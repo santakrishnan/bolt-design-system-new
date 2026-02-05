@@ -12,7 +12,7 @@ import {
   CardTitle,
 } from "@/registry/new-york/ui/card"
 import {
-  ChartConfig,
+  type ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
@@ -61,15 +61,15 @@ export default function Component() {
           >
             <CartesianGrid vertical={false} />
             <XAxis
-              dataKey="month"
-              tickLine={false}
               axisLine={false}
-              tickMargin={8}
+              dataKey="month"
               tickFormatter={(value) => value.slice(0, 3)}
+              tickLine={false}
+              tickMargin={8}
             />
-            <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
+            <ChartTooltip content={<ChartTooltipContent />} cursor={false} />
             <defs>
-              <linearGradient id="fillDesktop" x1="0" y1="0" x2="0" y2="1">
+              <linearGradient id="fillDesktop" x1="0" x2="0" y1="0" y2="1">
                 <stop
                   offset="5%"
                   stopColor="var(--color-desktop)"
@@ -81,7 +81,7 @@ export default function Component() {
                   stopOpacity={0.1}
                 />
               </linearGradient>
-              <linearGradient id="fillMobile" x1="0" y1="0" x2="0" y2="1">
+              <linearGradient id="fillMobile" x1="0" x2="0" y1="0" y2="1">
                 <stop
                   offset="5%"
                   stopColor="var(--color-mobile)"
@@ -96,19 +96,19 @@ export default function Component() {
             </defs>
             <Area
               dataKey="mobile"
-              type="natural"
               fill="url(#fillMobile)"
               fillOpacity={0.4}
-              stroke="var(--color-mobile)"
               stackId="a"
+              stroke="var(--color-mobile)"
+              type="natural"
             />
             <Area
               dataKey="desktop"
-              type="natural"
               fill="url(#fillDesktop)"
               fillOpacity={0.4}
-              stroke="var(--color-desktop)"
               stackId="a"
+              stroke="var(--color-desktop)"
+              type="natural"
             />
           </AreaChart>
         </ChartContainer>
@@ -119,7 +119,7 @@ export default function Component() {
             <div className="flex items-center gap-2 font-medium leading-none">
               Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
             </div>
-            <div className="flex items-center gap-2 leading-none text-muted-foreground">
+            <div className="flex items-center gap-2 text-muted-foreground leading-none">
               January - June 2024
             </div>
           </div>

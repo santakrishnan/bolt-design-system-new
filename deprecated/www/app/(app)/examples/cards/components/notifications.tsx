@@ -21,8 +21,8 @@ export function DemoNotifications() {
         <div className="-mx-2 flex items-start space-x-4 rounded-md p-2 transition-all hover:bg-accent hover:text-accent-foreground">
           <Bell className="mt-px h-5 w-5" />
           <div className="space-y-1">
-            <p className="text-sm font-medium leading-none">Everything</p>
-            <p className="text-sm text-muted-foreground">
+            <p className="font-medium text-sm leading-none">Everything</p>
+            <p className="text-muted-foreground text-sm">
               Email digest, mentions & all activity.
             </p>
           </div>
@@ -30,8 +30,8 @@ export function DemoNotifications() {
         <div className="-mx-2 flex items-start space-x-4 rounded-md bg-accent p-2 text-accent-foreground transition-all">
           <User className="mt-px h-5 w-5" />
           <div className="space-y-1">
-            <p className="text-sm font-medium leading-none">Available</p>
-            <p className="text-sm text-muted-foreground">
+            <p className="font-medium text-sm leading-none">Available</p>
+            <p className="text-muted-foreground text-sm">
               Only mentions and comments.
             </p>
           </div>
@@ -39,8 +39,8 @@ export function DemoNotifications() {
         <div className="-mx-2 flex items-start space-x-4 rounded-md p-2 transition-all hover:bg-accent hover:text-accent-foreground">
           <EyeOff className="mt-px h-5 w-5" />
           <div className="space-y-1">
-            <p className="text-sm font-medium leading-none">Ignoring</p>
-            <p className="text-sm text-muted-foreground">
+            <p className="font-medium text-sm leading-none">Ignoring</p>
+            <p className="text-muted-foreground text-sm">
               Turn off all notifications.
             </p>
           </div>

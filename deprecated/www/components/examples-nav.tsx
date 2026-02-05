@@ -66,13 +66,13 @@ export function ExamplesNav({ className, ...props }: ExamplesNavProps) {
           />
           {examples.map((example) => (
             <ExampleLink
-              key={example.href}
               example={example}
               isActive={pathname?.startsWith(example.href) ?? false}
+              key={example.href}
             />
           ))}
         </div>
-        <ScrollBar orientation="horizontal" className="invisible" />
+        <ScrollBar className="invisible" orientation="horizontal" />
       </ScrollArea>
     </div>
   )
@@ -91,10 +91,10 @@ function ExampleLink({
 
   return (
     <Link
+      className="flex h-7 items-center justify-center rounded-full px-4 text-center font-medium text-muted-foreground text-sm transition-colors hover:text-primary data-[active=true]:bg-muted data-[active=true]:text-primary"
+      data-active={isActive}
       href={example.href}
       key={example.href}
-      className="flex h-7 items-center justify-center rounded-full px-4 text-center text-sm font-medium text-muted-foreground transition-colors hover:text-primary data-[active=true]:bg-muted data-[active=true]:text-primary"
-      data-active={isActive}
     >
       {example.name}
     </Link>

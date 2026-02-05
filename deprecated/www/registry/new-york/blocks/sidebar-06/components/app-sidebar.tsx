@@ -1,5 +1,5 @@
-import * as React from "react"
 import { GalleryVerticalEnd } from "lucide-react"
+import type * as React from "react"
 
 import { NavMain } from "@/registry/new-york/blocks/sidebar-06/components/nav-main"
 import { SidebarOptInForm } from "@/registry/new-york/blocks/sidebar-06/components/sidebar-opt-in-form"
@@ -151,7 +151,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton size="lg" asChild>
+            <SidebarMenuButton asChild size="lg">
               <a href="#">
                 <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
                   <GalleryVerticalEnd className="size-4" />

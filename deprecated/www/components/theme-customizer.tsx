@@ -1,14 +1,13 @@
 "use client"
 
-import * as React from "react"
 import template from "lodash/template"
-import { Check, ClipboardIcon, Copy } from "lucide-react"
+import { Check, ClipboardIcon } from "lucide-react"
 import { useTheme } from "next-themes"
-
-import { cn } from "@/lib/utils"
-import { useConfig } from "@/hooks/use-config"
+import * as React from "react"
 import { copyToClipboardWithMeta } from "@/components/copy-button"
 import { ThemeWrapper } from "@/components/theme-wrapper"
+import { useConfig } from "@/hooks/use-config"
+import { cn } from "@/lib/utils"
 import { Button } from "@/registry/new-york/ui/button"
 import {
   Dialog,
@@ -35,13 +34,12 @@ import {
 import { Separator } from "@/registry/new-york/ui/separator"
 import { Skeleton } from "@/registry/new-york/ui/skeleton"
 import {
-  BaseColor,
+  type BaseColor,
   baseColors,
   baseColorsOKLCH,
 } from "@/registry/registry-base-colors"
 
 import "@/styles/mdx.css"
-import { toast } from "sonner"
 
 import {
   Tabs,
@@ -68,7 +66,7 @@ export function ThemeCustomizer() {
     <div className="flex items-center gap-2">
       <Drawer>
         <DrawerTrigger asChild>
-          <Button size="sm" className="md:hidden">
+          <Button className="md:hidden" size="sm">
             Customize
           </Button>
         </DrawerTrigger>
@@ -89,7 +87,7 @@ export function ThemeCustomizer() {
           </PopoverContent>
         </Popover>
       </div>
-      <CopyCodeButton variant="ghost" size="sm" className="[&_svg]:hidden" />
+      <CopyCodeButton className="[&_svg]:hidden" size="sm" variant="ghost" />
     </div>
   )
 }
@@ -119,8 +117,10 @@ export function Customizer() {
 
                 return mounted ? (
                   <Button
-                    variant="outline"
-                    size="sm"
+                    className={cn(
+                      "w-[32px] rounded-lg lg:px-2.5 xl:w-[86px]",
+                      isActive && "border-primary/50 ring-[2px] ring-primary/30"
+                    )}
                     key={theme.name}
                     onClick={() => {
                       setConfig({
@@ -128,10 +128,7 @@ export function Customizer() {
                         theme: theme.name,
                       })
                     }}
-                    className={cn(
-                      "w-[32px] rounded-lg lg:px-2.5 xl:w-[86px]",
-                      isActive && "border-primary/50 ring-[2px] ring-primary/30"
-                    )}
+                    size="sm"
                     style={
                       {
                         "--theme-primary": `hsl(${
@@ -139,6 +136,7 @@ export function Customizer() {
                         })`,
                       } as React.CSSProperties
                     }
+                    variant="outline"
                   >
                     <span
                       className={cn(
@@ -160,27 +158,27 @@ export function Customizer() {
               })}
           </div>
         </div>
-        <Separator orientation="vertical" className="hidden h-6 sm:block" />
+        <Separator className="hidden h-6 sm:block" orientation="vertical" />
         <div className="flex flex-col gap-2">
           <Label className="sr-only text-xs">Radius</Label>
           <div className="flex flex-wrap gap-1 md:gap-2">
             {["0", "0.3", "0.5", "0.75", "1.0"].map((value) => {
               return (
                 <Button
-                  variant={"outline"}
-                  size="sm"
+                  className={cn(
+                    "w-[40px] rounded-lg",
+                    config.radius === Number.parseFloat(value) &&
+                      "border-primary/50 ring-[2px] ring-primary/30"
+                  )}
                   key={value}
                   onClick={() => {
                     setConfig({
                       ...config,
-                      radius: parseFloat(value),
+                      radius: Number.parseFloat(value),
                     })
                   }}
-                  className={cn(
-                    "w-[40px] rounded-lg",
-                    config.radius === parseFloat(value) &&
-                      "border-primary/50 ring-[2px] ring-primary/30"
-                  )}
+                  size="sm"
+                  variant={"outline"}
                 >
                   {value}
                 </Button>
@@ -218,7 +216,7 @@ export function CopyCodeButton({
               Copy and paste the following code into your CSS file.
             </DrawerDescription>
           </DrawerHeader>
-          <ThemeWrapper defaultTheme="zinc" className="relative px-6">
+          <ThemeWrapper className="relative px-6" defaultTheme="zinc">
             <CustomizerCode />
           </ThemeWrapper>
         </DrawerContent>
@@ -242,7 +240,7 @@ export function CopyCodeButton({
               Copy and paste the following code into your CSS file.
             </DialogDescription>
           </DialogHeader>
-          <ThemeWrapper defaultTheme="zinc" className="relative">
+          <ThemeWrapper className="relative" defaultTheme="zinc">
             <CustomizerCode />
           </ThemeWrapper>
         </DialogContent>
@@ -273,16 +271,15 @@ function CustomizerCode() {
   }, [hasCopied])
 
   return (
-    <ThemeWrapper defaultTheme="zinc" className="relative space-y-4">
-      <Tabs value={themeVersion} onValueChange={setThemeVersion}>
+    <ThemeWrapper className="relative space-y-4" defaultTheme="zinc">
+      <Tabs onValueChange={setThemeVersion} value={themeVersion}>
         <div className="flex items-center justify-between">
           <TabsList>
             <TabsTrigger value="v4">Tailwind v4</TabsTrigger>
             <TabsTrigger value="v3">v3</TabsTrigger>
           </TabsList>
           <Button
-            size="sm"
-            variant="outline"
+            className="absolute top-0 right-0 shadow-none"
             onClick={() => {
               copyToClipboardWithMeta(
                 themeVersion === "v3"
@@ -298,7 +295,8 @@ function CustomizerCode() {
               )
               setHasCopied(true)
             }}
-            className="absolute right-0 top-0 shadow-none"
+            size="sm"
+            variant="outline"
           >
             {hasCopied ? <Check /> : <ClipboardIcon />}
             Copy

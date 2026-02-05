@@ -1,0 +1,26 @@
+import { EyeOffIcon } from "lucide-react"
+import { Field, FieldDescription, FieldLabel } from "@/examples/base/ui/field"
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+} from "@/examples/base/ui/input-group"
+
+export function InputGroupInlineEnd() {
+  return (
+    <Field className="max-w-sm">
+      <FieldLabel htmlFor="inline-end-input">Input</FieldLabel>
+      <InputGroup>
+        <InputGroupInput
+          id="inline-end-input"
+          placeholder="Enter password"
+          type="password"
+        />
+        <InputGroupAddon align="inline-end">
+          <EyeOffIcon />
+        </InputGroupAddon>
+      </InputGroup>
+      <FieldDescription>Icon positioned at the end.</FieldDescription>
+    </Field>
+  )
+}

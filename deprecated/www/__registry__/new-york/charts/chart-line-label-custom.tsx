@@ -12,7 +12,7 @@ import {
   CardTitle,
 } from "@/registry/new-york/ui/card"
 import {
-  ChartConfig,
+  type ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
@@ -75,36 +75,36 @@ export default function Component() {
           >
             <CartesianGrid vertical={false} />
             <ChartTooltip
-              cursor={false}
               content={
                 <ChartTooltipContent
+                  hideLabel
                   indicator="line"
                   nameKey="visitors"
-                  hideLabel
                 />
               }
+              cursor={false}
             />
             <Line
-              dataKey="visitors"
-              type="natural"
-              stroke="var(--color-visitors)"
-              strokeWidth={2}
-              dot={{
-                fill: "var(--color-visitors)",
-              }}
               activeDot={{
                 r: 6,
               }}
+              dataKey="visitors"
+              dot={{
+                fill: "var(--color-visitors)",
+              }}
+              stroke="var(--color-visitors)"
+              strokeWidth={2}
+              type="natural"
             >
               <LabelList
-                position="top"
-                offset={12}
                 className="fill-foreground"
-                fontSize={12}
                 dataKey="browser"
+                fontSize={12}
                 formatter={(value: keyof typeof chartConfig) =>
                   chartConfig[value]?.label
                 }
+                offset={12}
+                position="top"
               />
             </Line>
           </LineChart>
@@ -114,7 +114,7 @@ export default function Component() {
         <div className="flex gap-2 font-medium leading-none">
           Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
         </div>
-        <div className="leading-none text-muted-foreground">
+        <div className="text-muted-foreground leading-none">
           Showing total visitors for the last 6 months
         </div>
       </CardFooter>

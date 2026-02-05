@@ -81,9 +81,7 @@ function getForegroundFromBackground(rgb: string) {
 
   function toLinear(number: number): number {
     const base = number / 255
-    return base <= 0.04045
-      ? base / 12.92
-      : Math.pow((base + 0.055) / 1.055, 2.4)
+    return base <= 0.040_45 ? base / 12.92 : ((base + 0.055) / 1.055) ** 2.4
   }
 
   const luminance =

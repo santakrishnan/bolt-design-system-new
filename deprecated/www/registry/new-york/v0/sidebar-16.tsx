@@ -1,7 +1,5 @@
 "use client"
 
-import * as React from "react"
-import Link from "next/link"
 import {
   BadgeCheck,
   Bell,
@@ -25,9 +23,10 @@ import {
   SquareTerminal,
   Trash2,
 } from "lucide-react"
-
-import { cn } from "@/lib/utils"
+import Link from "next/link"
+import * as React from "react"
 import { Icons } from "@/components/icons"
+import { cn } from "@/lib/utils"
 import {
   Avatar,
   AvatarFallback,
@@ -267,13 +266,13 @@ export default function Page() {
         } as React.CSSProperties
       }
     >
-      <header className="sticky top-0 bg-sidebar flex h-[--header-height] shrink-0 items-center gap-2 border-b px-4 isolate z-20">
-        <div className="flex items-center gap-2 w-full">
+      <header className="sticky top-0 isolate z-20 flex h-[--header-height] shrink-0 items-center gap-2 border-b bg-sidebar px-4">
+        <div className="flex w-full items-center gap-2">
           <Button
             className="hidden md:flex"
-            variant="ghost"
-            size="icon"
             onClick={() => setOpen(!open)}
+            size="icon"
+            variant="ghost"
           >
             <Sidebar />
           </Button>
@@ -282,7 +281,7 @@ export default function Page() {
             <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
               <Command className="size-4" />
             </div>
-            <Separator orientation="vertical" className="ml-4 h-4" />
+            <Separator className="ml-4 h-4" orientation="vertical" />
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
@@ -298,10 +297,10 @@ export default function Page() {
                             href="/"
                           >
                             <Icons.logo className="h-6 w-6" />
-                            <div className="mb-2 mt-4 text-lg font-medium">
+                            <div className="mt-4 mb-2 font-medium text-lg">
                               shadcn/ui
                             </div>
-                            <p className="text-sm leading-tight text-muted-foreground">
+                            <p className="text-muted-foreground text-sm leading-tight">
                               Beautifully designed components built with Radix
                               UI and Tailwind CSS.
                             </p>
@@ -312,10 +311,10 @@ export default function Page() {
                       <li>
                         <NavigationMenuLink asChild>
                           <a className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                            <div className="text-sm font-medium leading-none">
+                            <div className="font-medium text-sm leading-none">
                               Introduction
                             </div>
-                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            <p className="line-clamp-2 text-muted-foreground text-sm leading-snug">
                               Re-usable components built using Radix UI and
                               Tailwind CSS.
                             </p>
@@ -326,10 +325,10 @@ export default function Page() {
                       <li>
                         <NavigationMenuLink asChild>
                           <a className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                            <div className="text-sm font-medium leading-none">
+                            <div className="font-medium text-sm leading-none">
                               Installation
                             </div>
-                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            <p className="line-clamp-2 text-muted-foreground text-sm leading-snug">
                               How to install dependencies and structure your
                               app.
                             </p>
@@ -340,10 +339,10 @@ export default function Page() {
                       <li>
                         <NavigationMenuLink asChild>
                           <a className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                            <div className="text-sm font-medium leading-none">
+                            <div className="font-medium text-sm leading-none">
                               Typography
                             </div>
-                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            <p className="line-clamp-2 text-muted-foreground text-sm leading-snug">
                               Styles for headings, paragraphs, lists...etc
                             </p>
                           </a>
@@ -357,15 +356,15 @@ export default function Page() {
                     Components
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                       {components.map((component) => (
                         <li>
-                          <NavigationMenuLink key={component.title} asChild>
+                          <NavigationMenuLink asChild key={component.title}>
                             <a className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                              <div className="text-sm font-medium leading-none">
+                              <div className="font-medium text-sm leading-none">
                                 {component.title}
                               </div>
-                              <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                              <p className="line-clamp-2 text-muted-foreground text-sm leading-snug">
                                 {component.description}
                               </p>
                             </a>
@@ -389,7 +388,7 @@ export default function Page() {
           </div>
         </div>
       </header>
-      <SidebarProvider open={open} onOpenChange={setOpen}>
+      <SidebarProvider onOpenChange={setOpen} open={open}>
         <Sidebar
           className="top-[--header-height] pb-[--header-height]"
           variant="inset"
@@ -397,7 +396,7 @@ export default function Page() {
           <SidebarHeader>
             <SidebarMenu>
               <SidebarMenuItem>
-                <SidebarMenuButton size="lg" asChild>
+                <SidebarMenuButton asChild size="lg">
                   <a href="#">
                     <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
                       <Command className="size-4" />
@@ -417,9 +416,9 @@ export default function Page() {
               <SidebarMenu>
                 {data.navMain.map((item) => (
                   <Collapsible
-                    key={item.title}
                     asChild
                     defaultOpen={item.isActive}
+                    key={item.title}
                   >
                     <SidebarMenuItem>
                       <SidebarMenuButton asChild tooltip={item.title}>
@@ -475,9 +474,9 @@ export default function Page() {
                         </SidebarMenuAction>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent
+                        align={isMobile ? "end" : "start"}
                         className="w-48"
                         side={isMobile ? "bottom" : "right"}
-                        align={isMobile ? "end" : "start"}
                       >
                         <DropdownMenuItem>
                           <Folder className="text-muted-foreground" />
@@ -527,13 +526,13 @@ export default function Page() {
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
                     <SidebarMenuButton
-                      size="lg"
                       className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
+                      size="lg"
                     >
                       <Avatar className="h-8 w-8 rounded-lg">
                         <AvatarImage
-                          src={data.user.avatar}
                           alt={data.user.name}
+                          src={data.user.avatar}
                         />
                         <AvatarFallback className="rounded-lg">
                           CN
@@ -551,17 +550,17 @@ export default function Page() {
                     </SidebarMenuButton>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent
+                    align="end"
                     className="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg"
                     side={isMobile ? "bottom" : "right"}
-                    align="end"
                     sideOffset={4}
                   >
                     <DropdownMenuLabel className="p-0 font-normal">
                       <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
                         <Avatar className="h-8 w-8 rounded-lg">
                           <AvatarImage
-                            src={data.user.avatar}
                             alt={data.user.name}
+                            src={data.user.avatar}
                           />
                           <AvatarFallback className="rounded-lg">
                             CN
@@ -612,11 +611,11 @@ export default function Page() {
         </Sidebar>
 
         <SidebarInset>
-          <header className=" flex shrink-0 items-center gap-2 border-b py-2">
+          <header className="flex shrink-0 items-center gap-2 border-b py-2">
             <div className="flex items-center gap-2 px-4 py-2">
-              <div className="flex md:hidden items-center gap-2">
+              <div className="flex items-center gap-2 md:hidden">
                 <SidebarTrigger />
-                <Separator orientation="vertical" className="mr-2 h-4" />
+                <Separator className="mr-2 h-4" orientation="vertical" />
               </div>
               <Breadcrumb>
                 <BreadcrumbList>

@@ -83,7 +83,7 @@ export default function AppSidebar() {
                           <span className="sr-only">More</span>
                         </SidebarMenuAction>
                       </DropdownMenuTrigger>
-                      <DropdownMenuContent side="right" align="start">
+                      <DropdownMenuContent align="start" side="right">
                         <DropdownMenuItem>
                           <span>Edit Project</span>
                         </DropdownMenuItem>

@@ -2,9 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-with-icon",
   "type": "registry:example",
-  "registryDependencies": [
-    "button"
-  ],
+  "registryDependencies": ["button"],
   "files": [
     {
       "path": "registry/new-york-v4/examples/button-with-icon.tsx",

@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { type DateRange } from "react-day-picker"
+import type { DateRange } from "react-day-picker"
 import { enUS, es } from "react-day-picker/locale"
 
 import { Calendar } from "@/registry/default/ui/calendar"
@@ -47,12 +47,12 @@ export default function Calendar12() {
           {localizedStrings[locale].description}
         </CardDescription>
         <Select
-          value={locale}
           onValueChange={(value) =>
             setLocale(value as keyof typeof localizedStrings)
           }
+          value={locale}
         >
-          <SelectTrigger className="absolute right-4 top-4 w-[100px]">
+          <SelectTrigger className="absolute top-4 right-4 w-[100px]">
             <SelectValue placeholder="Language" />
           </SelectTrigger>
           <SelectContent align="end">
@@ -63,14 +63,14 @@ export default function Calendar12() {
       </CardHeader>
       <CardContent className="pt-4">
         <Calendar
-          mode="range"
-          selected={dateRange}
-          onSelect={setDateRange}
-          defaultMonth={dateRange?.from}
-          numberOfMonths={2}
-          locale={locale === "es" ? es : enUS}
-          className="bg-transparent p-0"
           buttonVariant="outline"
+          className="bg-transparent p-0"
+          defaultMonth={dateRange?.from}
+          locale={locale === "es" ? es : enUS}
+          mode="range"
+          numberOfMonths={2}
+          onSelect={setDateRange}
+          selected={dateRange}
         />
       </CardContent>
     </Card>

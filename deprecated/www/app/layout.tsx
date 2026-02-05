@@ -1,13 +1,12 @@
 import "@/styles/globals.css"
-import { Metadata, Viewport } from "next"
-
-import { META_THEME_COLORS, siteConfig } from "@/config/site"
-import { fontMono, fontSans } from "@/lib/fonts"
-import { cn } from "@/lib/utils"
+import type { Metadata, Viewport } from "next"
 import { Analytics } from "@/components/analytics"
 import { ThemeProvider } from "@/components/providers"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeSwitcher } from "@/components/theme-switcher"
+import { META_THEME_COLORS, siteConfig } from "@/config/site"
+import { fontMono, fontSans } from "@/lib/fonts"
+import { cn } from "@/lib/utils"
 import { Toaster as DefaultToaster } from "@/registry/default/ui/toaster"
 import { Toaster as NewYorkSonner } from "@/registry/new-york/ui/sonner"
 import { Toaster as NewYorkToaster } from "@/registry/new-york/ui/toaster"
@@ -99,9 +98,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
-            enableSystem
             disableTransitionOnChange
             enableColorScheme
+            enableSystem
           >
             <div vaul-drawer-wrapper="">
               <div className="relative flex min-h-svh flex-col bg-background">

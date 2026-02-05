@@ -10,7 +10,7 @@ import {
   CardTitle,
 } from "@/registry/new-york/ui/card"
 import {
-  ChartConfig,
+  type ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
@@ -49,27 +49,27 @@ export default function Component() {
         <ChartContainer config={chartConfig}>
           <BarChart accessibilityLayer data={chartData}>
             <XAxis
-              dataKey="date"
-              tickLine={false}
-              tickMargin={10}
               axisLine={false}
+              dataKey="date"
               tickFormatter={(value) => {
                 return new Date(value).toLocaleDateString("en-US", {
                   weekday: "short",
                 })
               }}
+              tickLine={false}
+              tickMargin={10}
             />
             <Bar
               dataKey="running"
-              stackId="a"
               fill="var(--color-running)"
               radius={[0, 0, 4, 4]}
+              stackId="a"
             />
             <Bar
               dataKey="swimming"
-              stackId="a"
               fill="var(--color-swimming)"
               radius={[4, 4, 0, 0]}
+              stackId="a"
             />
             <ChartTooltip
               content={<ChartTooltipContent hideIndicator />}

@@ -1,0 +1,36 @@
+import { AudioLinesIcon, PlusIcon } from "lucide-react"
+import { Button } from "@/examples/base/ui/button"
+import { ButtonGroup } from "@/examples/base/ui/button-group"
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+} from "@/examples/base/ui/input-group"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/examples/base/ui/tooltip"
+
+export function ButtonGroupNested() {
+  return (
+    <ButtonGroup>
+      <ButtonGroup>
+        <Button size="icon" variant="outline">
+          <PlusIcon />
+        </Button>
+      </ButtonGroup>
+      <ButtonGroup>
+        <InputGroup>
+          <InputGroupInput placeholder="Send a message..." />
+          <Tooltip>
+            <TooltipTrigger render={<InputGroupAddon align="inline-end" />}>
+              <AudioLinesIcon />
+            </TooltipTrigger>
+            <TooltipContent>Voice Mode</TooltipContent>
+          </Tooltip>
+        </InputGroup>
+      </ButtonGroup>
+    </ButtonGroup>
+  )
+}

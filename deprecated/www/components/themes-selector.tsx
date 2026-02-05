@@ -1,12 +1,11 @@
 "use client"
 
-import * as React from "react"
 import { useTheme } from "next-themes"
-
-import { THEMES, Theme } from "@/lib/themes"
-import { cn } from "@/lib/utils"
+import * as React from "react"
 import { useMediaQuery } from "@/hooks/use-media-query"
 import { useThemesConfig } from "@/hooks/use-themes-config"
+import { THEMES, type Theme } from "@/lib/themes"
+import { cn } from "@/lib/utils"
 import { Skeleton } from "@/registry/new-york/ui/skeleton"
 import {
   ToggleGroup,
@@ -42,8 +41,8 @@ export function ThemesSwitcher({
       >
         {themes.map((theme) => (
           <div
-            key={theme.id}
             className="flex h-10 w-10 items-center justify-center rounded-lg border-2 border-transparent"
+            key={theme.id}
           >
             <Skeleton className="h-6 w-6 rounded-sm" />
           </div>
@@ -54,8 +53,10 @@ export function ThemesSwitcher({
 
   return (
     <ToggleGroup
-      type="single"
-      value={activeTheme.name}
+      className={cn(
+        "flex items-center justify-center gap-0.5 py-4 lg:flex-col lg:justify-start lg:gap-1",
+        className
+      )}
       onValueChange={(value) => {
         const theme = themes.find((theme) => theme.name === value)
         if (!theme) {
@@ -64,10 +65,8 @@ export function ThemesSwitcher({
 
         setThemesConfig({ ...themesConfig, activeTheme: theme })
       }}
-      className={cn(
-        "flex items-center justify-center gap-0.5 py-4 lg:flex-col lg:justify-start lg:gap-1",
-        className
-      )}
+      type="single"
+      value={activeTheme.name}
     >
       {themes.map((theme) => {
         const isActive = theme.name === activeTheme.name
@@ -79,7 +78,6 @@ export function ThemesSwitcher({
           <Tooltip key={theme.name}>
             <TooltipTrigger asChild>
               <ToggleGroupItem
-                value={theme.name}
                 className={cn(
                   "group flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border-2 border-transparent p-0 hover:bg-transparent focus-visible:bg-transparent aria-checked:border-[--color-1]",
                   mounted && isDarkTheme && mode !== "dark" ? "invert-[1]" : ""
@@ -93,6 +91,7 @@ export function ThemesSwitcher({
                     "--color-4": "hsl(var(--chart-4))",
                   } as React.CSSProperties
                 }
+                value={theme.name}
               >
                 <div className="h-6 w-6 overflow-hidden rounded-sm">
                   <div
@@ -111,8 +110,8 @@ export function ThemesSwitcher({
               </ToggleGroupItem>
             </TooltipTrigger>
             <TooltipContent
-              side={isDesktop ? "left" : "top"}
               className="bg-black text-white"
+              side={isDesktop ? "left" : "top"}
             >
               {theme.name}
             </TooltipContent>

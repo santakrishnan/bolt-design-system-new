@@ -1,10 +1,10 @@
 "use client"
 
-import * as React from "react"
-import { useRouter } from "next/navigation"
-import { type DialogProps } from "@radix-ui/react-dialog"
+import type { DialogProps } from "@radix-ui/react-dialog"
 import { Circle, File, Laptop, Moon, Sun } from "lucide-react"
+import { useRouter } from "next/navigation"
 import { useTheme } from "next-themes"
+import * as React from "react"
 
 import { docsConfig } from "@/config/docs"
 import { cn } from "@/lib/utils"
@@ -53,20 +53,20 @@ export function CommandMenu({ ...props }: DialogProps) {
   return (
     <>
       <Button
-        variant="outline"
         className={cn(
-          "relative h-8 w-full justify-start rounded-[0.5rem] bg-muted/50 text-sm font-normal text-muted-foreground shadow-none sm:pr-12 md:w-40 lg:w-56 xl:w-64"
+          "relative h-8 w-full justify-start rounded-[0.5rem] bg-muted/50 font-normal text-muted-foreground text-sm shadow-none sm:pr-12 md:w-40 lg:w-56 xl:w-64"
         )}
         onClick={() => setOpen(true)}
+        variant="outline"
         {...props}
       >
         <span className="hidden lg:inline-flex">Search documentation...</span>
         <span className="inline-flex lg:hidden">Search...</span>
-        <kbd className="pointer-events-none absolute right-[0.3rem] top-[0.3rem] hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
+        <kbd className="pointer-events-none absolute top-[0.3rem] right-[0.3rem] hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-medium font-mono text-[10px] opacity-100 sm:flex">
           <span className="text-xs">⌘</span>K
         </kbd>
       </Button>
-      <CommandDialog open={open} onOpenChange={setOpen}>
+      <CommandDialog onOpenChange={setOpen} open={open}>
         <CommandInput placeholder="Type a command or search..." />
         <CommandList>
           <CommandEmpty>No results found.</CommandEmpty>
@@ -76,10 +76,10 @@ export function CommandMenu({ ...props }: DialogProps) {
               .map((navItem) => (
                 <CommandItem
                   key={navItem.href}
-                  value={navItem.title}
                   onSelect={() => {
                     runCommand(() => router.push(navItem.href as string))
                   }}
+                  value={navItem.title}
                 >
                   <File />
                   {navItem.title}
@@ -87,14 +87,14 @@ export function CommandMenu({ ...props }: DialogProps) {
               ))}
           </CommandGroup>
           {docsConfig.sidebarNav.map((group) => (
-            <CommandGroup key={group.title} heading={group.title}>
+            <CommandGroup heading={group.title} key={group.title}>
               {group.items.map((navItem) => (
                 <CommandItem
                   key={navItem.href}
-                  value={navItem.title}
                   onSelect={() => {
                     runCommand(() => router.push(navItem.href as string))
                   }}
+                  value={navItem.title}
                 >
                   <div className="mr-2 flex h-4 w-4 items-center justify-center">
                     <Circle className="h-3 w-3" />

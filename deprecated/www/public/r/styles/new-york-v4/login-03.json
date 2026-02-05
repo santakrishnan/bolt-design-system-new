@@ -3,13 +3,7 @@
   "name": "login-03",
   "type": "registry:block",
   "description": "A login page with a muted background color.",
-  "registryDependencies": [
-    "button",
-    "card",
-    "input",
-    "label",
-    "field"
-  ],
+  "registryDependencies": ["button", "card", "input", "label", "field"],
   "files": [
     {
       "path": "registry/new-york-v4/blocks/login-03/page.tsx",
@@ -23,8 +17,5 @@
       "type": "registry:component"
     }
   ],
-  "categories": [
-    "authentication",
-    "login"
-  ]
+  "categories": ["authentication", "login"]
 }

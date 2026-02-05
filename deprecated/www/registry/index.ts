@@ -1,5 +1,4 @@
-import { type Registry } from "shadcn/schema"
-import { z } from "zod"
+import type { Registry } from "shadcn/schema"
 
 import { blocks } from "@/registry/registry-blocks"
 import { charts } from "@/registry/registry-charts"

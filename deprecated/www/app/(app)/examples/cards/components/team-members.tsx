@@ -44,17 +44,17 @@ export function DemoTeamMembers() {
               <AvatarFallback>OM</AvatarFallback>
             </Avatar>
             <div>
-              <p className="text-sm font-medium leading-none">Sofia Davis</p>
-              <p className="text-sm text-muted-foreground">m@example.com</p>
+              <p className="font-medium text-sm leading-none">Sofia Davis</p>
+              <p className="text-muted-foreground text-sm">m@example.com</p>
             </div>
           </div>
           <Popover>
             <PopoverTrigger asChild>
-              <Button variant="outline" className="ml-auto">
+              <Button className="ml-auto" variant="outline">
                 Owner <ChevronDown className="text-muted-foreground" />
               </Button>
             </PopoverTrigger>
-            <PopoverContent className="p-0" align="end">
+            <PopoverContent align="end" className="p-0">
               <Command>
                 <CommandInput placeholder="Select new role..." />
                 <CommandList>
@@ -62,25 +62,25 @@ export function DemoTeamMembers() {
                   <CommandGroup>
                     <CommandItem className="teamaspace-y-1 flex flex-col items-start px-4 py-2">
                       <p>Viewer</p>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-muted-foreground text-sm">
                         Can view and comment.
                       </p>
                     </CommandItem>
                     <CommandItem className="teamaspace-y-1 flex flex-col items-start px-4 py-2">
                       <p>Developer</p>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-muted-foreground text-sm">
                         Can view, comment and edit.
                       </p>
                     </CommandItem>
                     <CommandItem className="teamaspace-y-1 flex flex-col items-start px-4 py-2">
                       <p>Billing</p>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-muted-foreground text-sm">
                         Can view, comment and manage billing.
                       </p>
                     </CommandItem>
                     <CommandItem className="teamaspace-y-1 flex flex-col items-start px-4 py-2">
                       <p>Owner</p>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-muted-foreground text-sm">
                         Admin-level access to all resources.
                       </p>
                     </CommandItem>
@@ -97,17 +97,17 @@ export function DemoTeamMembers() {
               <AvatarFallback>JL</AvatarFallback>
             </Avatar>
             <div>
-              <p className="text-sm font-medium leading-none">Jackson Lee</p>
-              <p className="text-sm text-muted-foreground">p@example.com</p>
+              <p className="font-medium text-sm leading-none">Jackson Lee</p>
+              <p className="text-muted-foreground text-sm">p@example.com</p>
             </div>
           </div>
           <Popover>
             <PopoverTrigger asChild>
-              <Button variant="outline" className="ml-auto">
+              <Button className="ml-auto" variant="outline">
                 Member <ChevronDown className="text-muted-foreground" />
               </Button>
             </PopoverTrigger>
-            <PopoverContent className="p-0" align="end">
+            <PopoverContent align="end" className="p-0">
               <Command>
                 <CommandInput placeholder="Select new role..." />
                 <CommandList>
@@ -115,25 +115,25 @@ export function DemoTeamMembers() {
                   <CommandGroup className="p-1.5">
                     <CommandItem className="teamaspace-y-1 flex flex-col items-start px-4 py-2">
                       <p>Viewer</p>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-muted-foreground text-sm">
                         Can view and comment.
                       </p>
                     </CommandItem>
                     <CommandItem className="teamaspace-y-1 flex flex-col items-start px-4 py-2">
                       <p>Developer</p>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-muted-foreground text-sm">
                         Can view, comment and edit.
                       </p>
                     </CommandItem>
                     <CommandItem className="teamaspace-y-1 flex flex-col items-start px-4 py-2">
                       <p>Billing</p>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-muted-foreground text-sm">
                         Can view, comment and manage billing.
                       </p>
                     </CommandItem>
                     <CommandItem className="teamaspace-y-1 flex flex-col items-start px-4 py-2">
                       <p>Owner</p>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-muted-foreground text-sm">
                         Admin-level access to all resources.
                       </p>
                     </CommandItem>

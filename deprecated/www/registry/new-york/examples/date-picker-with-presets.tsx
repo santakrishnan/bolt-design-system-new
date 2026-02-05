@@ -1,8 +1,8 @@
 "use client"
 
-import * as React from "react"
 import { addDays, format } from "date-fns"
 import { CalendarIcon } from "lucide-react"
+import * as React from "react"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/registry/new-york/ui/button"
@@ -27,11 +27,11 @@ export default function DatePickerWithPresets() {
     <Popover>
       <PopoverTrigger asChild>
         <Button
-          variant={"outline"}
           className={cn(
             "w-[240px] justify-start text-left font-normal",
             !date && "text-muted-foreground"
           )}
+          variant={"outline"}
         >
           <CalendarIcon />
           {date ? format(date, "PPP") : <span>Pick a date</span>}
@@ -43,7 +43,7 @@ export default function DatePickerWithPresets() {
       >
         <Select
           onValueChange={(value) =>
-            setDate(addDays(new Date(), parseInt(value)))
+            setDate(addDays(new Date(), Number.parseInt(value)))
           }
         >
           <SelectTrigger>
@@ -57,7 +57,7 @@ export default function DatePickerWithPresets() {
           </SelectContent>
         </Select>
         <div className="rounded-md border">
-          <Calendar mode="single" selected={date} onSelect={setDate} />
+          <Calendar mode="single" onSelect={setDate} selected={date} />
         </div>
       </PopoverContent>
     </Popover>

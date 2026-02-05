@@ -1,6 +1,5 @@
 "use client"
 
-import * as React from "react"
 import {
   Frame,
   LifeBuoy,
@@ -10,6 +9,7 @@ import {
   PieChart,
   Send,
 } from "lucide-react"
+import * as React from "react"
 
 import { Button } from "@/registry/default/ui/button"
 import {
@@ -57,7 +57,7 @@ export default function AppSidebar() {
   const [open, setOpen] = React.useState(true)
 
   return (
-    <SidebarProvider open={open} onOpenChange={setOpen}>
+    <SidebarProvider onOpenChange={setOpen} open={open}>
       <Sidebar>
         <SidebarContent>
           <SidebarGroup>
@@ -80,7 +80,7 @@ export default function AppSidebar() {
         </SidebarContent>
       </Sidebar>
       <SidebarInset>
-        <header className="flex items-center h-12 px-4 justify-between">
+        <header className="flex h-12 items-center justify-between px-4">
           <Button
             onClick={() => setOpen((open) => !open)}
             size="sm"

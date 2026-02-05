@@ -1,6 +1,5 @@
 "use client"
 
-import * as React from "react"
 import {
   Bell,
   Check,
@@ -15,6 +14,7 @@ import {
   Settings,
   Video,
 } from "lucide-react"
+import * as React from "react"
 
 import {
   Breadcrumb,
@@ -64,7 +64,7 @@ export function SettingsDialog() {
   const [open, setOpen] = React.useState(true)
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog onOpenChange={setOpen} open={open}>
       <DialogTrigger asChild>
         <Button size="sm">Open Dialog</Button>
       </DialogTrigger>
@@ -74,7 +74,7 @@ export function SettingsDialog() {
           Customize your settings here.
         </DialogDescription>
         <SidebarProvider className="items-start">
-          <Sidebar collapsible="none" className="hidden md:flex">
+          <Sidebar className="hidden md:flex" collapsible="none">
             <SidebarContent>
               <SidebarGroup>
                 <SidebarGroupContent>
@@ -116,8 +116,8 @@ export function SettingsDialog() {
             <div className="flex flex-1 flex-col gap-4 overflow-y-auto p-4 pt-0">
               {Array.from({ length: 10 }).map((_, i) => (
                 <div
-                  key={i}
                   className="aspect-video max-w-3xl rounded-xl bg-muted/50"
+                  key={i}
                 />
               ))}
             </div>

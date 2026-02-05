@@ -2,9 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "spinner-size",
   "type": "registry:example",
-  "registryDependencies": [
-    "spinner"
-  ],
+  "registryDependencies": ["spinner"],
   "files": [
     {
       "path": "registry/new-york-v4/examples/spinner-size.tsx",

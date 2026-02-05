@@ -1,10 +1,8 @@
 "use client"
 
-import * as React from "react"
-import { type SelectTriggerProps } from "@radix-ui/react-select"
-
-import { cn } from "@/lib/utils"
+import type { SelectTriggerProps } from "@radix-ui/react-select"
 import { useConfig } from "@/hooks/use-config"
+import { cn } from "@/lib/utils"
 import {
   Select,
   SelectContent,
@@ -12,20 +10,20 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/registry/new-york/ui/select"
-import { Style, styles } from "@/registry/registry-styles"
+import { type Style, styles } from "@/registry/registry-styles"
 
 export function StyleSwitcher({ className, ...props }: SelectTriggerProps) {
   const [config, setConfig] = useConfig()
 
   return (
     <Select
-      value={config.style}
       onValueChange={(value: Style["name"]) =>
         setConfig({
           ...config,
           style: value,
         })
       }
+      value={config.style}
     >
       <SelectTrigger
         className={cn(
@@ -39,7 +37,7 @@ export function StyleSwitcher({ className, ...props }: SelectTriggerProps) {
       </SelectTrigger>
       <SelectContent>
         {styles.map((style) => (
-          <SelectItem key={style.name} value={style.name} className="text-xs">
+          <SelectItem className="text-xs" key={style.name} value={style.name}>
             {style.label}
           </SelectItem>
         ))}

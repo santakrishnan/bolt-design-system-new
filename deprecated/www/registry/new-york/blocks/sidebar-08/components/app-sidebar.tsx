@@ -1,6 +1,5 @@
 "use client"
 
-import * as React from "react"
 import {
   BookOpen,
   Bot,
@@ -13,6 +12,7 @@ import {
   Settings2,
   SquareTerminal,
 } from "lucide-react"
+import type * as React from "react"
 
 import { NavMain } from "@/registry/new-york/blocks/sidebar-08/components/nav-main"
 import { NavProjects } from "@/registry/new-york/blocks/sidebar-08/components/nav-projects"
@@ -158,7 +158,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton size="lg" asChild>
+            <SidebarMenuButton asChild size="lg">
               <a href="#">
                 <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
                   <Command className="size-4" />
@@ -175,7 +175,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarContent>
         <NavMain items={data.navMain} />
         <NavProjects projects={data.projects} />
-        <NavSecondary items={data.navSecondary} className="mt-auto" />
+        <NavSecondary className="mt-auto" items={data.navSecondary} />
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />

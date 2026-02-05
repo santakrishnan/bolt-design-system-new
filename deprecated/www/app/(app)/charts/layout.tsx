@@ -1,4 +1,4 @@
-import { Metadata } from "next"
+import type { Metadata } from "next"
 import Link from "next/link"
 
 import { Announcement } from "@/components/announcement"
@@ -54,7 +54,7 @@ export default function ChartsLayout({
           <Button asChild size="sm">
             <a href="#charts">Browse Charts</a>
           </Button>
-          <Button asChild variant="ghost" size="sm">
+          <Button asChild size="sm" variant="ghost">
             <Link href="/docs/components/chart">Documentation</Link>
           </Button>
         </PageActions>
@@ -68,7 +68,7 @@ export default function ChartsLayout({
       </div>
       <div className="container-wrapper">
         <div className="container py-6">
-          <section id="charts" className="scroll-mt-20">
+          <section className="scroll-mt-20" id="charts">
             {children}
           </section>
         </div>

@@ -2,17 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "form-tanstack-array",
   "type": "registry:example",
-  "dependencies": [
-    "@tanstack/react-form",
-    "zod"
-  ],
-  "registryDependencies": [
-    "field",
-    "input",
-    "input-group",
-    "button",
-    "card"
-  ],
+  "dependencies": ["@tanstack/react-form", "zod"],
+  "registryDependencies": ["field", "input", "input-group", "button", "card"],
   "files": [
     {
       "path": "registry/new-york-v4/examples/form-tanstack-array.tsx",

@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { type DateRange } from "react-day-picker"
+import type { DateRange } from "react-day-picker"
 
 import { Calendar } from "@/registry/default/ui/calendar"
 
@@ -13,11 +13,11 @@ export default function Calendar04() {
 
   return (
     <Calendar
-      mode="range"
-      defaultMonth={dateRange?.from}
-      selected={dateRange}
-      onSelect={setDateRange}
       className="rounded-lg border shadow-sm"
+      defaultMonth={dateRange?.from}
+      mode="range"
+      onSelect={setDateRange}
+      selected={dateRange}
     />
   )
 }

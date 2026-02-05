@@ -12,7 +12,7 @@ import {
   CardTitle,
 } from "@/registry/new-york/ui/card"
 import {
-  ChartConfig,
+  type ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
@@ -47,19 +47,19 @@ export default function Component() {
           <BarChart accessibilityLayer data={chartData}>
             <CartesianGrid vertical={false} />
             <ChartTooltip
+              content={<ChartTooltipContent hideIndicator hideLabel />}
               cursor={false}
-              content={<ChartTooltipContent hideLabel hideIndicator />}
             />
             <Bar dataKey="visitors">
-              <LabelList position="top" dataKey="month" fillOpacity={1} />
+              <LabelList dataKey="month" fillOpacity={1} position="top" />
               {chartData.map((item) => (
                 <Cell
-                  key={item.month}
                   fill={
                     item.visitors > 0
                       ? "hsl(var(--chart-1))"
                       : "hsl(var(--chart-2))"
                   }
+                  key={item.month}
                 />
               ))}
             </Bar>
@@ -70,7 +70,7 @@ export default function Component() {
         <div className="flex gap-2 font-medium leading-none">
           Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
         </div>
-        <div className="leading-none text-muted-foreground">
+        <div className="text-muted-foreground leading-none">
           Showing total visitors for the last 6 months
         </div>
       </CardFooter>

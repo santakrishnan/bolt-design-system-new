@@ -5,8 +5,8 @@ import { AspectRatio } from "@/registry/new-york/ui/aspect-ratio"
 export function PromoVideo() {
   return (
     <AspectRatio
-      ratio={16 / 9}
       className="overflow-hidden rounded-lg border bg-white shadow-xl"
+      ratio={16 / 9}
     >
       <video autoPlay muted playsInline>
         <source

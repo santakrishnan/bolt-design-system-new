@@ -1,7 +1,7 @@
 "use client"
 
-import * as React from "react"
 import { Check, ChevronsUpDown, GalleryVerticalEnd, Search } from "lucide-react"
+import * as React from "react"
 
 import {
   Breadcrumb,
@@ -184,8 +184,8 @@ export default function Component() {
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <SidebarMenuButton
-                    size="lg"
                     className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
+                    size="lg"
                   >
                     <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
                       <GalleryVerticalEnd className="size-4" />
@@ -198,8 +198,8 @@ export default function Component() {
                   </SidebarMenuButton>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent
-                  className="w-[--radix-dropdown-menu-trigger-width]"
                   align="start"
+                  className="w-[--radix-dropdown-menu-trigger-width]"
                 >
                   {data.versions.map((version) => (
                     <DropdownMenuItem
@@ -219,15 +219,15 @@ export default function Component() {
           <form>
             <SidebarGroup className="py-0">
               <SidebarGroupContent className="relative">
-                <Label htmlFor="search" className="sr-only">
+                <Label className="sr-only" htmlFor="search">
                   Search
                 </Label>
                 <SidebarInput
+                  className="pl-8"
                   id="search"
                   placeholder="Search the docs..."
-                  className="pl-8"
                 />
-                <Search className="pointer-events-none absolute left-2 top-1/2 size-4 -translate-y-1/2 select-none opacity-50" />
+                <Search className="pointer-events-none absolute top-1/2 left-2 size-4 -translate-y-1/2 select-none opacity-50" />
               </SidebarGroupContent>
             </SidebarGroup>
           </form>
@@ -256,7 +256,7 @@ export default function Component() {
       <SidebarInset>
         <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
           <SidebarTrigger className="-ml-1" />
-          <Separator orientation="vertical" className="mr-2 h-4" />
+          <Separator className="mr-2 h-4" orientation="vertical" />
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem className="hidden md:block">

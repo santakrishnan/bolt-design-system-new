@@ -1,6 +1,5 @@
 "use client"
 
-import * as React from "react"
 import {
   AlertCircle,
   Archive,
@@ -14,7 +13,13 @@ import {
   Trash2,
   Users2,
 } from "lucide-react"
-
+import * as React from "react"
+import { AccountSwitcher } from "@/app/(app)/examples/mail/components/account-switcher"
+import { MailDisplay } from "@/app/(app)/examples/mail/components/mail-display"
+import { MailList } from "@/app/(app)/examples/mail/components/mail-list"
+import { Nav } from "@/app/(app)/examples/mail/components/nav"
+import type { Mail } from "@/app/(app)/examples/mail/data"
+import { useMail } from "@/app/(app)/examples/mail/use-mail"
 import { cn } from "@/lib/utils"
 import { Input } from "@/registry/new-york/ui/input"
 import {
@@ -30,12 +35,6 @@ import {
   TabsTrigger,
 } from "@/registry/new-york/ui/tabs"
 import { TooltipProvider } from "@/registry/new-york/ui/tooltip"
-import { AccountSwitcher } from "@/app/(app)/examples/mail/components/account-switcher"
-import { MailDisplay } from "@/app/(app)/examples/mail/components/mail-display"
-import { MailList } from "@/app/(app)/examples/mail/components/mail-list"
-import { Nav } from "@/app/(app)/examples/mail/components/nav"
-import { type Mail } from "@/app/(app)/examples/mail/data"
-import { useMail } from "@/app/(app)/examples/mail/use-mail"
 
 interface MailProps {
   accounts: {
@@ -62,20 +61,24 @@ export function Mail({
   return (
     <TooltipProvider delayDuration={0}>
       <ResizablePanelGroup
+        className="h-full max-h-[800px] items-stretch"
         direction="horizontal"
         onLayout={(sizes: number[]) => {
           document.cookie = `react-resizable-panels:layout:mail=${JSON.stringify(
             sizes
           )}`
         }}
-        className="h-full max-h-[800px] items-stretch"
       >
         <ResizablePanel
-          defaultSize={defaultLayout[0]}
+          className={cn(
+            isCollapsed &&
+              "min-w-[50px] transition-all duration-300 ease-in-out"
+          )}
           collapsedSize={navCollapsedSize}
           collapsible={true}
-          minSize={15}
+          defaultSize={defaultLayout[0]}
           maxSize={20}
+          minSize={15}
           onCollapse={() => {
             setIsCollapsed(true)
             document.cookie = `react-resizable-panels:collapsed=${JSON.stringify(
@@ -88,10 +91,6 @@ export function Mail({
               false
             )}`
           }}
-          className={cn(
-            isCollapsed &&
-              "min-w-[50px] transition-all duration-300 ease-in-out"
-          )}
         >
           <div
             className={cn(
@@ -99,7 +98,7 @@ export function Mail({
               isCollapsed ? "h-[52px]" : "px-2"
             )}
           >
-            <AccountSwitcher isCollapsed={isCollapsed} accounts={accounts} />
+            <AccountSwitcher accounts={accounts} isCollapsed={isCollapsed} />
           </div>
           <Separator />
           <Nav
@@ -184,17 +183,17 @@ export function Mail({
         <ResizablePanel defaultSize={defaultLayout[1]} minSize={30}>
           <Tabs defaultValue="all">
             <div className="flex items-center px-4 py-2">
-              <h1 className="text-xl font-bold">Inbox</h1>
+              <h1 className="font-bold text-xl">Inbox</h1>
               <TabsList className="ml-auto">
                 <TabsTrigger
-                  value="all"
                   className="text-zinc-600 dark:text-zinc-200"
+                  value="all"
                 >
                   All mail
                 </TabsTrigger>
                 <TabsTrigger
-                  value="unread"
                   className="text-zinc-600 dark:text-zinc-200"
+                  value="unread"
                 >
                   Unread
                 </TabsTrigger>
@@ -204,15 +203,15 @@ export function Mail({
             <div className="bg-background/95 p-4 backdrop-blur supports-[backdrop-filter]:bg-background/60">
               <form>
                 <div className="relative">
-                  <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
-                  <Input placeholder="Search" className="pl-8" />
+                  <Search className="absolute top-2.5 left-2 h-4 w-4 text-muted-foreground" />
+                  <Input className="pl-8" placeholder="Search" />
                 </div>
               </form>
             </div>
-            <TabsContent value="all" className="m-0">
+            <TabsContent className="m-0" value="all">
               <MailList items={mails} />
             </TabsContent>
-            <TabsContent value="unread" className="m-0">
+            <TabsContent className="m-0" value="unread">
               <MailList items={mails.filter((item) => !item.read)} />
             </TabsContent>
           </Tabs>

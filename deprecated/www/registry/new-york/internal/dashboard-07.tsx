@@ -1,5 +1,3 @@
-import Image from "next/image"
-import Link from "next/link"
 import {
   ChevronLeft,
   Home,
@@ -14,6 +12,8 @@ import {
   Upload,
   Users2,
 } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
 
 import { Badge } from "@/registry/new-york/ui/badge"
 import {
@@ -83,8 +83,8 @@ export default function Dashboard() {
       <aside className="fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-background sm:flex">
         <nav className="flex flex-col items-center gap-4 px-2 py-4">
           <Link
+            className="group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full bg-primary font-semibold text-lg text-primary-foreground md:h-8 md:w-8 md:text-base"
             href="#"
-            className="group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:h-8 md:w-8 md:text-base"
           >
             <Package2 className="h-4 w-4 transition-all group-hover:scale-110" />
             <span className="sr-only">Acme Inc</span>
@@ -92,8 +92,8 @@ export default function Dashboard() {
           <Tooltip>
             <TooltipTrigger asChild>
               <Link
-                href="#"
                 className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                href="#"
               >
                 <Home className="h-5 w-5" />
                 <span className="sr-only">Dashboard</span>
@@ -104,8 +104,8 @@ export default function Dashboard() {
           <Tooltip>
             <TooltipTrigger asChild>
               <Link
-                href="#"
                 className="flex h-9 w-9 items-center justify-center rounded-lg transition-colors hover:text-foreground md:h-8 md:w-8"
+                href="#"
               >
                 <ShoppingCart className="h-5 w-5" />
                 <span className="sr-only">Orders</span>
@@ -116,8 +116,8 @@ export default function Dashboard() {
           <Tooltip>
             <TooltipTrigger asChild>
               <Link
-                href="#"
                 className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                href="#"
               >
                 <Package className="h-5 w-5" />
                 <span className="sr-only">Products</span>
@@ -128,8 +128,8 @@ export default function Dashboard() {
           <Tooltip>
             <TooltipTrigger asChild>
               <Link
-                href="#"
                 className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                href="#"
               >
                 <Users2 className="h-5 w-5" />
                 <span className="sr-only">Customers</span>
@@ -140,8 +140,8 @@ export default function Dashboard() {
           <Tooltip>
             <TooltipTrigger asChild>
               <Link
-                href="#"
                 className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                href="#"
               >
                 <LineChart className="h-5 w-5" />
                 <span className="sr-only">Analytics</span>
@@ -154,8 +154,8 @@ export default function Dashboard() {
           <Tooltip>
             <TooltipTrigger asChild>
               <Link
-                href="#"
                 className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                href="#"
               >
                 <Settings className="h-5 w-5" />
                 <span className="sr-only">Settings</span>
@@ -169,51 +169,51 @@ export default function Dashboard() {
         <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
           <Sheet>
             <SheetTrigger asChild>
-              <Button size="icon" variant="outline" className="sm:hidden">
+              <Button className="sm:hidden" size="icon" variant="outline">
                 <PanelLeft className="h-5 w-5" />
                 <span className="sr-only">Toggle Menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="sm:max-w-xs">
-              <nav className="grid gap-6 text-lg font-medium">
+            <SheetContent className="sm:max-w-xs" side="left">
+              <nav className="grid gap-6 font-medium text-lg">
                 <Link
+                  className="group flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary font-semibold text-lg text-primary-foreground md:text-base"
                   href="#"
-                  className="group flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:text-base"
                 >
                   <Package2 className="h-5 w-5 transition-all group-hover:scale-110" />
                   <span className="sr-only">Acme Inc</span>
                 </Link>
                 <Link
-                  href="#"
                   className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+                  href="#"
                 >
                   <Home className="h-5 w-5" />
                   Dashboard
                 </Link>
                 <Link
-                  href="#"
                   className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+                  href="#"
                 >
                   <ShoppingCart className="h-5 w-5" />
                   Orders
                 </Link>
                 <Link
-                  href="#"
                   className="flex items-center gap-4 px-2.5 text-foreground"
+                  href="#"
                 >
                   <Package className="h-5 w-5" />
                   Products
                 </Link>
                 <Link
-                  href="#"
                   className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+                  href="#"
                 >
                   <Users2 className="h-5 w-5" />
                   Customers
                 </Link>
                 <Link
-                  href="#"
                   className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+                  href="#"
                 >
                   <LineChart className="h-5 w-5" />
                   Settings
@@ -241,26 +241,26 @@ export default function Dashboard() {
             </BreadcrumbList>
           </Breadcrumb>
           <div className="relative ml-auto flex-1 md:grow-0">
-            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+            <Search className="absolute top-2.5 left-2.5 h-4 w-4 text-muted-foreground" />
             <Input
-              type="search"
-              placeholder="Search..."
               className="w-full rounded-lg bg-background pl-8 md:w-[200px] lg:w-[320px]"
+              placeholder="Search..."
+              type="search"
             />
           </div>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button
-                variant="outline"
-                size="icon"
                 className="overflow-hidden rounded-full"
+                size="icon"
+                variant="outline"
               >
                 <Image
-                  src="/placeholder-user.jpg"
-                  width={36}
-                  height={36}
                   alt="Avatar"
                   className="overflow-hidden rounded-full"
+                  height={36}
+                  src="/placeholder-user.jpg"
+                  width={36}
                 />
               </Button>
             </DropdownMenuTrigger>
@@ -277,18 +277,18 @@ export default function Dashboard() {
         <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
           <div className="mx-auto grid max-w-[59rem] flex-1 auto-rows-max gap-4">
             <div className="flex items-center gap-4">
-              <Button variant="outline" size="icon" className="h-7 w-7">
+              <Button className="h-7 w-7" size="icon" variant="outline">
                 <ChevronLeft className="h-4 w-4" />
                 <span className="sr-only">Back</span>
               </Button>
-              <h1 className="flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
+              <h1 className="flex-1 shrink-0 whitespace-nowrap font-semibold text-xl tracking-tight sm:grow-0">
                 Pro Controller
               </h1>
-              <Badge variant="outline" className="ml-auto sm:ml-0">
+              <Badge className="ml-auto sm:ml-0" variant="outline">
                 In stock
               </Badge>
               <div className="hidden items-center gap-2 md:ml-auto md:flex">
-                <Button variant="outline" size="sm">
+                <Button size="sm" variant="outline">
                   Discard
                 </Button>
                 <Button size="sm">Save Product</Button>
@@ -308,18 +308,18 @@ export default function Dashboard() {
                       <div className="grid gap-3">
                         <Label htmlFor="name">Name</Label>
                         <Input
-                          id="name"
-                          type="text"
                           className="w-full"
                           defaultValue="Gamer Gear Pro Controller"
+                          id="name"
+                          type="text"
                         />
                       </div>
                       <div className="grid gap-3">
                         <Label htmlFor="description">Description</Label>
                         <Textarea
-                          id="description"
-                          defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl nec ultricies ultricies, nunc nisl ultricies nunc, nec ultricies nunc nisl nec nunc."
                           className="min-h-32"
+                          defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl nec ultricies ultricies, nunc nisl ultricies nunc, nec ultricies nunc nisl nec nunc."
+                          id="description"
                         />
                       </div>
                     </div>
@@ -348,29 +348,29 @@ export default function Dashboard() {
                             GGPC-001
                           </TableCell>
                           <TableCell>
-                            <Label htmlFor="stock-1" className="sr-only">
+                            <Label className="sr-only" htmlFor="stock-1">
                               Stock
                             </Label>
                             <Input
+                              defaultValue="100"
                               id="stock-1"
                               type="number"
-                              defaultValue="100"
                             />
                           </TableCell>
                           <TableCell>
-                            <Label htmlFor="price-1" className="sr-only">
+                            <Label className="sr-only" htmlFor="price-1">
                               Price
                             </Label>
                             <Input
+                              defaultValue="99.99"
                               id="price-1"
                               type="number"
-                              defaultValue="99.99"
                             />
                           </TableCell>
                           <TableCell>
                             <ToggleGroup
-                              type="single"
                               defaultValue="s"
+                              type="single"
                               variant="outline"
                             >
                               <ToggleGroupItem value="s">S</ToggleGroupItem>
@@ -384,29 +384,29 @@ export default function Dashboard() {
                             GGPC-002
                           </TableCell>
                           <TableCell>
-                            <Label htmlFor="stock-2" className="sr-only">
+                            <Label className="sr-only" htmlFor="stock-2">
                               Stock
                             </Label>
                             <Input
+                              defaultValue="143"
                               id="stock-2"
                               type="number"
-                              defaultValue="143"
                             />
                           </TableCell>
                           <TableCell>
-                            <Label htmlFor="price-2" className="sr-only">
+                            <Label className="sr-only" htmlFor="price-2">
                               Price
                             </Label>
                             <Input
+                              defaultValue="99.99"
                               id="price-2"
                               type="number"
-                              defaultValue="99.99"
                             />
                           </TableCell>
                           <TableCell>
                             <ToggleGroup
-                              type="single"
                               defaultValue="m"
+                              type="single"
                               variant="outline"
                             >
                               <ToggleGroupItem value="s">S</ToggleGroupItem>
@@ -420,29 +420,29 @@ export default function Dashboard() {
                             GGPC-003
                           </TableCell>
                           <TableCell>
-                            <Label htmlFor="stock-3" className="sr-only">
+                            <Label className="sr-only" htmlFor="stock-3">
                               Stock
                             </Label>
                             <Input
+                              defaultValue="32"
                               id="stock-3"
                               type="number"
-                              defaultValue="32"
                             />
                           </TableCell>
                           <TableCell>
-                            <Label htmlFor="price-3" className="sr-only">
+                            <Label className="sr-only" htmlFor="price-3">
                               Stock
                             </Label>
                             <Input
+                              defaultValue="99.99"
                               id="price-3"
                               type="number"
-                              defaultValue="99.99"
                             />
                           </TableCell>
                           <TableCell>
                             <ToggleGroup
-                              type="single"
                               defaultValue="s"
+                              type="single"
                               variant="outline"
                             >
                               <ToggleGroupItem value="s">S</ToggleGroupItem>
@@ -455,7 +455,7 @@ export default function Dashboard() {
                     </Table>
                   </CardContent>
                   <CardFooter className="justify-center border-t p-4">
-                    <Button size="sm" variant="ghost" className="gap-1">
+                    <Button className="gap-1" size="sm" variant="ghost">
                       <PlusCircle className="h-3.5 w-3.5" />
                       Add Variant
                     </Button>
@@ -471,8 +471,8 @@ export default function Dashboard() {
                         <Label htmlFor="category">Category</Label>
                         <Select>
                           <SelectTrigger
-                            id="category"
                             aria-label="Select category"
+                            id="category"
                           >
                             <SelectValue placeholder="Select category" />
                           </SelectTrigger>
@@ -493,8 +493,8 @@ export default function Dashboard() {
                         </Label>
                         <Select>
                           <SelectTrigger
-                            id="subcategory"
                             aria-label="Select subcategory"
+                            id="subcategory"
                           >
                             <SelectValue placeholder="Select subcategory" />
                           </SelectTrigger>
@@ -521,7 +521,7 @@ export default function Dashboard() {
                       <div className="grid gap-3">
                         <Label htmlFor="status">Status</Label>
                         <Select>
-                          <SelectTrigger id="status" aria-label="Select status">
+                          <SelectTrigger aria-label="Select status" id="status">
                             <SelectValue placeholder="Select status" />
                           </SelectTrigger>
                           <SelectContent>
@@ -588,7 +588,7 @@ export default function Dashboard() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <div></div>
+                    <div />
                     <Button size="sm" variant="secondary">
                       Archive Product
                     </Button>
@@ -597,7 +597,7 @@ export default function Dashboard() {
               </div>
             </div>
             <div className="flex items-center justify-center gap-2 md:hidden">
-              <Button variant="outline" size="sm">
+              <Button size="sm" variant="outline">
                 Discard
               </Button>
               <Button size="sm">Save Product</Button>

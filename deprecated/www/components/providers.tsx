@@ -1,8 +1,8 @@
 "use client"
 
-import * as React from "react"
 import { Provider as JotaiProvider } from "jotai"
 import { ThemeProvider as NextThemesProvider } from "next-themes"
+import type * as React from "react"
 
 import { TooltipProvider } from "@/registry/new-york/ui/tooltip"
 

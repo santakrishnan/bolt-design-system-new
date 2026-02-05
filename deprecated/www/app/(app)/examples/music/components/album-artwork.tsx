@@ -1,5 +1,5 @@
-import Image from "next/image"
 import { PlusCircle } from "lucide-react"
+import Image from "next/image"
 
 import { cn } from "@/lib/utils"
 import {
@@ -13,7 +13,7 @@ import {
   ContextMenuTrigger,
 } from "@/registry/new-york/ui/context-menu"
 
-import { Album } from "../data/albums"
+import type { Album } from "../data/albums"
 import { playlists } from "../data/playlists"
 
 interface AlbumArtworkProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -37,14 +37,14 @@ export function AlbumArtwork({
         <ContextMenuTrigger>
           <div className="overflow-hidden rounded-md">
             <Image
-              src={album.cover}
               alt={album.name}
-              width={width}
-              height={height}
               className={cn(
                 "h-auto w-auto object-cover transition-all hover:scale-105",
                 aspectRatio === "portrait" ? "aspect-[3/4]" : "aspect-square"
               )}
+              height={height}
+              src={album.cover}
+              width={width}
             />
           </div>
         </ContextMenuTrigger>
@@ -61,14 +61,14 @@ export function AlbumArtwork({
               {playlists.map((playlist) => (
                 <ContextMenuItem key={playlist}>
                   <svg
-                    xmlns="http://www.w3.org/2000/svg"
+                    className="mr-2 h-4 w-4"
                     fill="none"
                     stroke="currentColor"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"
-                    className="mr-2 h-4 w-4"
                     viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path d="M21 15V6M18.5 18a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5ZM12 12H3M16 6H3M12 18H3" />
                   </svg>
@@ -88,7 +88,7 @@ export function AlbumArtwork({
       </ContextMenu>
       <div className="space-y-1 text-sm">
         <h3 className="font-medium leading-none">{album.name}</h3>
-        <p className="text-xs text-muted-foreground">{album.artist}</p>
+        <p className="text-muted-foreground text-xs">{album.artist}</p>
       </div>
     </div>
   )

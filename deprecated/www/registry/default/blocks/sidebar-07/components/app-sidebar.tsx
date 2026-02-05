@@ -1,6 +1,5 @@
 "use client"
 
-import * as React from "react"
 import {
   AudioWaveform,
   BookOpen,
@@ -13,6 +12,7 @@ import {
   Settings2,
   SquareTerminal,
 } from "lucide-react"
+import type * as React from "react"
 
 import { NavMain } from "@/registry/default/blocks/sidebar-07/components/nav-main"
 import { NavProjects } from "@/registry/default/blocks/sidebar-07/components/nav-projects"

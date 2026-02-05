@@ -1,8 +1,8 @@
 "use client"
 
-import * as React from "react"
 import { CalendarIcon } from "lucide-react"
-import { DateRange } from "react-day-picker"
+import * as React from "react"
+import type { DateRange } from "react-day-picker"
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts"
 
 import { Button } from "@/registry/new-york/ui/button"
@@ -16,7 +16,7 @@ import {
   CardTitle,
 } from "@/registry/new-york/ui/card"
 import {
-  ChartConfig,
+  type ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
@@ -75,7 +75,7 @@ export default function Calendar27() {
     to: new Date(2025, 5, 20),
   })
   const filteredData = React.useMemo(() => {
-    if (!range?.from && !range?.to) {
+    if (!(range?.from || range?.to)) {
       return chartData
     }
 
@@ -87,42 +87,42 @@ export default function Calendar27() {
 
   return (
     <Card className="@container/card w-full max-w-xl">
-      <CardHeader className="@md/card:grid relative flex flex-col border-b">
+      <CardHeader className="relative flex @md/card:grid flex-col border-b">
         <CardTitle>Web Analytics</CardTitle>
         <CardDescription>
           Showing total visitors for this month.
         </CardDescription>
         <Popover>
           <PopoverTrigger asChild>
-            <Button variant="outline" className="absolute right-4 top-4">
+            <Button className="absolute top-4 right-4" variant="outline">
               <CalendarIcon />
               {range?.from && range?.to
                 ? `${range.from.toLocaleDateString()} - ${range.to.toLocaleDateString()}`
                 : "June 2025"}
             </Button>
           </PopoverTrigger>
-          <PopoverContent className="w-auto overflow-hidden p-0" align="end">
+          <PopoverContent align="end" className="w-auto overflow-hidden p-0">
             <Calendar
               className="w-full"
-              mode="range"
               defaultMonth={range?.from}
-              selected={range}
-              onSelect={setRange}
-              disableNavigation
-              startMonth={range?.from}
-              fixedWeeks
-              showOutsideDays
               disabled={{
                 after: new Date(2025, 5, 31),
               }}
+              disableNavigation
+              fixedWeeks
+              mode="range"
+              onSelect={setRange}
+              selected={range}
+              showOutsideDays
+              startMonth={range?.from}
             />
           </PopoverContent>
         </Popover>
       </CardHeader>
       <CardContent className="px-4">
         <ChartContainer
-          config={chartConfig}
           className="aspect-auto h-[250px] w-full"
+          config={chartConfig}
         >
           <BarChart
             accessibilityLayer
@@ -134,10 +134,8 @@ export default function Calendar27() {
           >
             <CartesianGrid vertical={false} />
             <XAxis
-              dataKey="date"
-              tickLine={false}
               axisLine={false}
-              tickMargin={8}
+              dataKey="date"
               minTickGap={20}
               tickFormatter={(value) => {
                 const date = new Date(value)
@@ -145,12 +143,13 @@ export default function Calendar27() {
                   day: "numeric",
                 })
               }}
+              tickLine={false}
+              tickMargin={8}
             />
             <ChartTooltip
               content={
                 <ChartTooltipContent
                   className="w-[150px]"
-                  nameKey="visitors"
                   labelFormatter={(value) => {
                     return new Date(value).toLocaleDateString("en-US", {
                       month: "short",
@@ -158,10 +157,11 @@ export default function Calendar27() {
                       year: "numeric",
                     })
                   }}
+                  nameKey="visitors"
                 />
               }
             />
-            <Bar dataKey="visitors" fill={`var(--color-visitors)`} radius={4} />
+            <Bar dataKey="visitors" fill={"var(--color-visitors)"} radius={4} />
           </BarChart>
         </ChartContainer>
       </CardContent>

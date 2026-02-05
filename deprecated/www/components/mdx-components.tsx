@@ -1,15 +1,11 @@
 // @ts-nocheck
 "use client"
 
-import * as React from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { useMDXComponent } from "next-contentlayer2/hooks"
-import { NpmCommands } from "types/unist"
-
-import { Event } from "@/lib/events"
-import { cn } from "@/lib/utils"
-import { useConfig } from "@/hooks/use-config"
+import type * as React from "react"
+import type { NpmCommands } from "types/unist"
 import { Callout } from "@/components/callout"
 import { CodeBlockCommand } from "@/components/code-block-command"
 import { CodeBlockWrapper } from "@/components/code-block-wrapper"
@@ -17,9 +13,12 @@ import { CodeTabs } from "@/components/code-tabs"
 import { ComponentExample } from "@/components/component-example"
 import { ComponentPreview } from "@/components/component-preview"
 import { ComponentSource } from "@/components/component-source"
-import { CopyButton, CopyNpmCommandButton } from "@/components/copy-button"
+import { CopyButton } from "@/components/copy-button"
 import { FrameworkDocs } from "@/components/framework-docs"
 import { StyleWrapper } from "@/components/style-wrapper"
+import { useConfig } from "@/hooks/use-config"
+import type { Event } from "@/lib/events"
+import { cn } from "@/lib/utils"
 import {
   Accordion,
   AccordionContent,
@@ -39,7 +38,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/registry/new-york/ui/tabs"
-import { Style } from "@/registry/registry-styles"
+import type { Style } from "@/registry/registry-styles"
 
 const components = {
   Accordion,
@@ -53,7 +52,7 @@ const components = {
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1
       className={cn(
-        "font-heading mt-2 scroll-m-20 text-4xl font-bold",
+        "mt-2 scroll-m-20 font-bold font-heading text-4xl",
         className
       )}
       {...props}
@@ -62,7 +61,7 @@ const components = {
   h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2
       className={cn(
-        "font-heading mt-16 scroll-m-20 border-b pb-4 text-xl font-semibold tracking-tight first:mt-0",
+        "mt-16 scroll-m-20 border-b pb-4 font-heading font-semibold text-xl tracking-tight first:mt-0",
         className
       )}
       {...props}
@@ -71,7 +70,7 @@ const components = {
   h3: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h3
       className={cn(
-        "font-heading mt-8 scroll-m-20 text-lg font-semibold tracking-tight",
+        "mt-8 scroll-m-20 font-heading font-semibold text-lg tracking-tight",
         className
       )}
       {...props}
@@ -80,7 +79,7 @@ const components = {
   h4: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h4
       className={cn(
-        "font-heading mt-8 scroll-m-20 text-lg font-semibold tracking-tight",
+        "mt-8 scroll-m-20 font-heading font-semibold text-lg tracking-tight",
         className
       )}
       {...props}
@@ -89,7 +88,7 @@ const components = {
   h5: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h5
       className={cn(
-        "mt-8 scroll-m-20 text-lg font-semibold tracking-tight",
+        "mt-8 scroll-m-20 font-semibold text-lg tracking-tight",
         className
       )}
       {...props}
@@ -98,7 +97,7 @@ const components = {
   h6: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h6
       className={cn(
-        "mt-8 scroll-m-20 text-base font-semibold tracking-tight",
+        "mt-8 scroll-m-20 font-semibold text-base tracking-tight",
         className
       )}
       {...props}
@@ -140,7 +139,7 @@ const components = {
     ...props
   }: React.ImgHTMLAttributes<HTMLImageElement>) => (
     // eslint-disable-next-line @next/next/no-img-element
-    <img className={cn("rounded-md", className)} alt={alt} {...props} />
+    <img alt={alt} className={cn("rounded-md", className)} {...props} />
   ),
   hr: ({ ...props }: React.HTMLAttributes<HTMLHRElement>) => (
     <hr className="my-4 md:my-8" {...props} />
@@ -158,7 +157,7 @@ const components = {
   ),
   tr: ({ className, ...props }: React.HTMLAttributes<HTMLTableRowElement>) => (
     <tr
-      className={cn("last:border-b-none m-0 border-b", className)}
+      className={cn("m-0 border-b last:border-b-none", className)}
       {...props}
     />
   ),
@@ -205,10 +204,10 @@ const components = {
     if (isNpmCommand) {
       return (
         <CodeBlockCommand
-          __npmCommand__={__npmCommand__}
-          __yarnCommand__={__yarnCommand__}
-          __pnpmCommand__={__pnpmCommand__}
           __bunCommand__={__bunCommand__}
+          __npmCommand__={__npmCommand__}
+          __pnpmCommand__={__pnpmCommand__}
+          __yarnCommand__={__yarnCommand__}
         />
       )
     }
@@ -217,17 +216,17 @@ const components = {
       <StyleWrapper styleName={__style__}>
         <pre
           className={cn(
-            "mb-4 mt-6 max-h-[650px] overflow-x-auto rounded-xl bg-zinc-950 py-4 dark:bg-zinc-900",
+            "mt-6 mb-4 max-h-[650px] overflow-x-auto rounded-xl bg-zinc-950 py-4 dark:bg-zinc-900",
             className
           )}
           {...props}
         />
         {__rawString__ && (
           <CopyButton
-            value={__rawString__}
-            src={__src__}
+            className={cn("absolute top-4 right-4", __withMeta__ && "top-16")}
             event={__event__}
-            className={cn("absolute right-4 top-4", __withMeta__ && "top-16")}
+            src={__src__}
+            value={__rawString__}
           />
         )}
       </StyleWrapper>
@@ -255,7 +254,7 @@ const components = {
   Step: ({ className, ...props }: React.ComponentProps<"h3">) => (
     <h3
       className={cn(
-        "font-heading mt-8 scroll-m-20 text-xl font-semibold tracking-tight",
+        "mt-8 scroll-m-20 font-heading font-semibold text-xl tracking-tight",
         className
       )}
       {...props}
@@ -288,7 +287,7 @@ const components = {
   }: React.ComponentProps<typeof TabsTrigger>) => (
     <TabsTrigger
       className={cn(
-        "relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none",
+        "relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pt-2 pb-3 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none",
         className
       )}
       {...props}
@@ -300,7 +299,7 @@ const components = {
   }: React.ComponentProps<typeof TabsContent>) => (
     <TabsContent
       className={cn(
-        "relative [&_h3.font-heading]:text-base [&_h3.font-heading]:font-semibold",
+        "relative [&_h3.font-heading]:font-semibold [&_h3.font-heading]:text-base",
         className
       )}
       {...props}

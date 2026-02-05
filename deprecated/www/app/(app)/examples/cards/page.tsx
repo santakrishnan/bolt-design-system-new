@@ -1,4 +1,4 @@
-import { Metadata } from "next"
+import type { Metadata } from "next"
 import Image from "next/image"
 
 import { cn } from "@/lib/utils"
@@ -38,18 +38,18 @@ export default function CardsPage() {
     <>
       <div className="md:hidden">
         <Image
-          src="/examples/cards-light.png"
-          width={1280}
-          height={1214}
           alt="Cards"
           className="block dark:hidden"
+          height={1214}
+          src="/examples/cards-light.png"
+          width={1280}
         />
         <Image
-          src="/examples/cards-dark.png"
-          width={1280}
-          height={1214}
           alt="Cards"
           className="hidden dark:block"
+          height={1214}
+          src="/examples/cards-dark.png"
+          width={1280}
         />
       </div>
       <div className="hidden items-start justify-center gap-6 rounded-lg p-8 md:grid lg:grid-cols-2 xl:grid-cols-3">

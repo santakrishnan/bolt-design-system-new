@@ -39,7 +39,6 @@ import {
   SidebarProvider,
   SidebarRail,
   SidebarTrigger,
-  useSidebar,
 } from "@/registry/new-york/ui/sidebar"
 
 export const iframeHeight = "800px"
@@ -184,7 +183,7 @@ export default function Page() {
         <SidebarHeader>
           <SidebarMenu>
             <SidebarMenuItem>
-              <SidebarMenuButton size="lg" asChild>
+              <SidebarMenuButton asChild size="lg">
                 <a href="#">
                   <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
                     <GalleryVerticalEnd className="size-4" />
@@ -211,9 +210,9 @@ export default function Page() {
                     </DropdownMenuTrigger>
                     {item.items?.length ? (
                       <DropdownMenuContent
-                        side="bottom"
                         align="end"
                         className="min-w-56 rounded-lg"
+                        side="bottom"
                       >
                         {item.items.map((item) => (
                           <DropdownMenuItem asChild key={item.title}>
@@ -241,7 +240,7 @@ export default function Page() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="grid gap-2.5 p-4">
-                  <SidebarInput type="email" placeholder="Email" />
+                  <SidebarInput placeholder="Email" type="email" />
                   <Button
                     className="w-full bg-sidebar-primary text-sidebar-primary-foreground shadow-none"
                     size="sm"
@@ -258,7 +257,7 @@ export default function Page() {
       <SidebarInset>
         <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
           <SidebarTrigger className="-ml-1" />
-          <Separator orientation="vertical" className="mr-2 h-4" />
+          <Separator className="mr-2 h-4" orientation="vertical" />
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem className="hidden md:block">

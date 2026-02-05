@@ -1,7 +1,7 @@
 "use client"
 
-import * as React from "react"
 import { MoreHorizontal } from "lucide-react"
+import * as React from "react"
 
 import { Button } from "@/registry/new-york/ui/button"
 import {
@@ -42,15 +42,15 @@ export default function ComboboxDropdownMenu() {
 
   return (
     <div className="flex w-full flex-col items-start justify-between rounded-md border px-4 py-3 sm:flex-row sm:items-center">
-      <p className="text-sm font-medium leading-none">
-        <span className="mr-2 rounded-lg bg-primary px-2 py-1 text-xs text-primary-foreground">
+      <p className="font-medium text-sm leading-none">
+        <span className="mr-2 rounded-lg bg-primary px-2 py-1 text-primary-foreground text-xs">
           {label}
         </span>
         <span className="text-muted-foreground">Create a new project</span>
       </p>
-      <DropdownMenu open={open} onOpenChange={setOpen}>
+      <DropdownMenu onOpenChange={setOpen} open={open}>
         <DropdownMenuTrigger asChild>
-          <Button variant="ghost" size="sm">
+          <Button size="sm" variant="ghost">
             <MoreHorizontal />
           </Button>
         </DropdownMenuTrigger>
@@ -65,9 +65,9 @@ export default function ComboboxDropdownMenu() {
               <DropdownMenuSubContent className="p-0">
                 <Command>
                   <CommandInput
-                    placeholder="Filter label..."
                     autoFocus={true}
                     className="h-9"
+                    placeholder="Filter label..."
                   />
                   <CommandList>
                     <CommandEmpty>No label found.</CommandEmpty>
@@ -75,11 +75,11 @@ export default function ComboboxDropdownMenu() {
                       {labels.map((label) => (
                         <CommandItem
                           key={label}
-                          value={label}
                           onSelect={(value) => {
                             setLabel(value)
                             setOpen(false)
                           }}
+                          value={label}
                         >
                           {label}
                         </CommandItem>

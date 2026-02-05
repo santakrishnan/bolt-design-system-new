@@ -30,34 +30,34 @@ export default function Calendar20() {
       <CardContent className="relative p-0 md:pr-48">
         <div className="p-6">
           <Calendar
-            mode="single"
-            selected={date}
-            onSelect={setDate}
+            className="bg-transparent p-0 [--cell-size:2.5rem] md:[--cell-size:3rem]"
             defaultMonth={date}
             disabled={bookedDates}
-            showOutsideDays={false}
+            formatters={{
+              formatWeekdayName: (date) => {
+                return date.toLocaleString("en-US", { weekday: "short" })
+              },
+            }}
+            mode="single"
             modifiers={{
               booked: bookedDates,
             }}
             modifiersClassNames={{
               booked: "[&>button]:line-through opacity-100",
             }}
-            className="bg-transparent p-0 [--cell-size:2.5rem] md:[--cell-size:3rem]"
-            formatters={{
-              formatWeekdayName: (date) => {
-                return date.toLocaleString("en-US", { weekday: "short" })
-              },
-            }}
+            onSelect={setDate}
+            selected={date}
+            showOutsideDays={false}
           />
         </div>
-        <div className="no-scrollbar inset-y-0 right-0 flex max-h-72 w-full scroll-pb-6 flex-col gap-4 overflow-y-auto border-t p-6 md:absolute md:max-h-none md:w-48 md:border-l md:border-t-0">
+        <div className="no-scrollbar inset-y-0 right-0 flex max-h-72 w-full scroll-pb-6 flex-col gap-4 overflow-y-auto border-t p-6 md:absolute md:max-h-none md:w-48 md:border-t-0 md:border-l">
           <div className="grid gap-2">
             {timeSlots.map((time) => (
               <Button
-                key={time}
-                variant={selectedTime === time ? "default" : "outline"}
-                onClick={() => setSelectedTime(time)}
                 className="w-full shadow-none"
+                key={time}
+                onClick={() => setSelectedTime(time)}
+                variant={selectedTime === time ? "default" : "outline"}
               >
                 {time}
               </Button>
@@ -65,7 +65,7 @@ export default function Calendar20() {
           </div>
         </div>
       </CardContent>
-      <CardFooter className="flex flex-col gap-4 border-t !py-5 px-6 md:flex-row">
+      <CardFooter className="!py-5 flex flex-col gap-4 border-t px-6 md:flex-row">
         <div className="text-sm">
           {date && selectedTime ? (
             <>
@@ -85,8 +85,8 @@ export default function Calendar20() {
           )}
         </div>
         <Button
-          disabled={!date || !selectedTime}
           className="w-full md:ml-auto md:w-auto"
+          disabled={!(date && selectedTime)}
           variant="outline"
         >
           Continue

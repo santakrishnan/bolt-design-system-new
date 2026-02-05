@@ -1,11 +1,11 @@
-import * as React from "react"
-import { Metadata } from "next"
+import type { Metadata } from "next"
 import { notFound } from "next/navigation"
+import * as React from "react"
 
 import { siteConfig } from "@/config/site"
 import { getAllBlockIds } from "@/lib/blocks"
 import { absoluteUrl, cn } from "@/lib/utils"
-import { Style, styles } from "@/registry/registry-styles"
+import { type Style, styles } from "@/registry/registry-styles"
 
 import "@/styles/mdx.css"
 import { getRegistryComponent, getRegistryItem } from "@/lib/registry"
@@ -65,14 +65,12 @@ export async function generateMetadata({
 
 export async function generateStaticParams() {
   const blockIds = await getAllBlockIds()
-  return styles
-    .map((style) =>
-      blockIds.map((name) => ({
-        style: style.name,
-        name,
-      }))
-    )
-    .flat()
+  return styles.flatMap((style) =>
+    blockIds.map((name) => ({
+      style: style.name,
+      name,
+    }))
+  )
 }
 
 export default async function BlockPage({
@@ -87,7 +85,7 @@ export default async function BlockPage({
   const item = await getCachedRegistryItem(name, style)
   const Component = getRegistryComponent(name, style)
 
-  if (!item || !Component) {
+  if (!(item && Component)) {
     return notFound()
   }
 

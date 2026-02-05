@@ -50,8 +50,8 @@ export function DemoReportAnIssue() {
             <Label htmlFor="security-level">Security Level</Label>
             <Select defaultValue="2">
               <SelectTrigger
-                id="security-level"
                 className="line-clamp-1 w-[160px] truncate"
+                id="security-level"
               >
                 <SelectValue placeholder="Select level" />
               </SelectTrigger>

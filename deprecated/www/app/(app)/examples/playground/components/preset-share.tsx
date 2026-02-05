@@ -17,25 +17,25 @@ export function PresetShare() {
       </PopoverTrigger>
       <PopoverContent align="end" className="w-[520px]">
         <div className="flex flex-col space-y-2 text-center sm:text-left">
-          <h3 className="text-lg font-semibold">Share preset</h3>
-          <p className="text-sm text-muted-foreground">
+          <h3 className="font-semibold text-lg">Share preset</h3>
+          <p className="text-muted-foreground text-sm">
             Anyone who has this link and an OpenAI account will be able to view
             this.
           </p>
         </div>
         <div className="flex items-center space-x-2 pt-4">
           <div className="grid flex-1 gap-2">
-            <Label htmlFor="link" className="sr-only">
+            <Label className="sr-only" htmlFor="link">
               Link
             </Label>
             <Input
-              id="link"
-              defaultValue="https://platform.openai.com/playground/p/7bbKYQvsVkNmVb8NGcdUOLae?model=text-davinci-003"
-              readOnly
               className="h-9"
+              defaultValue="https://platform.openai.com/playground/p/7bbKYQvsVkNmVb8NGcdUOLae?model=text-davinci-003"
+              id="link"
+              readOnly
             />
           </div>
-          <Button type="submit" size="sm" className="px-3">
+          <Button className="px-3" size="sm" type="submit">
             <span className="sr-only">Copy</span>
             <Copy />
           </Button>

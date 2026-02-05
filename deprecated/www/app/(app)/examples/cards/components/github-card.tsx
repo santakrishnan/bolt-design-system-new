@@ -31,14 +31,14 @@ export function DemoGithub() {
           </CardDescription>
         </div>
         <div className="flex items-center space-x-1 rounded-md bg-secondary text-secondary-foreground">
-          <Button variant="secondary" className="px-3 shadow-none">
+          <Button className="px-3 shadow-none" variant="secondary">
             <Star />
             Star
           </Button>
-          <Separator orientation="vertical" className="h-[20px]" />
+          <Separator className="h-[20px]" orientation="vertical" />
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="secondary" className="px-2 shadow-none">
+              <Button className="px-2 shadow-none" variant="secondary">
                 <ChevronDown className="text-secondary-foreground" />
               </Button>
             </DropdownMenuTrigger>
@@ -64,7 +64,7 @@ export function DemoGithub() {
         </div>
       </CardHeader>
       <CardContent>
-        <div className="flex space-x-4 text-sm text-muted-foreground">
+        <div className="flex space-x-4 text-muted-foreground text-sm">
           <div className="flex items-center">
             <Circle className="mr-1 h-3 w-3 fill-sky-400 text-sky-400" />
             TypeScript

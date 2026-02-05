@@ -55,7 +55,7 @@ export function AppearanceForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form className="space-y-8" onSubmit={form.handleSubmit(onSubmit)}>
         <FormField
           control={form.control}
           name="font"
@@ -76,7 +76,7 @@ export function AppearanceForm() {
                     <option value="system">System</option>
                   </select>
                 </FormControl>
-                <ChevronDown className="absolute right-3 top-2.5 h-4 w-4 opacity-50" />
+                <ChevronDown className="absolute top-2.5 right-3 h-4 w-4 opacity-50" />
               </div>
               <FormDescription>
                 Set the font you want to use in the dashboard.
@@ -96,14 +96,14 @@ export function AppearanceForm() {
               </FormDescription>
               <FormMessage />
               <RadioGroup
-                onValueChange={field.onChange}
-                defaultValue={field.value}
                 className="grid max-w-md grid-cols-2 gap-8 pt-2"
+                defaultValue={field.value}
+                onValueChange={field.onChange}
               >
                 <FormItem>
                   <FormLabel className="[&:has([data-state=checked])>div]:border-primary">
                     <FormControl>
-                      <RadioGroupItem value="light" className="sr-only" />
+                      <RadioGroupItem className="sr-only" value="light" />
                     </FormControl>
                     <div className="items-center rounded-md border-2 border-muted p-1 hover:border-accent">
                       <div className="space-y-2 rounded-sm bg-[#ecedef] p-2">
@@ -129,7 +129,7 @@ export function AppearanceForm() {
                 <FormItem>
                   <FormLabel className="[&:has([data-state=checked])>div]:border-primary">
                     <FormControl>
-                      <RadioGroupItem value="dark" className="sr-only" />
+                      <RadioGroupItem className="sr-only" value="dark" />
                     </FormControl>
                     <div className="items-center rounded-md border-2 border-muted bg-popover p-1 hover:bg-accent hover:text-accent-foreground">
                       <div className="space-y-2 rounded-sm bg-slate-950 p-2">

@@ -1,7 +1,7 @@
 "use client"
 
-import * as React from "react"
 import { TrendingUp } from "lucide-react"
+import * as React from "react"
 import { Label, Pie, PieChart } from "recharts"
 
 import {
@@ -13,7 +13,7 @@ import {
   CardTitle,
 } from "@/registry/default/ui/card"
 import {
-  ChartConfig,
+  type ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
@@ -68,19 +68,19 @@ export default function Component() {
       </CardHeader>
       <CardContent className="flex-1 pb-0">
         <ChartContainer
-          config={chartConfig}
           className="mx-auto aspect-square max-h-[250px]"
+          config={chartConfig}
         >
           <PieChart>
             <ChartTooltip
-              cursor={false}
               content={<ChartTooltipContent hideLabel />}
+              cursor={false}
             />
             <Pie
               data={chartData}
               dataKey="visitors"
-              nameKey="browser"
               innerRadius={60}
+              nameKey="browser"
               strokeWidth={5}
             >
               <Label
@@ -88,22 +88,22 @@ export default function Component() {
                   if (viewBox && "cx" in viewBox && "cy" in viewBox) {
                     return (
                       <text
+                        dominantBaseline="middle"
+                        textAnchor="middle"
                         x={viewBox.cx}
                         y={viewBox.cy}
-                        textAnchor="middle"
-                        dominantBaseline="middle"
                       >
                         <tspan
+                          className="fill-foreground font-bold text-3xl"
                           x={viewBox.cx}
                           y={viewBox.cy}
-                          className="fill-foreground text-3xl font-bold"
                         >
                           {totalVisitors.toLocaleString()}
                         </tspan>
                         <tspan
+                          className="fill-muted-foreground"
                           x={viewBox.cx}
                           y={(viewBox.cy || 0) + 24}
-                          className="fill-muted-foreground"
                         >
                           Visitors
                         </tspan>
@@ -120,7 +120,7 @@ export default function Component() {
         <div className="flex items-center gap-2 font-medium leading-none">
           Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
         </div>
-        <div className="leading-none text-muted-foreground">
+        <div className="text-muted-foreground leading-none">
           Showing total visitors for the last 6 months
         </div>
       </CardFooter>

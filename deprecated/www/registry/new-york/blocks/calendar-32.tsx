@@ -1,7 +1,7 @@
 "use client"
 
-import * as React from "react"
 import { CalendarPlusIcon } from "lucide-react"
+import * as React from "react"
 
 import { Button } from "@/registry/new-york/ui/button"
 import { Calendar } from "@/registry/new-york/ui/calendar"
@@ -21,15 +21,15 @@ export default function Calendar32() {
 
   return (
     <div className="flex flex-col gap-3">
-      <Label htmlFor="date" className="px-1">
+      <Label className="px-1" htmlFor="date">
         Date of birth
       </Label>
-      <Drawer open={open} onOpenChange={setOpen}>
+      <Drawer onOpenChange={setOpen} open={open}>
         <DrawerTrigger asChild>
           <Button
-            variant="outline"
-            id="date"
             className="w-48 justify-between font-normal"
+            id="date"
+            variant="outline"
           >
             {date ? date.toLocaleDateString() : "Select date"}
             <CalendarPlusIcon />
@@ -41,18 +41,18 @@ export default function Calendar32() {
             <DrawerDescription>Set your date of birth</DrawerDescription>
           </DrawerHeader>
           <Calendar
-            mode="single"
-            selected={date}
             captionLayout="dropdown"
+            className="mx-auto [--cell-size:clamp(0px,calc(100vw/7.5),52px)]"
+            mode="single"
             onSelect={(date) => {
               setDate(date)
               setOpen(false)
             }}
-            className="mx-auto [--cell-size:clamp(0px,calc(100vw/7.5),52px)]"
+            selected={date}
           />
         </DrawerContent>
       </Drawer>
-      <div className="text-muted-foreground px-1 text-sm">
+      <div className="px-1 text-muted-foreground text-sm">
         This example works best on mobile.
       </div>
     </div>

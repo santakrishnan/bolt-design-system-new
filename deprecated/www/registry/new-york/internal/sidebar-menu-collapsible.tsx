@@ -12,7 +12,6 @@ import {
   SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
@@ -160,15 +159,15 @@ export default function AppSidebar() {
               <SidebarMenu>
                 {items.map((item, index) => (
                   <Collapsible
-                    key={index}
                     className="group/collapsible"
                     defaultOpen={index === 0}
+                    key={index}
                   >
                     <SidebarMenuItem>
                       <CollapsibleTrigger asChild>
                         <SidebarMenuButton>
                           <span>{item.title}</span>
-                          <ChevronRight className="transition-transform ml-auto group-data-[state=open]/collapsible:rotate-90" />
+                          <ChevronRight className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
                         </SidebarMenuButton>
                       </CollapsibleTrigger>
                       <CollapsibleContent>

@@ -2,16 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "form-tanstack-radiogroup",
   "type": "registry:example",
-  "dependencies": [
-    "@tanstack/react-form",
-    "zod"
-  ],
-  "registryDependencies": [
-    "field",
-    "radio-group",
-    "button",
-    "card"
-  ],
+  "dependencies": ["@tanstack/react-form", "zod"],
+  "registryDependencies": ["field", "radio-group", "button", "card"],
   "files": [
     {
       "path": "registry/new-york-v4/examples/form-tanstack-radiogroup.tsx",

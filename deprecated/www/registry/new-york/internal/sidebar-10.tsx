@@ -1,6 +1,5 @@
 "use client"
 
-import * as React from "react"
 import {
   ArrowDown,
   ArrowUp,
@@ -21,6 +20,7 @@ import {
   Inbox,
   LineChart,
   Link,
+  type LucideIcon,
   MessageCircleQuestion,
   MoreHorizontal,
   Plus,
@@ -31,8 +31,8 @@ import {
   StarOff,
   Trash,
   Trash2,
-  type LucideIcon,
 } from "lucide-react"
+import * as React from "react"
 
 import {
   Breadcrumb,
@@ -388,7 +388,7 @@ export default function Page() {
         <header className="flex h-14 shrink-0 items-center gap-2">
           <div className="flex flex-1 items-center gap-2 px-3">
             <SidebarTrigger />
-            <Separator orientation="vertical" className="mr-2 h-4" />
+            <Separator className="mr-2 h-4" orientation="vertical" />
             <Breadcrumb>
               <BreadcrumbList>
                 <BreadcrumbItem>
@@ -422,7 +422,7 @@ function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarContent>
         <NavFavorites favorites={data.favorites} />
         <NavWorkspaces workspaces={data.workspaces} />
-        <NavSecondary items={data.navSecondary} className="mt-auto" />
+        <NavSecondary className="mt-auto" items={data.navSecondary} />
       </SidebarContent>
       <SidebarRail />
     </Sidebar>
@@ -448,27 +448,27 @@ function NavActions({
       <div className="hidden font-medium text-muted-foreground md:inline-block">
         Edit Oct 08
       </div>
-      <Button variant="ghost" size="icon" className="h-7 w-7">
+      <Button className="h-7 w-7" size="icon" variant="ghost">
         <Star />
       </Button>
-      <Popover open={isOpen} onOpenChange={setIsOpen}>
+      <Popover onOpenChange={setIsOpen} open={isOpen}>
         <PopoverTrigger asChild>
           <Button
-            variant="ghost"
-            size="icon"
             className="h-7 w-7 data-[state=open]:bg-accent"
+            size="icon"
+            variant="ghost"
           >
             <MoreHorizontal />
           </Button>
         </PopoverTrigger>
         <PopoverContent
-          className="w-56 overflow-hidden rounded-lg p-0"
           align="end"
+          className="w-56 overflow-hidden rounded-lg p-0"
         >
-          <Sidebar collapsible="none" className="bg-transparent">
+          <Sidebar className="bg-transparent" collapsible="none">
             <SidebarContent>
               {actions.map((group, index) => (
-                <SidebarGroup key={index} className="border-b last:border-none">
+                <SidebarGroup className="border-b last:border-none" key={index}>
                   <SidebarGroupContent className="gap-0">
                     <SidebarMenu>
                       {group.map((item, index) => (
@@ -521,9 +521,9 @@ function NavFavorites({
                 </SidebarMenuAction>
               </DropdownMenuTrigger>
               <DropdownMenuContent
+                align={isMobile ? "end" : "start"}
                 className="w-56 rounded-lg"
                 side={isMobile ? "bottom" : "right"}
-                align={isMobile ? "end" : "start"}
               >
                 <DropdownMenuItem>
                   <StarOff className="text-muted-foreground" />
@@ -711,19 +711,19 @@ function TeamSwitcher({
             </SidebarMenuButton>
           </DropdownMenuTrigger>
           <DropdownMenuContent
-            className="w-64 rounded-lg"
             align="start"
+            className="w-64 rounded-lg"
             side="bottom"
             sideOffset={4}
           >
-            <DropdownMenuLabel className="text-xs text-muted-foreground">
+            <DropdownMenuLabel className="text-muted-foreground text-xs">
               Teams
             </DropdownMenuLabel>
             {teams.map((team, index) => (
               <DropdownMenuItem
+                className="gap-2 p-2"
                 key={team.name}
                 onClick={() => setActiveTeam(team)}
-                className="gap-2 p-2"
               >
                 <div className="flex size-6 items-center justify-center rounded-sm border">
                   <team.logo className="size-4 shrink-0" />

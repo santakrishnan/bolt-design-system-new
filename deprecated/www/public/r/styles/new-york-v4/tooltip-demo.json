@@ -2,9 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "tooltip-demo",
   "type": "registry:example",
-  "registryDependencies": [
-    "tooltip"
-  ],
+  "registryDependencies": ["tooltip"],
   "files": [
     {
       "path": "registry/new-york-v4/examples/tooltip-demo.tsx",

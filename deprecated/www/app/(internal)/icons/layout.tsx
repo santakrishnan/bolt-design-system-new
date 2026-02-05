@@ -1,4 +1,4 @@
-import { Metadata } from "next"
+import type { Metadata } from "next"
 
 import { Announcement } from "@/components/announcement"
 import {
@@ -26,7 +26,7 @@ export default function IconsLayout({
           All icons in all libraries.
         </PageHeaderDescription>
       </PageHeader>
-      <section id="icons" className="scroll-mt-20">
+      <section className="scroll-mt-20" id="icons">
         {children}
       </section>
     </div>

@@ -1,8 +1,8 @@
 "use client"
 
-import * as React from "react"
 import { formatDateRange } from "little-date"
 import { PlusIcon } from "lucide-react"
+import * as React from "react"
 
 import { Button } from "@/registry/default/ui/button"
 import { Calendar } from "@/registry/default/ui/calendar"
@@ -35,16 +35,16 @@ export default function Calendar31() {
     <Card className="w-fit py-4">
       <CardContent className="px-4">
         <Calendar
-          mode="single"
-          selected={date}
-          onSelect={setDate}
           className="bg-transparent p-0"
+          mode="single"
+          onSelect={setDate}
           required
+          selected={date}
         />
       </CardContent>
-      <CardFooter className="flex flex-col items-start gap-3 border-t px-4 pb-0 pt-4">
+      <CardFooter className="flex flex-col items-start gap-3 border-t px-4 pt-4 pb-0">
         <div className="flex w-full items-center justify-between px-1">
-          <div className="text-sm font-medium">
+          <div className="font-medium text-sm">
             {date?.toLocaleDateString("en-US", {
               day: "numeric",
               month: "long",
@@ -52,10 +52,10 @@ export default function Calendar31() {
             })}
           </div>
           <Button
-            variant="ghost"
-            size="icon"
             className="h-6 w-6"
+            size="icon"
             title="Add Event"
+            variant="ghost"
           >
             <PlusIcon />
             <span className="sr-only">Add Event</span>
@@ -64,8 +64,8 @@ export default function Calendar31() {
         <div className="flex w-full flex-col gap-2">
           {events.map((event) => (
             <div
+              className="relative rounded-md bg-muted p-2 pl-6 text-sm after:absolute after:inset-y-2 after:left-2 after:w-1 after:rounded-full after:bg-primary/70"
               key={event.title}
-              className="bg-muted after:bg-primary/70 relative rounded-md p-2 pl-6 text-sm after:absolute after:inset-y-2 after:left-2 after:w-1 after:rounded-full"
             >
               <div className="font-medium">{event.title}</div>
               <div className="text-muted-foreground text-xs">

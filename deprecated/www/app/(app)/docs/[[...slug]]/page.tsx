@@ -1,18 +1,17 @@
-import { notFound } from "next/navigation"
 import { allDocs } from "contentlayer/generated"
+import { notFound } from "next/navigation"
 
 import "@/styles/mdx.css"
+import { ChevronRight, ExternalLink } from "lucide-react"
 import type { Metadata } from "next"
 import Link from "next/link"
-import { ChevronRight, ExternalLink } from "lucide-react"
 import Balancer from "react-wrap-balancer"
-
-import { getTableOfContents } from "@/lib/toc"
-import { absoluteUrl, cn } from "@/lib/utils"
 import { Mdx } from "@/components/mdx-components"
 import { OpenInV0Cta } from "@/components/open-in-v0-cta"
 import { DocsPager } from "@/components/pager"
 import { DashboardTableOfContents } from "@/components/toc"
+import { getTableOfContents } from "@/lib/toc"
+import { absoluteUrl, cn } from "@/lib/utils"
 import { badgeVariants } from "@/registry/new-york/ui/badge"
 
 interface DocPageProps {
@@ -93,15 +92,15 @@ export default async function DocPage({ params }: DocPageProps) {
   return (
     <main className="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
       <div className="mx-auto w-full min-w-0 max-w-2xl">
-        <div className="mb-4 flex items-center space-x-1 text-sm leading-none text-muted-foreground">
-          <Link href="/docs" className="truncate">
+        <div className="mb-4 flex items-center space-x-1 text-muted-foreground text-sm leading-none">
+          <Link className="truncate" href="/docs">
             Docs
           </Link>
           <ChevronRight className="h-3.5 w-3.5" />
           <div className="text-foreground">{doc.title}</div>
         </div>
         <div className="space-y-2">
-          <h1 className={cn("scroll-m-20 text-3xl font-bold tracking-tight")}>
+          <h1 className={cn("scroll-m-20 font-bold text-3xl tracking-tight")}>
             {doc.title}
           </h1>
           {doc.description && (
@@ -114,10 +113,10 @@ export default async function DocPage({ params }: DocPageProps) {
           <div className="flex items-center space-x-2 pt-4">
             {doc.links?.doc && (
               <Link
-                href={doc.links.doc}
-                target="_blank"
-                rel="noreferrer"
                 className={cn(badgeVariants({ variant: "secondary" }), "gap-1")}
+                href={doc.links.doc}
+                rel="noreferrer"
+                target="_blank"
               >
                 Docs
                 <ExternalLink className="h-3 w-3" />
@@ -125,10 +124,10 @@ export default async function DocPage({ params }: DocPageProps) {
             )}
             {doc.links?.api && (
               <Link
-                href={doc.links.api}
-                target="_blank"
-                rel="noreferrer"
                 className={cn(badgeVariants({ variant: "secondary" }), "gap-1")}
+                href={doc.links.api}
+                rel="noreferrer"
+                target="_blank"
               >
                 API Reference
                 <ExternalLink className="h-3 w-3" />
@@ -136,7 +135,7 @@ export default async function DocPage({ params }: DocPageProps) {
             )}
           </div>
         ) : null}
-        <div className="pb-12 pt-8">
+        <div className="pt-8 pb-12">
           <Mdx code={doc.body.code} />
         </div>
         <DocsPager doc={doc} />

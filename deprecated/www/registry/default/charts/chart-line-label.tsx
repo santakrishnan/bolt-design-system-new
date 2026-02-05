@@ -12,7 +12,7 @@ import {
   CardTitle,
 } from "@/registry/default/ui/card"
 import {
-  ChartConfig,
+  type ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
@@ -60,33 +60,33 @@ export default function Component() {
           >
             <CartesianGrid vertical={false} />
             <XAxis
-              dataKey="month"
-              tickLine={false}
               axisLine={false}
-              tickMargin={8}
+              dataKey="month"
               tickFormatter={(value) => value.slice(0, 3)}
+              tickLine={false}
+              tickMargin={8}
             />
             <ChartTooltip
-              cursor={false}
               content={<ChartTooltipContent indicator="line" />}
+              cursor={false}
             />
             <Line
-              dataKey="desktop"
-              type="natural"
-              stroke="var(--color-desktop)"
-              strokeWidth={2}
-              dot={{
-                fill: "var(--color-desktop)",
-              }}
               activeDot={{
                 r: 6,
               }}
+              dataKey="desktop"
+              dot={{
+                fill: "var(--color-desktop)",
+              }}
+              stroke="var(--color-desktop)"
+              strokeWidth={2}
+              type="natural"
             >
               <LabelList
-                position="top"
-                offset={12}
                 className="fill-foreground"
                 fontSize={12}
+                offset={12}
+                position="top"
               />
             </Line>
           </LineChart>
@@ -96,7 +96,7 @@ export default function Component() {
         <div className="flex gap-2 font-medium leading-none">
           Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
         </div>
-        <div className="leading-none text-muted-foreground">
+        <div className="text-muted-foreground leading-none">
           Showing total visitors for the last 6 months
         </div>
       </CardFooter>

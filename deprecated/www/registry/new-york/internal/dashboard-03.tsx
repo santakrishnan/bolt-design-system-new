@@ -53,9 +53,9 @@ export const containerClassName = "w-full h-full"
 export default function Dashboard() {
   return (
     <div className="grid h-screen w-full pl-[53px]">
-      <aside className="inset-y fixed  left-0 z-20 flex h-full flex-col border-r">
+      <aside className="fixed inset-y left-0 z-20 flex h-full flex-col border-r">
         <div className="border-b p-2">
-          <Button variant="outline" size="icon" aria-label="Home">
+          <Button aria-label="Home" size="icon" variant="outline">
             <Triangle className="size-5 fill-foreground" />
           </Button>
         </div>
@@ -63,10 +63,10 @@ export default function Dashboard() {
           <Tooltip>
             <TooltipTrigger asChild>
               <Button
-                variant="ghost"
-                size="icon"
-                className="rounded-lg bg-muted"
                 aria-label="Playground"
+                className="rounded-lg bg-muted"
+                size="icon"
+                variant="ghost"
               >
                 <SquareTerminal className="size-5" />
               </Button>
@@ -78,10 +78,10 @@ export default function Dashboard() {
           <Tooltip>
             <TooltipTrigger asChild>
               <Button
-                variant="ghost"
-                size="icon"
-                className="rounded-lg"
                 aria-label="Models"
+                className="rounded-lg"
+                size="icon"
+                variant="ghost"
               >
                 <Bot className="size-5" />
               </Button>
@@ -93,10 +93,10 @@ export default function Dashboard() {
           <Tooltip>
             <TooltipTrigger asChild>
               <Button
-                variant="ghost"
-                size="icon"
-                className="rounded-lg"
                 aria-label="API"
+                className="rounded-lg"
+                size="icon"
+                variant="ghost"
               >
                 <Code2 className="size-5" />
               </Button>
@@ -108,10 +108,10 @@ export default function Dashboard() {
           <Tooltip>
             <TooltipTrigger asChild>
               <Button
-                variant="ghost"
-                size="icon"
-                className="rounded-lg"
                 aria-label="Documentation"
+                className="rounded-lg"
+                size="icon"
+                variant="ghost"
               >
                 <Book className="size-5" />
               </Button>
@@ -123,10 +123,10 @@ export default function Dashboard() {
           <Tooltip>
             <TooltipTrigger asChild>
               <Button
-                variant="ghost"
-                size="icon"
-                className="rounded-lg"
                 aria-label="Settings"
+                className="rounded-lg"
+                size="icon"
+                variant="ghost"
               >
                 <Settings2 className="size-5" />
               </Button>
@@ -140,10 +140,10 @@ export default function Dashboard() {
           <Tooltip>
             <TooltipTrigger asChild>
               <Button
-                variant="ghost"
-                size="icon"
-                className="mt-auto rounded-lg"
                 aria-label="Help"
+                className="mt-auto rounded-lg"
+                size="icon"
+                variant="ghost"
               >
                 <LifeBuoy className="size-5" />
               </Button>
@@ -155,10 +155,10 @@ export default function Dashboard() {
           <Tooltip>
             <TooltipTrigger asChild>
               <Button
-                variant="ghost"
-                size="icon"
-                className="mt-auto rounded-lg"
                 aria-label="Account"
+                className="mt-auto rounded-lg"
+                size="icon"
+                variant="ghost"
               >
                 <SquareUser className="size-5" />
               </Button>
@@ -171,10 +171,10 @@ export default function Dashboard() {
       </aside>
       <div className="flex flex-col">
         <header className="sticky top-0 z-10 flex h-[53px] items-center gap-1 border-b bg-background px-4">
-          <h1 className="text-xl font-semibold">Playground</h1>
+          <h1 className="font-semibold text-xl">Playground</h1>
           <Drawer>
             <DrawerTrigger asChild>
-              <Button variant="ghost" size="icon" className="md:hidden">
+              <Button className="md:hidden" size="icon" variant="ghost">
                 <Settings className="size-4" />
                 <span className="sr-only">Settings</span>
               </Button>
@@ -188,15 +188,15 @@ export default function Dashboard() {
               </DrawerHeader>
               <form className="grid w-full items-start gap-6 overflow-auto p-4 pt-0">
                 <fieldset className="grid gap-6 rounded-lg border p-4">
-                  <legend className="-ml-1 px-1 text-sm font-medium">
+                  <legend className="-ml-1 px-1 font-medium text-sm">
                     Settings
                   </legend>
                   <div className="grid gap-3">
                     <Label htmlFor="model">Model</Label>
                     <Select>
                       <SelectTrigger
-                        id="model"
                         className="items-start [&_[data-description]]:hidden"
+                        id="model"
                       >
                         <SelectValue placeholder="Select a model" />
                       </SelectTrigger>
@@ -255,19 +255,19 @@ export default function Dashboard() {
                   </div>
                   <div className="grid gap-3">
                     <Label htmlFor="temperature">Temperature</Label>
-                    <Input id="temperature" type="number" placeholder="0.4" />
+                    <Input id="temperature" placeholder="0.4" type="number" />
                   </div>
                   <div className="grid gap-3">
                     <Label htmlFor="top-p">Top P</Label>
-                    <Input id="top-p" type="number" placeholder="0.7" />
+                    <Input id="top-p" placeholder="0.7" type="number" />
                   </div>
                   <div className="grid gap-3">
                     <Label htmlFor="top-k">Top K</Label>
-                    <Input id="top-k" type="number" placeholder="0.0" />
+                    <Input id="top-k" placeholder="0.0" type="number" />
                   </div>
                 </fieldset>
                 <fieldset className="grid gap-6 rounded-lg border p-4">
-                  <legend className="-ml-1 px-1 text-sm font-medium">
+                  <legend className="-ml-1 px-1 font-medium text-sm">
                     Messages
                   </legend>
                   <div className="grid gap-3">
@@ -292,9 +292,9 @@ export default function Dashboard() {
             </DrawerContent>
           </Drawer>
           <Button
-            variant="outline"
-            size="sm"
             className="ml-auto gap-1.5 text-sm"
+            size="sm"
+            variant="outline"
           >
             <Share className="size-3.5" />
             Share
@@ -307,15 +307,15 @@ export default function Dashboard() {
           >
             <form className="grid w-full items-start gap-6">
               <fieldset className="grid gap-6 rounded-lg border p-4">
-                <legend className="-ml-1 px-1 text-sm font-medium">
+                <legend className="-ml-1 px-1 font-medium text-sm">
                   Settings
                 </legend>
                 <div className="grid gap-3">
                   <Label htmlFor="model">Model</Label>
                   <Select>
                     <SelectTrigger
-                      id="model"
                       className="items-start [&_[data-description]]:hidden"
+                      id="model"
                     >
                       <SelectValue placeholder="Select a model" />
                     </SelectTrigger>
@@ -373,21 +373,21 @@ export default function Dashboard() {
                 </div>
                 <div className="grid gap-3">
                   <Label htmlFor="temperature">Temperature</Label>
-                  <Input id="temperature" type="number" placeholder="0.4" />
+                  <Input id="temperature" placeholder="0.4" type="number" />
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="grid gap-3">
                     <Label htmlFor="top-p">Top P</Label>
-                    <Input id="top-p" type="number" placeholder="0.7" />
+                    <Input id="top-p" placeholder="0.7" type="number" />
                   </div>
                   <div className="grid gap-3">
                     <Label htmlFor="top-k">Top K</Label>
-                    <Input id="top-k" type="number" placeholder="0.0" />
+                    <Input id="top-k" placeholder="0.0" type="number" />
                   </div>
                 </div>
               </fieldset>
               <fieldset className="grid gap-6 rounded-lg border p-4">
-                <legend className="-ml-1 px-1 text-sm font-medium">
+                <legend className="-ml-1 px-1 font-medium text-sm">
                   Messages
                 </legend>
                 <div className="grid gap-3">
@@ -406,16 +406,16 @@ export default function Dashboard() {
                 <div className="grid gap-3">
                   <Label htmlFor="content">Content</Label>
                   <Textarea
+                    className="min-h-[9.5rem]"
                     id="content"
                     placeholder="You are a..."
-                    className="min-h-[9.5rem]"
                   />
                 </div>
               </fieldset>
             </form>
           </div>
           <div className="relative flex h-full min-h-[50vh] flex-col rounded-xl bg-muted/50 p-4 lg:col-span-2">
-            <Badge variant="outline" className="absolute right-3 top-3">
+            <Badge className="absolute top-3 right-3" variant="outline">
               Output
             </Badge>
             <div className="flex-1" />
@@ -423,18 +423,18 @@ export default function Dashboard() {
               className="relative overflow-hidden rounded-lg border bg-background focus-within:ring-1 focus-within:ring-ring"
               x-chunk="A form for sending a message to an AI chatbot. The form has a textarea and buttons to upload files and record audio."
             >
-              <Label htmlFor="message" className="sr-only">
+              <Label className="sr-only" htmlFor="message">
                 Message
               </Label>
               <Textarea
+                className="min-h-12 resize-none border-0 p-3 shadow-none focus-visible:ring-0"
                 id="message"
                 placeholder="Type your message here..."
-                className="min-h-12 resize-none border-0 p-3 shadow-none focus-visible:ring-0"
               />
               <div className="flex items-center p-3 pt-0">
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button variant="ghost" size="icon">
+                    <Button size="icon" variant="ghost">
                       <Paperclip className="size-4" />
                       <span className="sr-only">Attach file</span>
                     </Button>
@@ -443,14 +443,14 @@ export default function Dashboard() {
                 </Tooltip>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button variant="ghost" size="icon">
+                    <Button size="icon" variant="ghost">
                       <Mic className="size-4" />
                       <span className="sr-only">Use Microphone</span>
                     </Button>
                   </TooltipTrigger>
                   <TooltipContent side="top">Use Microphone</TooltipContent>
                 </Tooltip>
-                <Button type="submit" size="sm" className="ml-auto gap-1.5">
+                <Button className="ml-auto gap-1.5" size="sm" type="submit">
                   Send Message
                   <CornerDownLeft className="size-3.5" />
                 </Button>

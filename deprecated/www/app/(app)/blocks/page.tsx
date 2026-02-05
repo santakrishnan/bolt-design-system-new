@@ -16,8 +16,8 @@ export default async function BlocksPage() {
     <div>
       {FEATURED_BLOCKS.map((block) => (
         <div
+          className="container border-grid border-b py-8 first:pt-6 last:border-b-0 md:py-12"
           key={block}
-          className="border-grid container border-b py-8 first:pt-6 last:border-b-0 md:py-12"
         >
           <BlockDisplay name={block} />
         </div>

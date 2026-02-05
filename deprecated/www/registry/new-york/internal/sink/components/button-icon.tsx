@@ -4,7 +4,7 @@ import { Button } from "@/registry/new-york/ui/button"
 
 export function ButtonIcon() {
   return (
-    <Button variant="outline" size="icon">
+    <Button size="icon" variant="outline">
       <ChevronRight />
     </Button>
   )

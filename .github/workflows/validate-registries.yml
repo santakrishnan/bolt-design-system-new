@@ -51,4 +51,4 @@ jobs:
         run: pnpm build --filter=shadcn
 
       - name: Validate registries
-        run: pnpm --filter=v4 validate:registries
+        run: pnpm --filter=bolt validate:registries

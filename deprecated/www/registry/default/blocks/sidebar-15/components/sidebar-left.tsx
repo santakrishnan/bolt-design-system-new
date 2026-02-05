@@ -1,6 +1,5 @@
 "use client"
 
-import * as React from "react"
 import {
   AudioWaveform,
   Blocks,
@@ -14,6 +13,7 @@ import {
   Sparkles,
   Trash2,
 } from "lucide-react"
+import type * as React from "react"
 
 import { NavFavorites } from "@/registry/default/blocks/sidebar-15/components/nav-favorites"
 import { NavMain } from "@/registry/default/blocks/sidebar-15/components/nav-main"
@@ -270,7 +270,7 @@ export function SidebarLeft({
       <SidebarContent>
         <NavFavorites favorites={data.favorites} />
         <NavWorkspaces workspaces={data.workspaces} />
-        <NavSecondary items={data.navSecondary} className="mt-auto" />
+        <NavSecondary className="mt-auto" items={data.navSecondary} />
       </SidebarContent>
       <SidebarRail />
     </Sidebar>

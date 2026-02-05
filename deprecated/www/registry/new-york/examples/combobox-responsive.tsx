@@ -60,13 +60,13 @@ export default function ComboBoxResponsive() {
 
   if (isDesktop) {
     return (
-      <Popover open={open} onOpenChange={setOpen}>
+      <Popover onOpenChange={setOpen} open={open}>
         <PopoverTrigger asChild>
-          <Button variant="outline" className="w-[150px] justify-start">
+          <Button className="w-[150px] justify-start" variant="outline">
             {selectedStatus ? <>{selectedStatus.label}</> : <>+ Set status</>}
           </Button>
         </PopoverTrigger>
-        <PopoverContent className="w-[200px] p-0" align="start">
+        <PopoverContent align="start" className="w-[200px] p-0">
           <StatusList setOpen={setOpen} setSelectedStatus={setSelectedStatus} />
         </PopoverContent>
       </Popover>
@@ -74,9 +74,9 @@ export default function ComboBoxResponsive() {
   }
 
   return (
-    <Drawer open={open} onOpenChange={setOpen}>
+    <Drawer onOpenChange={setOpen} open={open}>
       <DrawerTrigger asChild>
-        <Button variant="outline" className="w-[150px] justify-start">
+        <Button className="w-[150px] justify-start" variant="outline">
           {selectedStatus ? <>{selectedStatus.label}</> : <>+ Set status</>}
         </Button>
       </DrawerTrigger>
@@ -105,13 +105,13 @@ function StatusList({
           {statuses.map((status) => (
             <CommandItem
               key={status.value}
-              value={status.value}
               onSelect={(value) => {
                 setSelectedStatus(
                   statuses.find((priority) => priority.value === value) || null
                 )
                 setOpen(false)
               }}
+              value={status.value}
             >
               {status.label}
             </CommandItem>

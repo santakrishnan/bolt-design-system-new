@@ -1,6 +1,6 @@
 "use client"
 
-import { Row } from "@tanstack/react-table"
+import type { Row } from "@tanstack/react-table"
 import { MoreHorizontal } from "lucide-react"
 
 import { Button } from "@/registry/new-york/ui/button"
@@ -34,8 +34,8 @@ export function DataTableRowActions<TData>({
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button
-          variant="ghost"
           className="flex h-8 w-8 p-0 data-[state=open]:bg-muted"
+          variant="ghost"
         >
           <MoreHorizontal />
           <span className="sr-only">Open menu</span>

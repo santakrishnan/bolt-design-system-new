@@ -1,11 +1,11 @@
 "use client"
 
-import * as React from "react"
 import { CheckIcon, ClipboardIcon } from "lucide-react"
+import * as React from "react"
 
-import { Event, trackEvent } from "@/lib/events"
+import { type Event, trackEvent } from "@/lib/events"
 import { cn } from "@/lib/utils"
-import { Button, ButtonProps } from "@/registry/new-york/ui/button"
+import { Button, type ButtonProps } from "@/registry/new-york/ui/button"
 import {
   Tooltip,
   TooltipContent,
@@ -35,10 +35,8 @@ export function ChartCopyButton({
     <Tooltip>
       <TooltipTrigger asChild>
         <Button
-          size="icon"
-          variant="outline"
           className={cn(
-            "[&_svg]-h-3.5 h-7 w-7 rounded-[6px] [&_svg]:w-3.5",
+            "h-7 w-7 rounded-[6px] [&_svg]-h-3.5 [&_svg]:w-3.5",
             className
           )}
           onClick={() => {
@@ -51,6 +49,8 @@ export function ChartCopyButton({
             })
             setHasCopied(true)
           }}
+          size="icon"
+          variant="outline"
           {...props}
         >
           <span className="sr-only">Copy</span>

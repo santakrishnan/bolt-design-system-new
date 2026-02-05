@@ -9,13 +9,14 @@ function getInvoker() {
 
   if (npmExecPath.includes("pnpm")) {
     return `pnpm dlx ${packageName}${args.length ? ` ${args.join(" ")}` : ""}`
-  } else if (npmExecPath.includes("yarn")) {
-    return `yarn dlx ${packageName}${args.length ? ` ${args.join(" ")}` : ""}`
-  } else if (npmExecPath.includes("bun")) {
-    return `bunx ${packageName}${args.length ? ` ${args.join(" ")}` : ""}`
-  } else {
-    return `npx ${packageName}${args.length ? ` ${args.join(" ")}` : ""}`
   }
+  if (npmExecPath.includes("yarn")) {
+    return `yarn dlx ${packageName}${args.length ? ` ${args.join(" ")}` : ""}`
+  }
+  if (npmExecPath.includes("bun")) {
+    return `bunx ${packageName}${args.length ? ` ${args.join(" ")}` : ""}`
+  }
+  return `npx ${packageName}${args.length ? ` ${args.join(" ")}` : ""}`
 }
 
 const main = async () => {

@@ -1,4 +1,4 @@
-import { Metadata } from "next"
+import type { Metadata } from "next"
 import Link from "next/link"
 
 import { Announcement } from "@/components/announcement"
@@ -52,14 +52,14 @@ export default function ColorsLayout({
           <Button asChild size="sm">
             <a href="#colors">Browse Colors</a>
           </Button>
-          <Button asChild variant="ghost" size="sm">
+          <Button asChild size="sm" variant="ghost">
             <Link href="/docs/theming">Documentation</Link>
           </Button>
         </PageActions>
       </PageHeader>
       <div className="container-wrapper">
         <div className="container py-6">
-          <section id="colors" className="scroll-mt-20">
+          <section className="scroll-mt-20" id="colors">
             {children}
           </section>
         </div>

@@ -19,7 +19,7 @@ export default function IconsPage() {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="w-[240px]" align="left">
+            <TableHead align="left" className="w-[240px]">
               name
             </TableHead>
             {Object.keys(iconLibraries).map((library) => (
@@ -36,7 +36,7 @@ export default function IconsPage() {
               {Object.entries(iconLibraries).map(([library, name]) => {
                 const IconComponent = icon[library as keyof typeof icon]
                 return (
-                  <TableCell key={library} className="[&_svg]:h-4 [&_svg]:w-4">
+                  <TableCell className="[&_svg]:h-4 [&_svg]:w-4" key={library}>
                     <React.Suspense fallback={<div>Loading...</div>}>
                       {IconComponent && <IconComponent />}
                     </React.Suspense>

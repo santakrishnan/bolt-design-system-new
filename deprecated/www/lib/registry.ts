@@ -1,12 +1,12 @@
 import { promises as fs } from "fs"
 import { tmpdir } from "os"
 import path from "path"
+import { type registryItemFileSchema, registryItemSchema } from "shadcn/schema"
+import { Project, ScriptKind, type SourceFile, SyntaxKind } from "ts-morph"
+import type { z } from "zod"
 import { Index } from "@/__registry__"
-import { registryItemFileSchema, registryItemSchema } from "shadcn/schema"
-import { Project, ScriptKind, SourceFile, SyntaxKind } from "ts-morph"
-import { z } from "zod"
 
-import { Style } from "@/registry/registry-styles"
+import type { Style } from "@/registry/registry-styles"
 
 export const DEFAULT_REGISTRY_STYLE = "new-york" satisfies Style["name"]
 
@@ -213,11 +213,14 @@ export function fixImport(content: string) {
   ) => {
     if (type.endsWith("components")) {
       return `@/components/${component}`
-    } else if (type.endsWith("ui")) {
+    }
+    if (type.endsWith("ui")) {
       return `@/components/ui/${component}`
-    } else if (type.endsWith("hooks")) {
+    }
+    if (type.endsWith("hooks")) {
       return `@/hooks/${component}`
-    } else if (type.endsWith("lib")) {
+    }
+    if (type.endsWith("lib")) {
       return `@/lib/${component}`
     }
 

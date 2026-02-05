@@ -2,9 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "input-file",
   "type": "registry:example",
-  "registryDependencies": [
-    "input"
-  ],
+  "registryDependencies": ["input"],
   "files": [
     {
       "path": "registry/new-york-v4/examples/input-file.tsx",

@@ -2,15 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "date-picker-form",
   "type": "registry:example",
-  "dependencies": [
-    "date-fns"
-  ],
-  "registryDependencies": [
-    "button",
-    "calendar",
-    "form",
-    "popover"
-  ],
+  "dependencies": ["date-fns"],
+  "registryDependencies": ["button", "calendar", "form", "popover"],
   "files": [
     {
       "path": "registry/new-york-v4/examples/date-picker-form.tsx",

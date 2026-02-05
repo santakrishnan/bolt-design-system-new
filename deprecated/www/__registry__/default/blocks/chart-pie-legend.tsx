@@ -10,7 +10,7 @@ import {
   CardTitle,
 } from "@/registry/default/ui/card"
 import {
-  ChartConfig,
+  type ChartConfig,
   ChartContainer,
   ChartLegend,
   ChartLegendContent,
@@ -61,14 +61,14 @@ export default function Component() {
       </CardHeader>
       <CardContent className="flex-1 pb-0">
         <ChartContainer
-          config={chartConfig}
           className="mx-auto aspect-square max-h-[300px]"
+          config={chartConfig}
         >
           <PieChart>
             <Pie data={chartData} dataKey="visitors" />
             <ChartLegend
-              content={<ChartLegendContent nameKey="browser" />}
               className="-translate-y-2 flex-wrap gap-2 [&>*]:basis-1/4 [&>*]:justify-center"
+              content={<ChartLegendContent nameKey="browser" />}
             />
           </PieChart>
         </ChartContainer>

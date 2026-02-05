@@ -1,7 +1,7 @@
 "use client"
 
-import * as React from "react"
 import { Command, Sidebar } from "lucide-react"
+import * as React from "react"
 
 import { AppSidebar } from "@/registry/default/block/sidebar-16/components/app-sidebar"
 import {
@@ -37,56 +37,56 @@ export default function Page() {
         } as React.CSSProperties
       }
     >
-      <header className="bg-sidebar sticky h-[--header-height] top-0 z-50 w-full border-b border-border/40  backdrop-blur">
+      <header className="sticky top-0 z-50 h-[--header-height] w-full border-border/40 border-b bg-sidebar backdrop-blur">
         <div className="flex h-14 items-center px-4">
           <div className="mr-4 hidden md:flex">
             <Button
               className="hidden md:flex"
-              variant="ghost"
-              size="icon"
               onClick={() => setOpen(!open)}
+              size="icon"
+              variant="ghost"
             >
               <Sidebar />
             </Button>
-            <a href="#" className="mr-4 flex items-center gap-2 lg:mr-6">
+            <a className="mr-4 flex items-center gap-2 lg:mr-6" href="#">
               <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
                 <Command className="size-4" />
               </div>
             </a>
             <nav className="flex items-center gap-4 text-sm xl:gap-6">
               <a
-                href="#"
                 className="transition-colors hover:text-foreground/80"
+                href="#"
               >
                 Docs
               </a>
               <a
-                href="#"
                 className="transition-colors hover:text-foreground/80"
+                href="#"
               >
                 Components
               </a>
               <a
-                href="#"
                 className="transition-colors hover:text-foreground/80"
+                href="#"
               >
                 Blocks
               </a>
               <a
-                href="#"
                 className="transition-colors hover:text-foreground/80"
+                href="#"
               >
                 Charts
               </a>
               <a
-                href="#"
                 className="transition-colors hover:text-foreground/80"
+                href="#"
               >
                 Themes
               </a>
               <a
-                href="#"
                 className="transition-colors hover:text-foreground/80"
+                href="#"
               >
                 Colors
               </a>
@@ -94,15 +94,15 @@ export default function Page() {
           </div>
         </div>
       </header>
-      <SidebarProvider open={open} onOpenChange={setOpen}>
+      <SidebarProvider onOpenChange={setOpen} open={open}>
         <AppSidebar />
 
         <SidebarInset>
-          <header className=" flex shrink-0 items-center gap-2 border-b py-2">
+          <header className="flex shrink-0 items-center gap-2 border-b py-2">
             <div className="flex items-center gap-2 px-4 py-2">
-              <div className="flex md:hidden items-center gap-2">
+              <div className="flex items-center gap-2 md:hidden">
                 <SidebarTrigger />
-                <Separator orientation="vertical" className="mr-2 h-4" />
+                <Separator className="mr-2 h-4" orientation="vertical" />
               </div>
               <Breadcrumb>
                 <BreadcrumbList>

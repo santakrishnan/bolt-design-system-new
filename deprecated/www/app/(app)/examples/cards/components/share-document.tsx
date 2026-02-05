@@ -34,14 +34,14 @@ export function DemoShareDocument() {
       </CardHeader>
       <CardContent>
         <div className="flex space-x-2">
-          <Input value="http://example.com/link/to/document" readOnly />
-          <Button variant="secondary" className="shrink-0">
+          <Input readOnly value="http://example.com/link/to/document" />
+          <Button className="shrink-0" variant="secondary">
             Copy Link
           </Button>
         </div>
         <Separator className="my-4" />
         <div className="space-y-4">
-          <div className="text-sm font-medium">People with access</div>
+          <div className="font-medium text-sm">People with access</div>
           <div className="grid gap-6">
             <div className="flex items-center justify-between space-x-4">
               <div className="flex items-center space-x-4">
@@ -50,10 +50,10 @@ export function DemoShareDocument() {
                   <AvatarFallback>OM</AvatarFallback>
                 </Avatar>
                 <div>
-                  <p className="text-sm font-medium leading-none">
+                  <p className="font-medium text-sm leading-none">
                     Olivia Martin
                   </p>
-                  <p className="text-sm text-muted-foreground">m@example.com</p>
+                  <p className="text-muted-foreground text-sm">m@example.com</p>
                 </div>
               </div>
               <Select defaultValue="edit">
@@ -73,10 +73,10 @@ export function DemoShareDocument() {
                   <AvatarFallback>IN</AvatarFallback>
                 </Avatar>
                 <div>
-                  <p className="text-sm font-medium leading-none">
+                  <p className="font-medium text-sm leading-none">
                     Isabella Nguyen
                   </p>
-                  <p className="text-sm text-muted-foreground">b@example.com</p>
+                  <p className="text-muted-foreground text-sm">b@example.com</p>
                 </div>
               </div>
               <Select defaultValue="view">
@@ -96,10 +96,10 @@ export function DemoShareDocument() {
                   <AvatarFallback>SD</AvatarFallback>
                 </Avatar>
                 <div>
-                  <p className="text-sm font-medium leading-none">
+                  <p className="font-medium text-sm leading-none">
                     Sofia Davis
                   </p>
-                  <p className="text-sm text-muted-foreground">p@example.com</p>
+                  <p className="text-muted-foreground text-sm">p@example.com</p>
                 </div>
               </div>
               <Select defaultValue="view">

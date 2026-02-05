@@ -2,9 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "breadcrumb-separator",
   "type": "registry:example",
-  "registryDependencies": [
-    "breadcrumb"
-  ],
+  "registryDependencies": ["breadcrumb"],
   "files": [
     {
       "path": "registry/new-york-v4/examples/breadcrumb-separator.tsx",

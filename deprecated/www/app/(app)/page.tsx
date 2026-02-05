@@ -1,4 +1,4 @@
-import { Metadata } from "next"
+import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -49,10 +49,10 @@ export default function IndexPage() {
         <PageHeaderHeading>{title}</PageHeaderHeading>
         <PageHeaderDescription>{description}</PageHeaderDescription>
         <PageActions>
-          <Button asChild size="sm" className="rounded-md">
+          <Button asChild className="rounded-md" size="sm">
             <Link href="/docs/installation">Get Started</Link>
           </Button>
-          <Button asChild size="sm" variant="ghost" className="rounded-md">
+          <Button asChild className="rounded-md" size="sm" variant="ghost">
             <Link href="/blocks">Browse Blocks</Link>
           </Button>
         </PageActions>
@@ -68,18 +68,18 @@ export default function IndexPage() {
         <div className="container py-6">
           <section className="overflow-hidden rounded-lg border bg-background shadow-md md:hidden md:shadow-xl">
             <Image
-              src="/examples/cards-light.png"
-              width={1280}
-              height={1214}
               alt="Cards"
               className="block dark:hidden"
+              height={1214}
+              src="/examples/cards-light.png"
+              width={1280}
             />
             <Image
-              src="/examples/cards-dark.png"
-              width={1280}
-              height={1214}
               alt="Cards"
               className="hidden dark:block"
+              height={1214}
+              src="/examples/cards-dark.png"
+              width={1280}
             />
           </section>
           <section

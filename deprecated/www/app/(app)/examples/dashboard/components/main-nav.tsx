@@ -12,26 +12,26 @@ export function MainNav({
       {...props}
     >
       <Link
+        className="font-medium text-sm transition-colors hover:text-primary"
         href="/examples/dashboard"
-        className="text-sm font-medium transition-colors hover:text-primary"
       >
         Overview
       </Link>
       <Link
+        className="font-medium text-muted-foreground text-sm transition-colors hover:text-primary"
         href="/examples/dashboard"
-        className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
       >
         Customers
       </Link>
       <Link
+        className="font-medium text-muted-foreground text-sm transition-colors hover:text-primary"
         href="/examples/dashboard"
-        className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
       >
         Products
       </Link>
       <Link
+        className="font-medium text-muted-foreground text-sm transition-colors hover:text-primary"
         href="/examples/dashboard"
-        className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
       >
         Settings
       </Link>

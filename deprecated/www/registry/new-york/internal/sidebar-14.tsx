@@ -1,4 +1,4 @@
-import * as React from "react"
+import type * as React from "react"
 
 import {
   Breadcrumb,
@@ -216,7 +216,7 @@ function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               {data.navMain.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-                    <a href={item.url} className="font-medium">
+                    <a className="font-medium" href={item.url}>
                       {item.title}
                     </a>
                   </SidebarMenuButton>

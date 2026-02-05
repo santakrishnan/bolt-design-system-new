@@ -46,7 +46,7 @@ export default function TextareaForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="w-2/3 space-y-6">
+      <form className="w-2/3 space-y-6" onSubmit={form.handleSubmit(onSubmit)}>
         <FormField
           control={form.control}
           name="bio"
@@ -55,8 +55,8 @@ export default function TextareaForm() {
               <FormLabel>Bio</FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder="Tell us a little bit about yourself"
                   className="resize-none"
+                  placeholder="Tell us a little bit about yourself"
                   {...field}
                 />
               </FormControl>

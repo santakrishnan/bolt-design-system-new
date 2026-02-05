@@ -3,7 +3,7 @@
 import { registryItemSchema } from "shadcn/schema"
 import { z } from "zod"
 
-import { Style } from "@/registry/registry-styles"
+import type { Style } from "@/registry/registry-styles"
 
 export async function getAllBlockIds(
   types: z.infer<typeof registryItemSchema>["type"][] = [

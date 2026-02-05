@@ -8,15 +8,15 @@ import {
   CardHeader,
   CardTitle,
 } from "@/registry/new-york/ui/card"
-import { ChartConfig, ChartContainer } from "@/registry/new-york/ui/chart"
+import { type ChartConfig, ChartContainer } from "@/registry/new-york/ui/chart"
 
 const data = [
   {
-    revenue: 10400,
+    revenue: 10_400,
     subscription: 240,
   },
   {
-    revenue: 14405,
+    revenue: 14_405,
     subscription: 300,
   },
   {
@@ -36,11 +36,11 @@ const data = [
     subscription: 239,
   },
   {
-    revenue: 11244,
+    revenue: 11_244,
     subscription: 278,
   },
   {
-    revenue: 26475,
+    revenue: 26_475,
     subscription: 189,
   },
 ]
@@ -61,14 +61,14 @@ export function CardsStats() {
     <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-2">
       <Card>
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-normal">Total Revenue</CardTitle>
+          <CardTitle className="font-normal text-sm">Total Revenue</CardTitle>
         </CardHeader>
         <CardContent className="pb-0">
-          <div className="text-2xl font-bold">$15,231.89</div>
-          <p className="text-xs text-muted-foreground">
+          <div className="font-bold text-2xl">$15,231.89</div>
+          <p className="text-muted-foreground text-xs">
             +20.1% from last month
           </p>
-          <ChartContainer config={chartConfig} className="h-[80px] w-full">
+          <ChartContainer className="h-[80px] w-full" config={chartConfig}>
             <LineChart
               data={data}
               margin={{
@@ -79,13 +79,13 @@ export function CardsStats() {
               }}
             >
               <Line
-                type="monotone"
-                strokeWidth={2}
-                dataKey="revenue"
-                stroke="var(--color-revenue)"
                 activeDot={{
                   r: 6,
                 }}
+                dataKey="revenue"
+                stroke="var(--color-revenue)"
+                strokeWidth={2}
+                type="monotone"
               />
             </LineChart>
           </ChartContainer>
@@ -93,14 +93,14 @@ export function CardsStats() {
       </Card>
       <Card>
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-normal">Subscriptions</CardTitle>
+          <CardTitle className="font-normal text-sm">Subscriptions</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">+2350</div>
-          <p className="text-xs text-muted-foreground">
+          <div className="font-bold text-2xl">+2350</div>
+          <p className="text-muted-foreground text-xs">
             +180.1% from last month
           </p>
-          <ChartContainer config={chartConfig} className="mt-2 h-[80px] w-full">
+          <ChartContainer className="mt-2 h-[80px] w-full" config={chartConfig}>
             <BarChart data={data}>
               <Bar
                 dataKey="subscription"

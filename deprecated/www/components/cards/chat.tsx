@@ -1,7 +1,7 @@
 "use client"
 
-import * as React from "react"
 import { Check, Plus, Send } from "lucide-react"
+import * as React from "react"
 
 import { cn } from "@/lib/utils"
 import {
@@ -101,22 +101,22 @@ export function CardsChat() {
         <CardHeader className="flex flex-row items-center">
           <div className="flex items-center space-x-4">
             <Avatar>
-              <AvatarImage src="/avatars/01.png" alt="Image" />
+              <AvatarImage alt="Image" src="/avatars/01.png" />
               <AvatarFallback>OM</AvatarFallback>
             </Avatar>
             <div>
-              <p className="text-sm font-medium leading-none">Sofia Davis</p>
-              <p className="text-sm text-muted-foreground">m@example.com</p>
+              <p className="font-medium text-sm leading-none">Sofia Davis</p>
+              <p className="text-muted-foreground text-sm">m@example.com</p>
             </div>
           </div>
           <TooltipProvider delayDuration={0}>
             <Tooltip>
               <TooltipTrigger asChild>
                 <Button
-                  size="icon"
-                  variant="outline"
                   className="ml-auto rounded-full"
                   onClick={() => setOpen(true)}
+                  size="icon"
+                  variant="outline"
                 >
                   <Plus />
                   <span className="sr-only">New message</span>
@@ -130,13 +130,13 @@ export function CardsChat() {
           <div className="space-y-4">
             {messages.map((message, index) => (
               <div
-                key={index}
                 className={cn(
                   "flex w-max max-w-[75%] flex-col gap-2 rounded-lg px-3 py-2 text-sm",
                   message.role === "user"
                     ? "ml-auto bg-primary text-primary-foreground"
                     : "bg-muted"
                 )}
+                key={index}
               >
                 {message.content}
               </div>
@@ -145,6 +145,7 @@ export function CardsChat() {
         </CardContent>
         <CardFooter>
           <form
+            className="flex w-full items-center space-x-2"
             onSubmit={(event) => {
               event.preventDefault()
               if (inputLength === 0) return
@@ -157,26 +158,25 @@ export function CardsChat() {
               ])
               setInput("")
             }}
-            className="flex w-full items-center space-x-2"
           >
             <Input
-              id="message"
-              placeholder="Type your message..."
-              className="flex-1"
               autoComplete="off"
-              value={input}
+              className="flex-1"
+              id="message"
               onChange={(event) => setInput(event.target.value)}
+              placeholder="Type your message..."
+              value={input}
             />
-            <Button type="submit" size="icon" disabled={inputLength === 0}>
+            <Button disabled={inputLength === 0} size="icon" type="submit">
               <Send />
               <span className="sr-only">Send</span>
             </Button>
           </form>
         </CardFooter>
       </Card>
-      <Dialog open={open} onOpenChange={setOpen}>
+      <Dialog onOpenChange={setOpen} open={open}>
         <DialogContent className="gap-0 p-0 outline-none">
-          <DialogHeader className="px-4 pb-4 pt-5">
+          <DialogHeader className="px-4 pt-5 pb-4">
             <DialogTitle>New message</DialogTitle>
             <DialogDescription>
               Invite a user to this thread. This will create a new group
@@ -190,8 +190,8 @@ export function CardsChat() {
               <CommandGroup className="p-2">
                 {users.map((user) => (
                   <CommandItem
-                    key={user.email}
                     className="flex items-center px-2"
+                    key={user.email}
                     onSelect={() => {
                       if (selectedUsers.includes(user)) {
                         return setSelectedUsers(
@@ -209,14 +209,14 @@ export function CardsChat() {
                     }}
                   >
                     <Avatar>
-                      <AvatarImage src={user.avatar} alt="Image" />
+                      <AvatarImage alt="Image" src={user.avatar} />
                       <AvatarFallback>{user.name[0]}</AvatarFallback>
                     </Avatar>
                     <div className="ml-2">
-                      <p className="text-sm font-medium leading-none">
+                      <p className="font-medium text-sm leading-none">
                         {user.name}
                       </p>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-muted-foreground text-sm">
                         {user.email}
                       </p>
                     </div>
@@ -233,8 +233,8 @@ export function CardsChat() {
               <div className="flex -space-x-2 overflow-hidden">
                 {selectedUsers.map((user) => (
                   <Avatar
-                    key={user.email}
                     className="inline-block border-2 border-background"
+                    key={user.email}
                   >
                     <AvatarImage src={user.avatar} />
                     <AvatarFallback>{user.name[0]}</AvatarFallback>
@@ -242,7 +242,7 @@ export function CardsChat() {
                 ))}
               </div>
             ) : (
-              <p className="text-sm text-muted-foreground">
+              <p className="text-muted-foreground text-sm">
                 Select users to add to this thread.
               </p>
             )}

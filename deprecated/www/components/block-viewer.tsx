@@ -1,8 +1,5 @@
 "use client"
 
-import * as React from "react"
-import Image from "next/image"
-import Link from "next/link"
 import {
   Check,
   ChevronRight,
@@ -15,14 +12,19 @@ import {
   Tablet,
   Terminal,
 } from "lucide-react"
-import { ImperativePanelHandle } from "react-resizable-panels"
-import { registryItemFileSchema, registryItemSchema } from "shadcn/schema"
-import { z } from "zod"
-
-import { trackEvent } from "@/lib/events"
-import { FileTree, createFileTreeForRegistryItemFiles } from "@/lib/registry"
-import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard"
+import Image from "next/image"
+import Link from "next/link"
+import * as React from "react"
+import type { ImperativePanelHandle } from "react-resizable-panels"
+import type { registryItemFileSchema, registryItemSchema } from "shadcn/schema"
+import type { z } from "zod"
 import { V0Button } from "@/components/v0-button"
+import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard"
+import { trackEvent } from "@/lib/events"
+import type {
+  createFileTreeForRegistryItemFiles,
+  FileTree,
+} from "@/lib/registry"
 import { Button } from "@/registry/new-york/ui/button"
 import {
   Collapsible,
@@ -51,7 +53,7 @@ import {
   ToggleGroup,
   ToggleGroupItem,
 } from "@/registry/new-york/ui/toggle-group"
-import { Style } from "@/registry/registry-styles"
+import type { Style } from "@/registry/registry-styles"
 
 type BlockViewerContext = {
   item: z.infer<typeof registryItemSchema>
@@ -112,9 +114,9 @@ function BlockViewerProvider({
       }}
     >
       <div
-        id={item.name}
-        data-view={view}
         className="group/block-view-wrapper flex min-w-0 flex-col items-stretch gap-4"
+        data-view={view}
+        id={item.name}
         style={
           {
             "--height": item.meta?.iframeHeight ?? "930px",
@@ -134,71 +136,71 @@ function BlockViewerToolbar() {
   return (
     <div className="flex w-full items-center gap-2 md:pr-[14px]">
       <Tabs
+        className="hidden lg:flex"
         defaultValue="preview"
         onValueChange={(value) => setView(value as "preview" | "code")}
-        className="hidden lg:flex"
       >
         <TabsList className="h-7 items-center rounded-md p-0 px-[calc(theme(spacing.1)_-_2px)] py-[theme(spacing.1)]">
           <TabsTrigger
-            value="preview"
             className="h-[1.45rem] rounded-sm px-2 text-xs"
+            value="preview"
           >
             Preview
           </TabsTrigger>
           <TabsTrigger
-            value="code"
             className="h-[1.45rem] rounded-sm px-2 text-xs"
+            value="code"
           >
             Code
           </TabsTrigger>
         </TabsList>
       </Tabs>
-      <Separator orientation="vertical" className="mx-2 hidden h-4 lg:flex" />
+      <Separator className="mx-2 hidden h-4 lg:flex" orientation="vertical" />
       <a
+        className="font-medium text-sm underline-offset-2 hover:underline"
         href={`#${item.name}`}
-        className="text-sm font-medium underline-offset-2 hover:underline"
       >
         {item.description}
       </a>
       <div className="ml-auto hidden items-center gap-2 md:flex">
         <div className="hidden h-7 items-center gap-1.5 rounded-md border p-[2px] shadow-none lg:flex">
           <ToggleGroup
-            type="single"
             defaultValue="100"
             onValueChange={(value) => {
               if (resizablePanelRef?.current) {
-                resizablePanelRef.current.resize(parseInt(value))
+                resizablePanelRef.current.resize(Number.parseInt(value))
               }
             }}
+            type="single"
           >
             <ToggleGroupItem
-              value="100"
               className="h-[22px] w-[22px] min-w-0 rounded-sm p-0"
               title="Desktop"
+              value="100"
             >
               <Monitor className="h-3.5 w-3.5" />
             </ToggleGroupItem>
             <ToggleGroupItem
-              value="60"
               className="h-[22px] w-[22px] min-w-0 rounded-sm p-0"
               title="Tablet"
+              value="60"
             >
               <Tablet className="h-3.5 w-3.5" />
             </ToggleGroupItem>
             <ToggleGroupItem
-              value="30"
               className="h-[22px] w-[22px] min-w-0 rounded-sm p-0"
               title="Mobile"
+              value="30"
             >
               <Smartphone className="h-3.5 w-3.5" />
             </ToggleGroupItem>
-            <Separator orientation="vertical" className="h-4" />
+            <Separator className="h-4" orientation="vertical" />
             <Button
-              size="icon"
-              variant="ghost"
-              className="h-[22px] w-[22px] rounded-sm p-0"
               asChild
+              className="h-[22px] w-[22px] rounded-sm p-0"
+              size="icon"
               title="Open in New Tab"
+              variant="ghost"
             >
               <Link href={`/view/styles/${style}/${item.name}`} target="_blank">
                 <span className="sr-only">Open in New Tab</span>
@@ -207,21 +209,21 @@ function BlockViewerToolbar() {
             </Button>
           </ToggleGroup>
         </div>
-        <Separator orientation="vertical" className="mx-1 hidden h-4 md:flex" />
+        <Separator className="mx-1 hidden h-4 md:flex" orientation="vertical" />
         <div className="flex h-7 items-center gap-1 rounded-md border p-[2px]">
           <Button
-            variant="ghost"
             className="hidden h-[22px] w-auto gap-1 rounded-sm px-2 md:flex lg:w-auto"
-            size="sm"
             onClick={() => {
               copyToClipboard(`npx shadcn@latest add ${item.name}`)
             }}
+            size="sm"
+            variant="ghost"
           >
             {isCopied ? <Check /> : <Terminal />}
             <span className="hidden lg:inline">npx shadcn add {item.name}</span>
           </Button>
         </div>
-        <Separator orientation="vertical" className="mx-1 hidden h-4 xl:flex" />
+        <Separator className="mx-1 hidden h-4 xl:flex" orientation="vertical" />
         <V0Button
           className="hidden shadow-none sm:flex"
           id={`v0-button-${item.name}`}
@@ -238,36 +240,36 @@ function BlockViewerView() {
   return (
     <div className="group-data-[view=code]/block-view-wrapper:hidden md:h-[--height]">
       <div className="grid w-full gap-4">
-        <ResizablePanelGroup direction="horizontal" className="relative z-10">
+        <ResizablePanelGroup className="relative z-10" direction="horizontal">
           <ResizablePanel
-            ref={resizablePanelRef}
             className="relative aspect-[4/2.5] rounded-xl border bg-background md:aspect-auto"
             defaultSize={100}
             minSize={30}
+            ref={resizablePanelRef}
           >
             <Image
-              src={`/r/styles/${style}/${item.name}-light.png`}
               alt={item.name}
+              className="object-cover md:hidden dark:hidden md:dark:hidden"
               data-block={item.name}
-              width={1440}
               height={900}
-              className="object-cover dark:hidden md:hidden md:dark:hidden"
+              src={`/r/styles/${style}/${item.name}-light.png`}
+              width={1440}
             />
             <Image
-              src={`/r/styles/${style}/${item.name}-dark.png`}
               alt={item.name}
+              className="hidden object-cover md:hidden dark:block md:dark:hidden"
               data-block={item.name}
-              width={1440}
               height={900}
-              className="hidden object-cover dark:block md:hidden md:dark:hidden"
+              src={`/r/styles/${style}/${item.name}-dark.png`}
+              width={1440}
             />
             <iframe
-              src={`/view/styles/${style}/${item.name}`}
-              height={item.meta?.iframeHeight ?? 930}
               className="relative z-20 hidden w-full bg-background md:block"
+              height={item.meta?.iframeHeight ?? 930}
+              src={`/view/styles/${style}/${item.name}`}
             />
           </ResizablePanel>
-          <ResizableHandle className="relative hidden w-3 bg-transparent p-0 after:absolute after:right-0 after:top-1/2 after:h-8 after:w-[6px] after:-translate-y-1/2 after:translate-x-[-1px] after:rounded-full after:bg-border after:transition-all after:hover:h-10 md:block" />
+          <ResizableHandle className="relative hidden w-3 bg-transparent p-0 after:absolute after:top-1/2 after:right-0 after:h-8 after:w-[6px] after:translate-x-[-1px] after:-translate-y-1/2 after:rounded-full after:bg-border after:transition-all after:hover:h-10 md:block" />
           <ResizablePanel defaultSize={0} minSize={0} />
         </ResizablePanelGroup>
       </div>
@@ -292,7 +294,7 @@ function BlockViewerCode() {
         <BlockViewerFileTree />
       </div>
       <div className="flex min-w-0 flex-1 flex-col">
-        <div className="flex h-12 items-center gap-2 border-b border-zinc-700 bg-zinc-900 px-4 text-sm font-medium">
+        <div className="flex h-12 items-center gap-2 border-zinc-700 border-b bg-zinc-900 px-4 font-medium text-sm">
           <File className="size-4" />
           {file.target}
           <div className="ml-auto flex items-center gap-2">
@@ -300,10 +302,10 @@ function BlockViewerCode() {
           </div>
         </div>
         <div
-          key={file?.path}
-          data-rehype-pretty-code-fragment
+          className="[&_pre]:!bg-transparent relative flex-1 overflow-hidden after:absolute after:inset-y-0 after:left-0 after:w-10 after:bg-zinc-950 [&_.line:before]:sticky [&_.line:before]:left-2 [&_.line:before]:z-10 [&_.line:before]:translate-y-[-1px] [&_.line:before]:pr-1 [&_pre]:h-[--height] [&_pre]:overflow-auto [&_pre]:pt-4 [&_pre]:pb-20 [&_pre]:font-mono [&_pre]:text-sm [&_pre]:leading-relaxed"
           dangerouslySetInnerHTML={{ __html: file?.highlightedContent ?? "" }}
-          className="relative flex-1 overflow-hidden after:absolute after:inset-y-0 after:left-0 after:w-10 after:bg-zinc-950 [&_.line:before]:sticky [&_.line:before]:left-2 [&_.line:before]:z-10 [&_.line:before]:translate-y-[-1px] [&_.line:before]:pr-1 [&_pre]:h-[--height] [&_pre]:overflow-auto [&_pre]:!bg-transparent [&_pre]:pb-20 [&_pre]:pt-4 [&_pre]:font-mono [&_pre]:text-sm [&_pre]:leading-relaxed"
+          data-rehype-pretty-code-fragment
+          key={file?.path}
         />
       </div>
     </div>
@@ -318,19 +320,19 @@ export function BlockViewerFileTree() {
   }
 
   return (
-    <SidebarProvider className="flex !min-h-full flex-col">
+    <SidebarProvider className="!min-h-full flex flex-col">
       <Sidebar
+        className="w-full flex-1 border-zinc-700 border-r bg-zinc-900 text-white"
         collapsible="none"
-        className="w-full flex-1 border-r border-zinc-700 bg-zinc-900 text-white"
       >
-        <SidebarGroupLabel className="h-12 rounded-none border-b border-zinc-700 px-4 text-sm text-white">
+        <SidebarGroupLabel className="h-12 rounded-none border-zinc-700 border-b px-4 text-sm text-white">
           Files
         </SidebarGroupLabel>
         <SidebarGroup className="p-0">
           <SidebarGroupContent>
             <SidebarMenu className="gap-1.5">
               {tree.map((file, index) => (
-                <Tree key={index} item={file} index={1} />
+                <Tree index={1} item={file} key={index} />
               ))}
             </SidebarMenu>
           </SidebarGroupContent>
@@ -347,10 +349,10 @@ function Tree({ item, index }: { item: FileTree; index: number }) {
     return (
       <SidebarMenuItem>
         <SidebarMenuButton
-          isActive={item.path === activeFile}
-          onClick={() => item.path && setActiveFile(item.path)}
           className="whitespace-nowrap rounded-none pl-[--index] hover:bg-zinc-700 hover:text-white focus:bg-zinc-700 focus:text-white focus-visible:bg-zinc-700 focus-visible:text-white active:bg-zinc-700 active:text-white data-[active=true]:bg-zinc-700 data-[active=true]:text-white"
           data-index={index}
+          isActive={item.path === activeFile}
+          onClick={() => item.path && setActiveFile(item.path)}
           style={
             {
               "--index": `${index * (index === 2 ? 1.2 : 1.3)}rem`,
@@ -388,7 +390,7 @@ function Tree({ item, index }: { item: FileTree; index: number }) {
         <CollapsibleContent>
           <SidebarMenuSub className="m-0 w-full border-none p-0">
             {item.children.map((subItem, key) => (
-              <Tree key={key} item={subItem} index={index + 1} />
+              <Tree index={index + 1} item={subItem} key={key} />
             ))}
           </SidebarMenuSub>
         </CollapsibleContent>
@@ -413,6 +415,7 @@ function BlockCopyCodeButton() {
 
   return (
     <Button
+      className="h-7 w-7 shrink-0 rounded-lg p-0 hover:bg-zinc-700 hover:text-white focus:bg-zinc-700 focus:text-white focus-visible:bg-zinc-700 focus-visible:text-white active:bg-zinc-700 active:text-white data-[active=true]:bg-zinc-700 data-[active=true]:text-white [&>svg]:size-3"
       onClick={() => {
         copyToClipboard(content)
         trackEvent({
@@ -423,7 +426,6 @@ function BlockCopyCodeButton() {
           },
         })
       }}
-      className="h-7 w-7 shrink-0 rounded-lg p-0 hover:bg-zinc-700 hover:text-white focus:bg-zinc-700 focus:text-white focus-visible:bg-zinc-700 focus-visible:text-white active:bg-zinc-700 active:text-white data-[active=true]:bg-zinc-700 data-[active=true]:text-white [&>svg]:size-3"
       variant="ghost"
     >
       {isCopied ? <Check /> : <Clipboard />}
@@ -439,9 +441,9 @@ function BlockViewer({
 }: Pick<BlockViewerContext, "item" | "tree" | "highlightedFiles">) {
   return (
     <BlockViewerProvider
+      highlightedFiles={highlightedFiles}
       item={item}
       tree={tree}
-      highlightedFiles={highlightedFiles}
       {...props}
     >
       <BlockViewerToolbar />

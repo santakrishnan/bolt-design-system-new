@@ -9,7 +9,6 @@ export function ToastDemo() {
 
   return (
     <Button
-      variant="outline"
       onClick={() => {
         toast({
           title: "Scheduled: Catch up ",
@@ -19,6 +18,7 @@ export function ToastDemo() {
           ),
         })
       }}
+      variant="outline"
     >
       Add to calendar
     </Button>

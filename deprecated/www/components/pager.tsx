@@ -1,7 +1,7 @@
-import Link from "next/link"
-import { Doc } from "contentlayer/generated"
+import type { Doc } from "contentlayer/generated"
 import { ChevronLeft, ChevronRight } from "lucide-react"
-import { NavItem, NavItemWithChildren } from "types/nav"
+import Link from "next/link"
+import type { NavItem, NavItemWithChildren } from "types/nav"
 
 import { docsConfig } from "@/config/docs"
 import { Button } from "@/registry/new-york/ui/button"
@@ -20,7 +20,7 @@ export function DocsPager({ doc }: DocsPagerProps) {
   return (
     <div className="flex flex-row items-center justify-between">
       {pager?.prev?.href && (
-        <Button variant="ghost" asChild>
+        <Button asChild variant="ghost">
           <Link href={pager.prev.href}>
             <ChevronLeft />
             {pager.prev.title}
@@ -28,7 +28,7 @@ export function DocsPager({ doc }: DocsPagerProps) {
         </Button>
       )}
       {pager?.next?.href && (
-        <Button variant="ghost" className="ml-auto" asChild>
+        <Button asChild className="ml-auto" variant="ghost">
           <Link href={pager.next.href}>
             {pager.next.title}
             <ChevronRight />

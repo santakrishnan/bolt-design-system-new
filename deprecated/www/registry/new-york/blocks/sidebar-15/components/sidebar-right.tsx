@@ -1,5 +1,5 @@
-import * as React from "react"
 import { Plus } from "lucide-react"
+import type * as React from "react"
 
 import { Calendars } from "@/registry/new-york/blocks/sidebar-15/components/calendars"
 import { DatePicker } from "@/registry/new-york/blocks/sidebar-15/components/date-picker"
@@ -12,7 +12,6 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarRail,
   SidebarSeparator,
 } from "@/registry/new-york/ui/sidebar"
 
@@ -44,11 +43,11 @@ export function SidebarRight({
 }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar
+      className="sticky top-0 hidden h-svh border-l lg:flex"
       collapsible="none"
-      className="sticky hidden lg:flex top-0 h-svh border-l"
       {...props}
     >
-      <SidebarHeader className="h-16 border-b border-sidebar-border">
+      <SidebarHeader className="h-16 border-sidebar-border border-b">
         <NavUser user={data.user} />
       </SidebarHeader>
       <SidebarContent>

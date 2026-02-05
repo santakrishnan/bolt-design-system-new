@@ -1,8 +1,7 @@
 import { useAtom } from "jotai"
 import { atomWithStorage } from "jotai/utils"
-
-import { ColorFormat } from "@/lib/colors"
 import { useMounted } from "@/hooks/use-mounted"
+import type { ColorFormat } from "@/lib/colors"
 
 type Config = {
   format: ColorFormat

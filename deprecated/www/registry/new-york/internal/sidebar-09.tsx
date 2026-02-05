@@ -1,6 +1,5 @@
 "use client"
 
-import * as React from "react"
 import {
   ArchiveX,
   BadgeCheck,
@@ -15,6 +14,7 @@ import {
   Sparkles,
   Trash2,
 } from "lucide-react"
+import * as React from "react"
 
 import {
   Avatar,
@@ -198,7 +198,7 @@ export default function Page() {
       <SidebarInset>
         <header className="sticky top-0 flex shrink-0 items-center gap-2 border-b bg-background p-4">
           <SidebarTrigger className="-ml-1" />
-          <Separator orientation="vertical" className="mr-2 h-4" />
+          <Separator className="mr-2 h-4" orientation="vertical" />
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem className="hidden md:block">
@@ -214,8 +214,8 @@ export default function Page() {
         <div className="flex flex-1 flex-col gap-4 p-4">
           {Array.from({ length: 24 }).map((_, index) => (
             <div
-              key={index}
               className="aspect-video h-12 w-full rounded-lg bg-muted/50"
+              key={index}
             />
           ))}
         </div>
@@ -233,21 +233,21 @@ function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
   return (
     <Sidebar
-      collapsible="icon"
       className="overflow-hidden [&>[data-sidebar=sidebar]]:flex-row"
+      collapsible="icon"
       {...props}
     >
       {/* This is the first sidebar */}
       {/* We disable collapsible and adjust width to icon. */}
       {/* This will make the sidebar appear as icons. */}
       <Sidebar
-        collapsible="none"
         className="!w-[calc(var(--sidebar-width-icon)_+_1px)] border-r"
+        collapsible="none"
       >
         <SidebarHeader>
           <SidebarMenu>
             <SidebarMenuItem>
-              <SidebarMenuButton size="lg" asChild className="md:h-8 md:p-0">
+              <SidebarMenuButton asChild className="md:h-8 md:p-0" size="lg">
                 <a href="#">
                   <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
                     <Command className="size-4" />
@@ -268,10 +268,8 @@ function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 {data.navMain.map((item) => (
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton
-                      tooltip={{
-                        children: item.title,
-                        hidden: false,
-                      }}
+                      className="px-2.5 md:px-2"
+                      isActive={activeItem?.title === item.title}
                       onClick={() => {
                         setActiveItem(item)
                         const mail = data.mails.sort(() => Math.random() - 0.5)
@@ -283,8 +281,10 @@ function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                         )
                         setOpen(true)
                       }}
-                      isActive={activeItem?.title === item.title}
-                      className="px-2.5 md:px-2"
+                      tooltip={{
+                        children: item.title,
+                        hidden: false,
+                      }}
                     >
                       <item.icon />
                       <span>{item.title}</span>
@@ -302,10 +302,10 @@ function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
       {/* This is the second sidebar */}
       {/* We disable collapsible and let it fill remaining space */}
-      <Sidebar collapsible="none" className="hidden flex-1 md:flex">
+      <Sidebar className="hidden flex-1 md:flex" collapsible="none">
         <SidebarHeader className="gap-3.5 border-b p-4">
           <div className="flex w-full items-center justify-between">
-            <div className="text-base font-medium text-foreground">
+            <div className="font-medium text-base text-foreground">
               {activeItem?.title}
             </div>
             <Label className="flex items-center gap-2 text-sm">
@@ -320,9 +320,9 @@ function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             <SidebarGroupContent>
               {mails.map((mail) => (
                 <a
+                  className="flex flex-col items-start gap-2 whitespace-nowrap border-b p-4 text-sm leading-tight last:border-b-0 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
                   href="#"
                   key={mail.email}
-                  className="flex flex-col items-start gap-2 whitespace-nowrap border-b p-4 text-sm leading-tight last:border-b-0 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
                 >
                   <div className="flex w-full items-center gap-2">
                     <span>{mail.name}</span>{" "}
@@ -359,11 +359,11 @@ function NavUser({
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <SidebarMenuButton
-              size="lg"
               className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground md:h-8 md:p-0"
+              size="lg"
             >
               <Avatar className="h-8 w-8 rounded-lg">
-                <AvatarImage src={user.avatar} alt={user.name} />
+                <AvatarImage alt={user.name} src={user.avatar} />
                 <AvatarFallback className="rounded-lg">CN</AvatarFallback>
               </Avatar>
               <div className="grid flex-1 text-left text-sm leading-tight">
@@ -374,15 +374,15 @@ function NavUser({
             </SidebarMenuButton>
           </DropdownMenuTrigger>
           <DropdownMenuContent
+            align="end"
             className="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg"
             side={isMobile ? "bottom" : "right"}
-            align="end"
             sideOffset={4}
           >
             <DropdownMenuLabel className="p-0 font-normal">
               <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
                 <Avatar className="h-8 w-8 rounded-lg">
-                  <AvatarImage src={user.avatar} alt={user.name} />
+                  <AvatarImage alt={user.name} src={user.avatar} />
                   <AvatarFallback className="rounded-lg">CN</AvatarFallback>
                 </Avatar>
                 <div className="grid flex-1 text-left text-sm leading-tight">

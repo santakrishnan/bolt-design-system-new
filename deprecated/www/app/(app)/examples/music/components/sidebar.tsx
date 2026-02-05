@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/registry/new-york/ui/button"
 import { ScrollArea } from "@/registry/new-york/ui/scroll-area"
 
-import { Playlist } from "../data/playlists"
+import type { Playlist } from "../data/playlists"
 
 interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
   playlists: Playlist[]
@@ -13,54 +13,54 @@ export function Sidebar({ className, playlists }: SidebarProps) {
     <div className={cn("pb-12", className)}>
       <div className="space-y-4 py-4">
         <div className="px-3 py-2">
-          <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
+          <h2 className="mb-2 px-4 font-semibold text-lg tracking-tight">
             Discover
           </h2>
           <div className="space-y-1">
-            <Button variant="secondary" className="w-full justify-start">
+            <Button className="w-full justify-start" variant="secondary">
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
+                className="mr-2 h-4 w-4"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="mr-2 h-4 w-4"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
               >
                 <circle cx="12" cy="12" r="10" />
                 <polygon points="10 8 16 12 10 16 10 8" />
               </svg>
               Listen Now
             </Button>
-            <Button variant="ghost" className="w-full justify-start">
+            <Button className="w-full justify-start" variant="ghost">
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
+                className="mr-2 h-4 w-4"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="mr-2 h-4 w-4"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <rect width="7" height="7" x="3" y="3" rx="1" />
-                <rect width="7" height="7" x="14" y="3" rx="1" />
-                <rect width="7" height="7" x="14" y="14" rx="1" />
-                <rect width="7" height="7" x="3" y="14" rx="1" />
+                <rect height="7" rx="1" width="7" x="3" y="3" />
+                <rect height="7" rx="1" width="7" x="14" y="3" />
+                <rect height="7" rx="1" width="7" x="14" y="14" />
+                <rect height="7" rx="1" width="7" x="3" y="14" />
               </svg>
               Browse
             </Button>
-            <Button variant="ghost" className="w-full justify-start">
+            <Button className="w-full justify-start" variant="ghost">
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
+                className="mr-2 h-4 w-4"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="mr-2 h-4 w-4"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
               >
                 <path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9" />
                 <path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5" />
@@ -73,20 +73,20 @@ export function Sidebar({ className, playlists }: SidebarProps) {
           </div>
         </div>
         <div className="px-3 py-2">
-          <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
+          <h2 className="mb-2 px-4 font-semibold text-lg tracking-tight">
             Library
           </h2>
           <div className="space-y-1">
-            <Button variant="ghost" className="w-full justify-start">
+            <Button className="w-full justify-start" variant="ghost">
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
+                className="mr-2 h-4 w-4"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="mr-2 h-4 w-4"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
               >
                 <path d="M21 15V6" />
                 <path d="M18.5 18a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
@@ -96,64 +96,64 @@ export function Sidebar({ className, playlists }: SidebarProps) {
               </svg>
               Playlists
             </Button>
-            <Button variant="ghost" className="w-full justify-start">
+            <Button className="w-full justify-start" variant="ghost">
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
+                className="mr-2 h-4 w-4"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="mr-2 h-4 w-4"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
               >
                 <circle cx="8" cy="18" r="4" />
                 <path d="M12 18V2l7 4" />
               </svg>
               Songs
             </Button>
-            <Button variant="ghost" className="w-full justify-start">
+            <Button className="w-full justify-start" variant="ghost">
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
+                className="mr-2 h-4 w-4"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="mr-2 h-4 w-4"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
               >
                 <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
                 <circle cx="12" cy="7" r="4" />
               </svg>
               Made for You
             </Button>
-            <Button variant="ghost" className="w-full justify-start">
+            <Button className="w-full justify-start" variant="ghost">
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
+                className="mr-2 h-4 w-4"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="mr-2 h-4 w-4"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
               >
                 <path d="m12 8-9.04 9.06a2.82 2.82 0 1 0 3.98 3.98L16 12" />
                 <circle cx="17" cy="7" r="5" />
               </svg>
               Artists
             </Button>
-            <Button variant="ghost" className="w-full justify-start">
+            <Button className="w-full justify-start" variant="ghost">
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
+                className="mr-2 h-4 w-4"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="mr-2 h-4 w-4"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
               >
                 <path d="m16 6 4 14" />
                 <path d="M12 6v14" />
@@ -165,26 +165,26 @@ export function Sidebar({ className, playlists }: SidebarProps) {
           </div>
         </div>
         <div className="py-2">
-          <h2 className="relative px-7 text-lg font-semibold tracking-tight">
+          <h2 className="relative px-7 font-semibold text-lg tracking-tight">
             Playlists
           </h2>
           <ScrollArea className="h-[300px] px-1">
             <div className="space-y-1 p-2">
               {playlists?.map((playlist, i) => (
                 <Button
+                  className="w-full justify-start font-normal"
                   key={`${playlist}-${i}`}
                   variant="ghost"
-                  className="w-full justify-start font-normal"
                 >
                   <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
+                    className="mr-2 h-4 w-4"
                     fill="none"
                     stroke="currentColor"
-                    strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="mr-2 h-4 w-4"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path d="M21 15V6" />
                     <path d="M18.5 18a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />

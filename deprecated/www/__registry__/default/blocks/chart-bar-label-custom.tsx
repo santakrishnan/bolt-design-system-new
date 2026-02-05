@@ -12,7 +12,7 @@ import {
   CardTitle,
 } from "@/registry/default/ui/card"
 import {
-  ChartConfig,
+  type ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
@@ -62,38 +62,38 @@ export default function Component() {
           >
             <CartesianGrid horizontal={false} />
             <YAxis
+              axisLine={false}
               dataKey="month"
-              type="category"
+              hide
+              tickFormatter={(value) => value.slice(0, 3)}
               tickLine={false}
               tickMargin={10}
-              axisLine={false}
-              tickFormatter={(value) => value.slice(0, 3)}
-              hide
+              type="category"
             />
-            <XAxis dataKey="desktop" type="number" hide />
+            <XAxis dataKey="desktop" hide type="number" />
             <ChartTooltip
-              cursor={false}
               content={<ChartTooltipContent indicator="line" />}
+              cursor={false}
             />
             <Bar
               dataKey="desktop"
-              layout="vertical"
               fill="var(--color-desktop)"
+              layout="vertical"
               radius={4}
             >
               <LabelList
-                dataKey="month"
-                position="insideLeft"
-                offset={8}
                 className="fill-[--color-label]"
+                dataKey="month"
                 fontSize={12}
+                offset={8}
+                position="insideLeft"
               />
               <LabelList
-                dataKey="desktop"
-                position="right"
-                offset={8}
                 className="fill-foreground"
+                dataKey="desktop"
                 fontSize={12}
+                offset={8}
+                position="right"
               />
             </Bar>
           </BarChart>
@@ -103,7 +103,7 @@ export default function Component() {
         <div className="flex gap-2 font-medium leading-none">
           Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
         </div>
-        <div className="leading-none text-muted-foreground">
+        <div className="text-muted-foreground leading-none">
           Showing total visitors for the last 6 months
         </div>
       </CardFooter>

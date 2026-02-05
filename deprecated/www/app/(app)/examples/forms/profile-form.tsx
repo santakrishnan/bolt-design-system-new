@@ -1,7 +1,7 @@
 "use client"
 
-import Link from "next/link"
 import { zodResolver } from "@hookform/resolvers/zod"
+import Link from "next/link"
 import { useFieldArray, useForm } from "react-hook-form"
 import { z } from "zod"
 
@@ -87,7 +87,7 @@ export function ProfileForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form className="space-y-8" onSubmit={form.handleSubmit(onSubmit)}>
         <FormField
           control={form.control}
           name="username"
@@ -111,7 +111,7 @@ export function ProfileForm() {
           render={({ field }) => (
             <FormItem>
               <FormLabel>Email</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
+              <Select defaultValue={field.value} onValueChange={field.onChange}>
                 <FormControl>
                   <SelectTrigger>
                     <SelectValue placeholder="Select a verified email to display" />
@@ -139,8 +139,8 @@ export function ProfileForm() {
               <FormLabel>Bio</FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder="Tell us a little bit about yourself"
                   className="resize-none"
+                  placeholder="Tell us a little bit about yourself"
                   {...field}
                 />
               </FormControl>
@@ -175,11 +175,11 @@ export function ProfileForm() {
             />
           ))}
           <Button
-            type="button"
-            variant="outline"
-            size="sm"
             className="mt-2"
             onClick={() => append({ value: "" })}
+            size="sm"
+            type="button"
+            variant="outline"
           >
             Add URL
           </Button>

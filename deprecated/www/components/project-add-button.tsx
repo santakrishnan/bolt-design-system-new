@@ -1,9 +1,8 @@
 "use client"
 
 import { Check, PlusCircle } from "lucide-react"
-
-import { cn } from "@/lib/utils"
 import { useProject } from "@/hooks/use-project"
+import { cn } from "@/lib/utils"
 import { Button } from "@/registry/new-york/ui/button"
 import {
   Tooltip,
@@ -21,12 +20,12 @@ export function ProjectAddButton({
     <Tooltip>
       <TooltipTrigger asChild>
         <Button
-          variant="ghost"
-          size="sm"
           className={cn("rounded-sm", className)}
           onClick={() => {
             addBlock(name)
           }}
+          size="sm"
+          variant="ghost"
           {...props}
         >
           {isAdded ? <Check /> : <PlusCircle />}

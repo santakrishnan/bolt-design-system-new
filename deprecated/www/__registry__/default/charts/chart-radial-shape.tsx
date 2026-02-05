@@ -17,7 +17,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/registry/default/ui/card"
-import { ChartConfig, ChartContainer } from "@/registry/default/ui/chart"
+import { type ChartConfig, ChartContainer } from "@/registry/default/ui/chart"
 
 export const description = "A radial chart with a custom shape"
 
@@ -44,8 +44,8 @@ export default function Component() {
       </CardHeader>
       <CardContent className="flex-1 pb-0">
         <ChartContainer
-          config={chartConfig}
           className="mx-auto aspect-square max-h-[250px]"
+          config={chartConfig}
         >
           <RadialBarChart
             data={chartData}
@@ -54,35 +54,35 @@ export default function Component() {
             outerRadius={140}
           >
             <PolarGrid
+              className="first:fill-muted last:fill-background"
               gridType="circle"
+              polarRadius={[86, 74]}
               radialLines={false}
               stroke="none"
-              className="first:fill-muted last:fill-background"
-              polarRadius={[86, 74]}
             />
-            <RadialBar dataKey="visitors" background />
-            <PolarRadiusAxis tick={false} tickLine={false} axisLine={false}>
+            <RadialBar background dataKey="visitors" />
+            <PolarRadiusAxis axisLine={false} tick={false} tickLine={false}>
               <Label
                 content={({ viewBox }) => {
                   if (viewBox && "cx" in viewBox && "cy" in viewBox) {
                     return (
                       <text
+                        dominantBaseline="middle"
+                        textAnchor="middle"
                         x={viewBox.cx}
                         y={viewBox.cy}
-                        textAnchor="middle"
-                        dominantBaseline="middle"
                       >
                         <tspan
+                          className="fill-foreground font-bold text-4xl"
                           x={viewBox.cx}
                           y={viewBox.cy}
-                          className="fill-foreground text-4xl font-bold"
                         >
                           {chartData[0].visitors.toLocaleString()}
                         </tspan>
                         <tspan
+                          className="fill-muted-foreground"
                           x={viewBox.cx}
                           y={(viewBox.cy || 0) + 24}
-                          className="fill-muted-foreground"
                         >
                           Visitors
                         </tspan>
@@ -99,7 +99,7 @@ export default function Component() {
         <div className="flex items-center gap-2 font-medium leading-none">
           Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
         </div>
-        <div className="leading-none text-muted-foreground">
+        <div className="text-muted-foreground leading-none">
           Showing total visitors for the last 6 months
         </div>
       </CardFooter>

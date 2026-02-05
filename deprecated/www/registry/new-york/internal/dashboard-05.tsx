@@ -1,6 +1,3 @@
-import * as React from "react"
-import Image from "next/image"
-import Link from "next/link"
 import {
   ChevronLeft,
   ChevronRight,
@@ -20,6 +17,8 @@ import {
   Truck,
   Users2,
 } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
 
 import { Badge } from "@/registry/new-york/ui/badge"
 import {
@@ -90,8 +89,8 @@ export default function Dashboard() {
       <aside className="fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-background sm:flex">
         <nav className="flex flex-col items-center gap-4 px-2 sm:py-4">
           <Link
+            className="group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full bg-primary font-semibold text-lg text-primary-foreground md:h-8 md:w-8 md:text-base"
             href="#"
-            className="group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:h-8 md:w-8 md:text-base"
           >
             <Package2 className="h-4 w-4 transition-all group-hover:scale-110" />
             <span className="sr-only">Acme Inc</span>
@@ -99,8 +98,8 @@ export default function Dashboard() {
           <Tooltip>
             <TooltipTrigger asChild>
               <Link
-                href="#"
                 className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                href="#"
               >
                 <Home className="h-5 w-5" />
                 <span className="sr-only">Dashboard</span>
@@ -111,8 +110,8 @@ export default function Dashboard() {
           <Tooltip>
             <TooltipTrigger asChild>
               <Link
-                href="#"
                 className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                href="#"
               >
                 <ShoppingCart className="h-5 w-5" />
                 <span className="sr-only">Orders</span>
@@ -123,8 +122,8 @@ export default function Dashboard() {
           <Tooltip>
             <TooltipTrigger asChild>
               <Link
-                href="#"
                 className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                href="#"
               >
                 <Package className="h-5 w-5" />
                 <span className="sr-only">Products</span>
@@ -135,8 +134,8 @@ export default function Dashboard() {
           <Tooltip>
             <TooltipTrigger asChild>
               <Link
-                href="#"
                 className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                href="#"
               >
                 <Users2 className="h-5 w-5" />
                 <span className="sr-only">Customers</span>
@@ -147,8 +146,8 @@ export default function Dashboard() {
           <Tooltip>
             <TooltipTrigger asChild>
               <Link
-                href="#"
                 className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                href="#"
               >
                 <LineChart className="h-5 w-5" />
                 <span className="sr-only">Analytics</span>
@@ -161,8 +160,8 @@ export default function Dashboard() {
           <Tooltip>
             <TooltipTrigger asChild>
               <Link
-                href="#"
                 className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                href="#"
               >
                 <Settings className="h-5 w-5" />
                 <span className="sr-only">Settings</span>
@@ -176,51 +175,51 @@ export default function Dashboard() {
         <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
           <Sheet>
             <SheetTrigger asChild>
-              <Button size="icon" variant="outline" className="sm:hidden">
+              <Button className="sm:hidden" size="icon" variant="outline">
                 <PanelLeft className="h-5 w-5" />
                 <span className="sr-only">Toggle Menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="sm:max-w-xs">
-              <nav className="grid gap-6 text-lg font-medium">
+            <SheetContent className="sm:max-w-xs" side="left">
+              <nav className="grid gap-6 font-medium text-lg">
                 <Link
+                  className="group flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary font-semibold text-lg text-primary-foreground md:text-base"
                   href="#"
-                  className="group flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:text-base"
                 >
                   <Package2 className="h-5 w-5 transition-all group-hover:scale-110" />
                   <span className="sr-only">Acme Inc</span>
                 </Link>
                 <Link
-                  href="#"
                   className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+                  href="#"
                 >
                   <Home className="h-5 w-5" />
                   Dashboard
                 </Link>
                 <Link
-                  href="#"
                   className="flex items-center gap-4 px-2.5 text-foreground"
+                  href="#"
                 >
                   <ShoppingCart className="h-5 w-5" />
                   Orders
                 </Link>
                 <Link
-                  href="#"
                   className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+                  href="#"
                 >
                   <Package className="h-5 w-5" />
                   Products
                 </Link>
                 <Link
-                  href="#"
                   className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+                  href="#"
                 >
                   <Users2 className="h-5 w-5" />
                   Customers
                 </Link>
                 <Link
-                  href="#"
                   className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+                  href="#"
                 >
                   <LineChart className="h-5 w-5" />
                   Settings
@@ -248,26 +247,26 @@ export default function Dashboard() {
             </BreadcrumbList>
           </Breadcrumb>
           <div className="relative ml-auto flex-1 md:grow-0">
-            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+            <Search className="absolute top-2.5 left-2.5 h-4 w-4 text-muted-foreground" />
             <Input
-              type="search"
-              placeholder="Search..."
               className="w-full rounded-lg bg-background pl-8 md:w-[200px] lg:w-[320px]"
+              placeholder="Search..."
+              type="search"
             />
           </div>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button
-                variant="outline"
-                size="icon"
                 className="overflow-hidden rounded-full"
+                size="icon"
+                variant="outline"
               >
                 <Image
-                  src="/placeholder-user.jpg"
-                  width={36}
-                  height={36}
                   alt="Avatar"
                   className="overflow-hidden rounded-full"
+                  height={36}
+                  src="/placeholder-user.jpg"
+                  width={36}
                 />
               </Button>
             </DropdownMenuTrigger>
@@ -290,7 +289,7 @@ export default function Dashboard() {
               >
                 <CardHeader className="pb-3">
                   <CardTitle>Your Orders</CardTitle>
-                  <CardDescription className="text-balance max-w-lg leading-relaxed">
+                  <CardDescription className="max-w-lg text-balance leading-relaxed">
                     Introducing Our Dynamic Orders Dashboard for Seamless
                     Management and Insightful Analysis.
                   </CardDescription>
@@ -305,12 +304,12 @@ export default function Dashboard() {
                   <CardTitle className="text-4xl">$1,329</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-xs text-muted-foreground">
+                  <div className="text-muted-foreground text-xs">
                     +25% from last week
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <Progress value={25} aria-label="25% increase" />
+                  <Progress aria-label="25% increase" value={25} />
                 </CardFooter>
               </Card>
               <Card x-chunk="A stats card showing this month's total sales in USD, the percentage difference from last month, and a progress bar.">
@@ -319,12 +318,12 @@ export default function Dashboard() {
                   <CardTitle className="text-4xl">$5,329</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-xs text-muted-foreground">
+                  <div className="text-muted-foreground text-xs">
                     +10% from last month
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <Progress value={12} aria-label="12% increase" />
+                  <Progress aria-label="12% increase" value={12} />
                 </CardFooter>
               </Card>
             </div>
@@ -339,9 +338,9 @@ export default function Dashboard() {
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                       <Button
-                        variant="outline"
-                        size="sm"
                         className="h-7 gap-1 text-sm"
+                        size="sm"
+                        variant="outline"
                       >
                         <ListFilter className="h-3.5 w-3.5" />
                         <span className="sr-only sm:not-sr-only">Filter</span>
@@ -362,9 +361,9 @@ export default function Dashboard() {
                     </DropdownMenuContent>
                   </DropdownMenu>
                   <Button
+                    className="h-7 gap-1 text-sm"
                     size="sm"
                     variant="outline"
-                    className="h-7 gap-1 text-sm"
                   >
                     <File className="h-3.5 w-3.5" />
                     <span className="sr-only sm:not-sr-only">Export</span>
@@ -400,7 +399,7 @@ export default function Dashboard() {
                         <TableRow className="bg-accent">
                           <TableCell>
                             <div className="font-medium">Liam Johnson</div>
-                            <div className="hidden text-sm text-muted-foreground md:inline">
+                            <div className="hidden text-muted-foreground text-sm md:inline">
                               liam@example.com
                             </div>
                           </TableCell>
@@ -420,7 +419,7 @@ export default function Dashboard() {
                         <TableRow>
                           <TableCell>
                             <div className="font-medium">Olivia Smith</div>
-                            <div className="hidden text-sm text-muted-foreground md:inline">
+                            <div className="hidden text-muted-foreground text-sm md:inline">
                               olivia@example.com
                             </div>
                           </TableCell>
@@ -460,7 +459,7 @@ export default function Dashboard() {
                         <TableRow>
                           <TableCell>
                             <div className="font-medium">Noah Williams</div>
-                            <div className="hidden text-sm text-muted-foreground md:inline">
+                            <div className="hidden text-muted-foreground text-sm md:inline">
                               noah@example.com
                             </div>
                           </TableCell>
@@ -480,7 +479,7 @@ export default function Dashboard() {
                         <TableRow>
                           <TableCell>
                             <div className="font-medium">Emma Brown</div>
-                            <div className="hidden text-sm text-muted-foreground md:inline">
+                            <div className="hidden text-muted-foreground text-sm md:inline">
                               emma@example.com
                             </div>
                           </TableCell>
@@ -500,7 +499,7 @@ export default function Dashboard() {
                         <TableRow>
                           <TableCell>
                             <div className="font-medium">Liam Johnson</div>
-                            <div className="hidden text-sm text-muted-foreground md:inline">
+                            <div className="hidden text-muted-foreground text-sm md:inline">
                               liam@example.com
                             </div>
                           </TableCell>
@@ -520,7 +519,7 @@ export default function Dashboard() {
                         <TableRow>
                           <TableCell>
                             <div className="font-medium">Olivia Smith</div>
-                            <div className="hidden text-sm text-muted-foreground md:inline">
+                            <div className="hidden text-muted-foreground text-sm md:inline">
                               olivia@example.com
                             </div>
                           </TableCell>
@@ -540,7 +539,7 @@ export default function Dashboard() {
                         <TableRow>
                           <TableCell>
                             <div className="font-medium">Emma Brown</div>
-                            <div className="hidden text-sm text-muted-foreground md:inline">
+                            <div className="hidden text-muted-foreground text-sm md:inline">
                               emma@example.com
                             </div>
                           </TableCell>
@@ -574,9 +573,9 @@ export default function Dashboard() {
                   <CardTitle className="group flex items-center gap-2 text-lg">
                     Order Oe31b70H
                     <Button
+                      className="h-6 w-6 opacity-0 transition-opacity group-hover:opacity-100"
                       size="icon"
                       variant="outline"
-                      className="h-6 w-6 opacity-0 transition-opacity group-hover:opacity-100"
                     >
                       <Copy className="h-3 w-3" />
                       <span className="sr-only">Copy Order ID</span>
@@ -585,7 +584,7 @@ export default function Dashboard() {
                   <CardDescription>Date: November 23, 2023</CardDescription>
                 </div>
                 <div className="ml-auto flex items-center gap-1">
-                  <Button size="sm" variant="outline" className="h-8 gap-1">
+                  <Button className="h-8 gap-1" size="sm" variant="outline">
                     <Truck className="h-3.5 w-3.5" />
                     <span className="lg:sr-only xl:not-sr-only xl:whitespace-nowrap">
                       Track Order
@@ -593,7 +592,7 @@ export default function Dashboard() {
                   </Button>
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                      <Button size="icon" variant="outline" className="h-8 w-8">
+                      <Button className="h-8 w-8" size="icon" variant="outline">
                         <MoreVertical className="h-3.5 w-3.5" />
                         <span className="sr-only">More</span>
                       </Button>
@@ -648,7 +647,7 @@ export default function Dashboard() {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="grid gap-3">
                     <div className="font-semibold">Shipping Information</div>
-                    <address className="grid gap-0.5 not-italic text-muted-foreground">
+                    <address className="grid gap-0.5 text-muted-foreground not-italic">
                       <span>Liam Johnson</span>
                       <span>1234 Main St.</span>
                       <span>Anytown, CA 12345</span>
@@ -698,19 +697,19 @@ export default function Dashboard() {
                 </div>
               </CardContent>
               <CardFooter className="flex flex-row items-center border-t bg-muted/50 px-6 py-3">
-                <div className="text-xs text-muted-foreground">
+                <div className="text-muted-foreground text-xs">
                   Updated <time dateTime="2023-11-23">November 23, 2023</time>
                 </div>
-                <Pagination className="ml-auto mr-0 w-auto">
+                <Pagination className="mr-0 ml-auto w-auto">
                   <PaginationContent>
                     <PaginationItem>
-                      <Button size="icon" variant="outline" className="h-6 w-6">
+                      <Button className="h-6 w-6" size="icon" variant="outline">
                         <ChevronLeft className="h-3.5 w-3.5" />
                         <span className="sr-only">Previous Order</span>
                       </Button>
                     </PaginationItem>
                     <PaginationItem>
-                      <Button size="icon" variant="outline" className="h-6 w-6">
+                      <Button className="h-6 w-6" size="icon" variant="outline">
                         <ChevronRight className="h-3.5 w-3.5" />
                         <span className="sr-only">Next Order</span>
                       </Button>

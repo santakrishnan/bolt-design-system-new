@@ -1,5 +1,5 @@
 export default function TypographySmall() {
   return (
-    <small className="text-sm font-medium leading-none">Email address</small>
+    <small className="font-medium text-sm leading-none">Email address</small>
   )
 }

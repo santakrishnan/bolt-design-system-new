@@ -11,7 +11,7 @@ import {
   CardTitle,
 } from "@/registry/default/ui/card"
 import {
-  ChartConfig,
+  type ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
@@ -153,15 +153,15 @@ export default function Component() {
             const chart = key as keyof typeof chartConfig
             return (
               <button
-                key={chart}
+                className="flex flex-1 flex-col justify-center gap-1 border-t px-6 py-4 text-left even:border-l data-[active=true]:bg-muted/50 sm:border-t-0 sm:border-l sm:px-8 sm:py-6"
                 data-active={activeChart === chart}
-                className="flex flex-1 flex-col justify-center gap-1 border-t px-6 py-4 text-left even:border-l data-[active=true]:bg-muted/50 sm:border-l sm:border-t-0 sm:px-8 sm:py-6"
+                key={chart}
                 onClick={() => setActiveChart(chart)}
               >
-                <span className="text-xs text-muted-foreground">
+                <span className="text-muted-foreground text-xs">
                   {chartConfig[chart].label}
                 </span>
-                <span className="text-lg font-bold leading-none sm:text-3xl">
+                <span className="font-bold text-lg leading-none sm:text-3xl">
                   {total[key as keyof typeof total].toLocaleString()}
                 </span>
               </button>
@@ -171,8 +171,8 @@ export default function Component() {
       </CardHeader>
       <CardContent className="px-2 sm:p-6">
         <ChartContainer
-          config={chartConfig}
           className="aspect-auto h-[250px] w-full"
+          config={chartConfig}
         >
           <LineChart
             accessibilityLayer
@@ -184,10 +184,8 @@ export default function Component() {
           >
             <CartesianGrid vertical={false} />
             <XAxis
-              dataKey="date"
-              tickLine={false}
               axisLine={false}
-              tickMargin={8}
+              dataKey="date"
               minTickGap={32}
               tickFormatter={(value) => {
                 const date = new Date(value)
@@ -196,12 +194,13 @@ export default function Component() {
                   day: "numeric",
                 })
               }}
+              tickLine={false}
+              tickMargin={8}
             />
             <ChartTooltip
               content={
                 <ChartTooltipContent
                   className="w-[150px]"
-                  nameKey="views"
                   labelFormatter={(value) => {
                     return new Date(value).toLocaleDateString("en-US", {
                       month: "short",
@@ -209,15 +208,16 @@ export default function Component() {
                       year: "numeric",
                     })
                   }}
+                  nameKey="views"
                 />
               }
             />
             <Line
               dataKey={activeChart}
-              type="monotone"
+              dot={false}
               stroke={`var(--color-${activeChart})`}
               strokeWidth={2}
-              dot={false}
+              type="monotone"
             />
           </LineChart>
         </ChartContainer>

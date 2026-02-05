@@ -1,7 +1,7 @@
 "use client"
 
-import * as React from "react"
 import { ArchiveX, Command, File, Inbox, Send, Trash2 } from "lucide-react"
+import * as React from "react"
 
 import { NavUser } from "@/registry/new-york/blocks/sidebar-09/components/nav-user"
 import { Label } from "@/registry/new-york/ui/label"
@@ -152,21 +152,21 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
   return (
     <Sidebar
-      collapsible="icon"
       className="overflow-hidden [&>[data-sidebar=sidebar]]:flex-row"
+      collapsible="icon"
       {...props}
     >
       {/* This is the first sidebar */}
       {/* We disable collapsible and adjust width to icon. */}
       {/* This will make the sidebar appear as icons. */}
       <Sidebar
-        collapsible="none"
         className="!w-[calc(var(--sidebar-width-icon)_+_1px)] border-r"
+        collapsible="none"
       >
         <SidebarHeader>
           <SidebarMenu>
             <SidebarMenuItem>
-              <SidebarMenuButton size="lg" asChild className="md:h-8 md:p-0">
+              <SidebarMenuButton asChild className="md:h-8 md:p-0" size="lg">
                 <a href="#">
                   <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
                     <Command className="size-4" />
@@ -187,10 +187,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 {data.navMain.map((item) => (
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton
-                      tooltip={{
-                        children: item.title,
-                        hidden: false,
-                      }}
+                      className="px-2.5 md:px-2"
+                      isActive={activeItem?.title === item.title}
                       onClick={() => {
                         setActiveItem(item)
                         const mail = data.mails.sort(() => Math.random() - 0.5)
@@ -202,8 +200,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                         )
                         setOpen(true)
                       }}
-                      isActive={activeItem?.title === item.title}
-                      className="px-2.5 md:px-2"
+                      tooltip={{
+                        children: item.title,
+                        hidden: false,
+                      }}
                     >
                       <item.icon />
                       <span>{item.title}</span>
@@ -221,10 +221,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
       {/* This is the second sidebar */}
       {/* We disable collapsible and let it fill remaining space */}
-      <Sidebar collapsible="none" className="hidden flex-1 md:flex">
+      <Sidebar className="hidden flex-1 md:flex" collapsible="none">
         <SidebarHeader className="gap-3.5 border-b p-4">
           <div className="flex w-full items-center justify-between">
-            <div className="text-base font-medium text-foreground">
+            <div className="font-medium text-base text-foreground">
               {activeItem?.title}
             </div>
             <Label className="flex items-center gap-2 text-sm">
@@ -239,9 +239,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             <SidebarGroupContent>
               {mails.map((mail) => (
                 <a
+                  className="flex flex-col items-start gap-2 whitespace-nowrap border-b p-4 text-sm leading-tight last:border-b-0 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
                   href="#"
                   key={mail.email}
-                  className="flex flex-col items-start gap-2 whitespace-nowrap border-b p-4 text-sm leading-tight last:border-b-0 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
                 >
                   <div className="flex w-full items-center gap-2">
                     <span>{mail.name}</span>{" "}

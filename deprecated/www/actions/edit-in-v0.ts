@@ -4,7 +4,7 @@ import { track } from "@vercel/analytics/server"
 import { capitalCase } from "change-case"
 
 import { getRegistryItem } from "@/lib/registry"
-import { Style } from "@/registry/registry-styles"
+import type { Style } from "@/registry/registry-styles"
 
 const TAILWIND_CONFIG_BLOCKS = ["dashboard-01"]
 

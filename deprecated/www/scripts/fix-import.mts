@@ -9,11 +9,14 @@ export function fixImport(content: string) {
   ) => {
     if (type.endsWith("components")) {
       return `@/components/${component}`
-    } else if (type.endsWith("ui")) {
+    }
+    if (type.endsWith("ui")) {
       return `@/components/ui/${component}`
-    } else if (type.endsWith("hooks")) {
+    }
+    if (type.endsWith("hooks")) {
       return `@/hooks/${component}`
-    } else if (type.endsWith("lib")) {
+    }
+    if (type.endsWith("lib")) {
       return `@/lib/${component}`
     }
 

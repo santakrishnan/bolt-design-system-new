@@ -42,9 +42,9 @@ export default function SwitchForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
+      <form className="w-full space-y-6" onSubmit={form.handleSubmit(onSubmit)}>
         <div>
-          <h3 className="mb-4 text-lg font-medium">Email Notifications</h3>
+          <h3 className="mb-4 font-medium text-lg">Email Notifications</h3>
           <div className="space-y-4">
             <FormField
               control={form.control}
@@ -79,10 +79,10 @@ export default function SwitchForm() {
                   </div>
                   <FormControl>
                     <Switch
-                      checked={field.value}
-                      onCheckedChange={field.onChange}
-                      disabled
                       aria-readonly
+                      checked={field.value}
+                      disabled
+                      onCheckedChange={field.onChange}
                     />
                   </FormControl>
                 </FormItem>

@@ -1,5 +1,3 @@
-import * as React from "react"
-
 import { Button } from "@/registry/new-york/ui/button"
 import {
   Card,

@@ -7,7 +7,6 @@ import { Button } from "@/registry/new-york/ui/button"
 export function SonnerDemo() {
   return (
     <Button
-      variant="outline"
       onClick={() =>
         toast("Event has been created", {
           description: "Sunday, December 03, 2023 at 9:00 AM",
@@ -17,6 +16,7 @@ export function SonnerDemo() {
           },
         })
       }
+      variant="outline"
     >
       Show Toast
     </Button>

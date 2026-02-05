@@ -1,7 +1,7 @@
 "use client"
 
-import { cn } from "@/lib/utils"
 import { ChartCodeViewer } from "@/components/chart-code-viewer"
+import { cn } from "@/lib/utils"
 import { Separator } from "@/registry/new-york/ui/separator"
 
 import "@/styles/mdx.css"
@@ -16,7 +16,7 @@ import {
 } from "lucide-react"
 
 import { ChartCopyButton } from "@/components/chart-copy-button"
-import { Chart } from "@/components/chart-display"
+import type { Chart } from "@/components/chart-display"
 
 export function ChartToolbar({
   chart,
@@ -32,12 +32,12 @@ export function ChartToolbar({
       </div>
       <div className="ml-auto flex items-center gap-2 [&>form]:flex">
         <ChartCopyButton
+          className="h-6 w-6 rounded-[6px] bg-transparent text-foreground shadow-none [&_svg]-h-3 hover:bg-muted dark:text-foreground [&_svg]:w-3"
+          code={chart.files?.[0]?.content ?? ""}
           event="copy_chart_code"
           name={chart.name}
-          code={chart.files?.[0]?.content ?? ""}
-          className="[&_svg]-h-3 h-6 w-6 rounded-[6px] bg-transparent text-foreground shadow-none hover:bg-muted dark:text-foreground [&_svg]:w-3"
         />
-        <Separator orientation="vertical" className="mx-0 hidden h-4 md:flex" />
+        <Separator className="mx-0 hidden h-4 md:flex" orientation="vertical" />
         <ChartCodeViewer chart={chart}>{children}</ChartCodeViewer>
       </div>
     </div>

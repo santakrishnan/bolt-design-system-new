@@ -19,13 +19,13 @@ export function BlocksNav() {
           />
           {registryCategories.map((category) => (
             <BlocksNavLink
-              key={category.slug}
               category={category}
               isActive={pathname === `/blocks/${category.slug}`}
+              key={category.slug}
             />
           ))}
         </div>
-        <ScrollBar orientation="horizontal" className="invisible" />
+        <ScrollBar className="invisible" orientation="horizontal" />
       </ScrollArea>
     </div>
   )
@@ -44,10 +44,10 @@ function BlocksNavLink({
 
   return (
     <Link
+      className="flex h-7 shrink-0 items-center justify-center whitespace-nowrap rounded-full px-4 text-center font-medium text-muted-foreground text-sm transition-colors hover:text-foreground data-[active=true]:bg-muted data-[active=true]:text-foreground"
+      data-active={isActive}
       href={`/blocks/${category.slug}`}
       key={category.slug}
-      className="flex h-7 shrink-0 items-center justify-center whitespace-nowrap rounded-full px-4 text-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground data-[active=true]:bg-muted data-[active=true]:text-foreground"
-      data-active={isActive}
     >
       {category.name}
     </Link>

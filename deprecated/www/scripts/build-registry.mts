@@ -1,17 +1,16 @@
-import { exec } from "child_process"
 import { existsSync, promises as fs } from "fs"
+import template from "lodash/template"
 import { tmpdir } from "os"
 import path from "path"
-import template from "lodash/template"
 import { rimraf } from "rimraf"
 import {
-  Registry,
+  type Registry,
   registryItemSchema,
-  registryItemTypeSchema,
+  type registryItemTypeSchema,
   registrySchema,
 } from "shadcn/schema"
 import { Project, ScriptKind } from "ts-morph"
-import { z } from "zod"
+import type { z } from "zod"
 
 import { registry } from "../registry"
 import { baseColors, baseColorsV4 } from "../registry/registry-base-colors"
@@ -519,7 +518,6 @@ async function buildThemes() {
           "$1 $2 $3"
         ),
       }
-      continue
     }
   }
 
@@ -629,7 +627,7 @@ async function buildThemes() {
           const [resolvedBase, scale] = resolvedColor.split("-")
           const color = scale
             ? colorsData[resolvedBase].find(
-                (item: any) => item.scale === parseInt(scale)
+                (item: any) => item.scale === Number.parseInt(scale)
               )
             : colorsData[resolvedBase]
           if (color) {
@@ -725,7 +723,7 @@ async function buildThemes() {
     const themeCSS = []
     for (const theme of baseColors) {
       themeCSS.push(
-        // @ts-ignore
+        // @ts-expect-error
         template(THEME_STYLES_WITH_VARIABLES)({
           colors: theme.cssVars,
           theme: theme.name,
@@ -734,7 +732,7 @@ async function buildThemes() {
     }
 
     await fs.writeFile(
-      path.join(REGISTRY_PATH, `themes.css`),
+      path.join(REGISTRY_PATH, "themes.css"),
       themeCSS.join("\n"),
       "utf8"
     )
@@ -759,7 +757,7 @@ async function buildThemes() {
             const [resolvedBase, scale] = resolvedColor.split("-")
             const color = scale
               ? colorsData[resolvedBase].find(
-                  (item: any) => item.scale === parseInt(scale)
+                  (item: any) => item.scale === Number.parseInt(scale)
                 )
               : colorsData[resolvedBase]
             if (color) {

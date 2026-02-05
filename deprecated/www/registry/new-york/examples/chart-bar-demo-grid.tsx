@@ -2,7 +2,7 @@
 
 import { Bar, BarChart, CartesianGrid } from "recharts"
 
-import { ChartConfig, ChartContainer } from "@/registry/new-york/ui/chart"
+import { type ChartConfig, ChartContainer } from "@/registry/new-york/ui/chart"
 
 const chartData = [
   { month: "January", desktop: 186, mobile: 80 },
@@ -26,7 +26,7 @@ const chartConfig = {
 
 export default function Component() {
   return (
-    <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
+    <ChartContainer className="min-h-[200px] w-full" config={chartConfig}>
       <BarChart accessibilityLayer data={chartData}>
         <CartesianGrid vertical={false} />
         <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />

@@ -1,12 +1,12 @@
 "use client"
 
-import { ColumnDef } from "@tanstack/react-table"
+import type { ColumnDef } from "@tanstack/react-table"
 
 import { Badge } from "@/registry/new-york/ui/badge"
 import { Checkbox } from "@/registry/new-york/ui/checkbox"
 
 import { labels, priorities, statuses } from "../data/data"
-import { Task } from "../data/schema"
+import type { Task } from "../data/schema"
 import { DataTableColumnHeader } from "./data-table-column-header"
 import { DataTableRowActions } from "./data-table-row-actions"
 
@@ -15,21 +15,21 @@ export const columns: ColumnDef<Task>[] = [
     id: "select",
     header: ({ table }) => (
       <Checkbox
+        aria-label="Select all"
         checked={
           table.getIsAllPageRowsSelected() ||
           (table.getIsSomePageRowsSelected() && "indeterminate")
         }
-        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        aria-label="Select all"
         className="translate-y-[2px]"
+        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
       />
     ),
     cell: ({ row }) => (
       <Checkbox
-        checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
         aria-label="Select row"
+        checked={row.getIsSelected()}
         className="translate-y-[2px]"
+        onCheckedChange={(value) => row.toggleSelected(!!value)}
       />
     ),
     enableSorting: false,

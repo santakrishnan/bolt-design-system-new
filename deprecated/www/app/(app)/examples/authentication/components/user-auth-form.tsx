@@ -1,9 +1,8 @@
 "use client"
 
 import * as React from "react"
-
-import { cn } from "@/lib/utils"
 import { Icons } from "@/components/icons"
+import { cn } from "@/lib/utils"
 import { Button } from "@/registry/new-york/ui/button"
 import { Input } from "@/registry/new-york/ui/input"
 import { Label } from "@/registry/new-york/ui/label"
@@ -31,13 +30,13 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
               Email
             </Label>
             <Input
-              id="email"
-              placeholder="name@example.com"
-              type="email"
               autoCapitalize="none"
               autoComplete="email"
               autoCorrect="off"
               disabled={isLoading}
+              id="email"
+              placeholder="name@example.com"
+              type="email"
             />
           </div>
           <Button disabled={isLoading}>
@@ -58,7 +57,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
           </span>
         </div>
       </div>
-      <Button variant="outline" type="button" disabled={isLoading}>
+      <Button disabled={isLoading} type="button" variant="outline">
         {isLoading ? (
           <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
         ) : (

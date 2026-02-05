@@ -1,4 +1,4 @@
-import { existsSync, promises as fs } from "fs"
+import { existsSync } from "fs"
 import path from "path"
 import puppeteer from "puppeteer"
 
@@ -21,7 +21,7 @@ async function captureScreenshots() {
       REGISTRY_PATH,
       `styles/new-york/${block}-dark.png`
     )
-    return !existsSync(lightPath) || !existsSync(darkPath)
+    return !(existsSync(lightPath) && existsSync(darkPath))
   })
 
   if (blocks.length === 0) {

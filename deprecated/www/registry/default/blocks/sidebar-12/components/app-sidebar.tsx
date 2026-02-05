@@ -1,5 +1,5 @@
-import * as React from "react"
 import { Plus } from "lucide-react"
+import type * as React from "react"
 
 import { Calendars } from "@/registry/default/blocks/sidebar-12/components/calendars"
 import { DatePicker } from "@/registry/default/blocks/sidebar-12/components/date-picker"
@@ -42,7 +42,7 @@ const data = {
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar {...props}>
-      <SidebarHeader className="h-16 border-b border-sidebar-border">
+      <SidebarHeader className="h-16 border-sidebar-border border-b">
         <NavUser user={data.user} />
       </SidebarHeader>
       <SidebarContent>

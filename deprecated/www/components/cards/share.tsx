@@ -35,35 +35,35 @@ export function CardsShare() {
       </CardHeader>
       <CardContent>
         <div className="flex space-x-2">
-          <Label htmlFor="link" className="sr-only">
+          <Label className="sr-only" htmlFor="link">
             Link
           </Label>
           <Input
             id="link"
-            value="http://example.com/link/to/document"
             readOnly
+            value="http://example.com/link/to/document"
           />
           <Button className="shrink-0">Copy Link</Button>
         </div>
         <Separator className="my-4" />
         <div className="space-y-4">
-          <div className="text-sm font-medium">People with access</div>
+          <div className="font-medium text-sm">People with access</div>
           <div className="grid gap-6">
             <div className="flex items-center justify-between space-x-4">
               <div className="flex items-center space-x-4">
                 <Avatar>
-                  <AvatarImage src="/avatars/03.png" alt="Image" />
+                  <AvatarImage alt="Image" src="/avatars/03.png" />
                   <AvatarFallback>OM</AvatarFallback>
                 </Avatar>
                 <div>
-                  <p className="text-sm font-medium leading-none">
+                  <p className="font-medium text-sm leading-none">
                     Olivia Martin
                   </p>
-                  <p className="text-sm text-muted-foreground">m@example.com</p>
+                  <p className="text-muted-foreground text-sm">m@example.com</p>
                 </div>
               </div>
               <Select defaultValue="edit">
-                <SelectTrigger className="ml-auto w-[110px]" aria-label="Edit">
+                <SelectTrigger aria-label="Edit" className="ml-auto w-[110px]">
                   <SelectValue placeholder="Select" />
                 </SelectTrigger>
                 <SelectContent>
@@ -75,18 +75,18 @@ export function CardsShare() {
             <div className="flex items-center justify-between space-x-4">
               <div className="flex items-center space-x-4">
                 <Avatar>
-                  <AvatarImage src="/avatars/05.png" alt="Image" />
+                  <AvatarImage alt="Image" src="/avatars/05.png" />
                   <AvatarFallback>IN</AvatarFallback>
                 </Avatar>
                 <div>
-                  <p className="text-sm font-medium leading-none">
+                  <p className="font-medium text-sm leading-none">
                     Isabella Nguyen
                   </p>
-                  <p className="text-sm text-muted-foreground">b@example.com</p>
+                  <p className="text-muted-foreground text-sm">b@example.com</p>
                 </div>
               </div>
               <Select defaultValue="view">
-                <SelectTrigger className="ml-auto w-[110px]" aria-label="Edit">
+                <SelectTrigger aria-label="Edit" className="ml-auto w-[110px]">
                   <SelectValue placeholder="Select" />
                 </SelectTrigger>
                 <SelectContent>
@@ -98,18 +98,18 @@ export function CardsShare() {
             <div className="flex items-center justify-between space-x-4">
               <div className="flex items-center space-x-4">
                 <Avatar>
-                  <AvatarImage src="/avatars/01.png" alt="Image" />
+                  <AvatarImage alt="Image" src="/avatars/01.png" />
                   <AvatarFallback>SD</AvatarFallback>
                 </Avatar>
                 <div>
-                  <p className="text-sm font-medium leading-none">
+                  <p className="font-medium text-sm leading-none">
                     Sofia Davis
                   </p>
-                  <p className="text-sm text-muted-foreground">p@example.com</p>
+                  <p className="text-muted-foreground text-sm">p@example.com</p>
                 </div>
               </div>
               <Select defaultValue="view">
-                <SelectTrigger className="ml-auto w-[110px]" aria-label="Edit">
+                <SelectTrigger aria-label="Edit" className="ml-auto w-[110px]">
                   <SelectValue placeholder="Select" />
                 </SelectTrigger>
                 <SelectContent>

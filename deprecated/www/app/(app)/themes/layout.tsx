@@ -1,14 +1,12 @@
-import { Metadata } from "next"
+import type { Metadata } from "next"
 
 import { Announcement } from "@/components/announcement"
 import {
-  PageActions,
   PageHeader,
   PageHeaderDescription,
   PageHeaderHeading,
 } from "@/components/page-header"
 import { Customizer } from "@/components/theme-customizer"
-import { Button } from "@/registry/new-york/ui/button"
 
 const title = "Add colors. Make it yours."
 const description =
@@ -49,11 +47,11 @@ export default function ThemesLayout({
         <Announcement />
         <PageHeaderHeading>{title}</PageHeaderHeading>
         <PageHeaderDescription>{description}</PageHeaderDescription>
-        <div className="mt-2 rounded-full bg-blue-600 px-3 py-1 text-xs text-white">
+        <div className="mt-2 rounded-full bg-blue-600 px-3 py-1 text-white text-xs">
           New Theme Editor coming soon
         </div>
       </PageHeader>
-      <div id="themes" className="border-grid scroll-mt-24 border-b">
+      <div className="scroll-mt-24 border-grid border-b" id="themes">
         <div className="container-wrapper">
           <div className="container flex items-center py-4">
             <Customizer />
@@ -62,7 +60,7 @@ export default function ThemesLayout({
       </div>
       <div className="container-wrapper">
         <div className="container py-6">
-          <section id="themes" className="scroll-mt-20">
+          <section className="scroll-mt-20" id="themes">
             {children}
           </section>
         </div>
